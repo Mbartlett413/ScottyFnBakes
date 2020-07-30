@@ -1,0 +1,46 @@
+// Place all the styles related to the landingPage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sectionOne{
+	width: 100%;
+	margin-bottom: 10px;
+	margin-left: -15px;
+	margin-right: -50px; 
+
+}
+
+.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
+            display: block;
+            max-width: 100%;
+            height: 550px;
+            line-height: 1;
+            margin: 0 auto;
+}
+
+.sectionTwo{
+	height: auto;
+	background-color: rgb(245, 239, 227);
+	color: rgb(255, 205, 94);
+}
+
+
+.sectionTwo .infoBox h3{
+	text-align: center;
+}
+.sectionTwo ul {
+	list-style: none;
+}
+.sectionTwo sub {
+	color: black;
+	padding-left: 15px;
+}
+.infoBox{
+	vertical-align: top;
+}
+
+
+.sectionThree{
+	padding-left: 10px;
+	padding-right: 50px;
+}

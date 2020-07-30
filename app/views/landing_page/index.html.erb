@@ -1,0 +1,98 @@
+<div class="container-fluid">
+	<!-- Section One -->
+	<div class="row sectionOne">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			  <ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			  </ol>
+
+			  <div class="carousel-inner carPhoto">
+			    <div class="carousel-item active">
+			    	<%= image_tag("Bread1", id: 'logo', class: "img-fluid") %>
+
+					  <div class="carousel-caption d-none d-md-block">
+					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
+					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin iaculis, purus sed pretium pellentesque, lorem ipsum eleifend est, convallis ultricies massa ipsum quis ex. Pellentesque pharetra, diam ac ornare maximus, elit urna cursus massa, id accumsan metus turpis et metus. Proin quis sem non erat dignissim blandit.</p>
+					    <button type="button" class="btn btn-warning">Reserve Now</button>
+					  </div>
+			    </div>
+			    <div class="carousel-item">
+			    	<%= image_tag("Bread2", id: 'logo', class: "img-fluid") %>
+					  <div class="carousel-caption d-none d-md-block">
+					    <h5>Hand Made</h5>
+					    <p>Donec vel hendrerit quam, eget hendrerit arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam nec efficitur dolor. Integer maximus rhoncus dui. Integer non pellentesque ipsum, a vestibulum lorem. In vitae urna ac libero laoreet eleifend. Nunc vel justo id nisi lacinia interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices ante vitae tortor vestibulum bibendum. Duis quis sodales metus.</p>
+					    <button type="button" class="btn btn-warning">Reserve Now</button>
+					  </div>
+			    </div>
+			    <div class="carousel-item">
+			    	<%= image_tag("Bread3", id: 'logo', class: "img-fluid") %>
+					  <div class="carousel-caption d-none d-md-block d-sm-block">
+					    <h5>Scotty Fn Bakes</h5>
+					    <p>Donec fermentum turpis in semper gravida. Etiam sollicitudin, ligula a placerat pulvinar, erat odio hendrerit erat, venenatis scelerisque est tortor pellentesque tellus. Sed a ligula consequat, pharetra lorem placerat, rutrum tortor. Etiam varius gravida diam, in ornare justo lobortis nec. Etiam finibus mauris ac odio condimentum, sit amet pulvinar nunc facilisis. Nam magna tellus, posuere at suscipit eu, mollis non felis. Nullam finibus pellentesque sem, id congue velit dapibus non. </p>
+					    <button type="button" class="btn btn-warning">Reserve Now</button>
+					  </div>
+			    </div>
+			  </div>
+
+			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		</div>
+	</div>
+	<!-- Section Two -->
+	<div class="row sectionTwo">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="d-inline-block col-sm-12 col-md-4 col-lg-4">	
+				<div class="card" style="width: 18rem;">
+					<%= image_tag("Bread6.jpeg", class: "card-img-top") %>
+				</div>
+			</div>
+
+			<div class="d-inline-block col-sm-12 col-md-6 col-lg-6 infoBox">
+				<h3>Comin' in hot this Week</h3>
+				<ul>
+					<li>Apocolypse</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<li>Sour Dough</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<li>Stoneground mustard</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<li>Matcha Apricot Honey Pistachio</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<li>Pumpernickel</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<li>Texas Peach</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<li>Apple Pie</li><sub>Wheat, Flour, Pepper, Egg</sub>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Section Three -->
+    <div class="row sectionThree">
+    	<h3>Reserve yours today!</h3>
+    	<div class="col-sm-12 col-md-12 col-lg-12">
+			<%= month_calendar do |date| %>
+			  <%= date %>
+			<% end %>
+    	</div>
+
+		
+	</div>
+</div>
+<div id="footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-right">
+        <p><i class="fa fa-instagram" style="font-size:25px;" ></i></p>
+      </div>
+    
+    <div class="container text-left">
+      <h5>Scotty Fn Bakes <br>
+      555 Antique Street <br>
+      Edgewater, MD 55555 <br>
+      (555) 555-5555 </h5><br>
+      <h6>Made By GlassMinds LLC</h6>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScottyFnBakes</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <nav class="navbar fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="margin: auto;">Scotty Fn Bakes</a>
+        <a class="navbar-brand" > IG</a>
+      </nav>
+    <%= yield %>
+  </body>
+</html>
