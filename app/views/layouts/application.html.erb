@@ -15,6 +15,19 @@
         <a class="navbar-brand" href="#" style="margin: auto;">Scotty Fn Bakes</a>
         <a class="navbar-brand" > IG</a>
       </nav>
+      <div>
+        <h1>ADMIN LINKS:</h1>
+        <ul>
+          <li><%= link_to "Home", root_path, class:'navbar-link text-white' %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class:'navbar-link text-white' %></li>
+          <li><%= link_to "Loaf", new_loaf_path, class:'navbar-link text-white' %></li>
+          <li><%= link_to "Day", new_day_path, class:'navbar-link text-white' %></li>
+          <li><%= link_to "Order", new_order_path, class:'navbar-link text-white' %></li>
+        </ul>
+      </div>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

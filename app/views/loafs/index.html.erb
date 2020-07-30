@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Loafs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loafs.each do |loaf| %>
+      <tr>
+        <td><%= link_to 'Show', loaf %></td>
+        <td><%= link_to 'Edit', edit_loaf_path(loaf) %></td>
+        <td><%= link_to 'Destroy', loaf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loaf', new_loaf_path %>
