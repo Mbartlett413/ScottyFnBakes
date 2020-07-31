@@ -1,4 +1,20 @@
-<%= form_with(model: day, local: true) do |form| %>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <%= simple_form_for @day do |f| %>
+          <%= f.input :order_limit %>
+          <%= f.input :openings %>
+          <%= f.input :this_date %>
+          <%= f.input :closed, as: :radio_buttons %>
+          <%= f.input :todays_order %>
+          <%= f.button :submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
   <% if day.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
@@ -10,8 +26,3 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

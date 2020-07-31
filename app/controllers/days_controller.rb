@@ -1,5 +1,6 @@
 class DaysController < ApplicationController
   before_action :set_day, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery prepend: true
 
   # GET /days
   # GET /days.json
@@ -10,10 +11,12 @@ class DaysController < ApplicationController
   # GET /days/1
   # GET /days/1.json
   def show
+    @loafs = Loaf.all 
   end
 
   # GET /days/new
   def new
+    logger.debug("Hit")
     @day = Day.new
   end
 
@@ -24,17 +27,30 @@ class DaysController < ApplicationController
   # POST /days
   # POST /days.json
   def create
-    @day = Day.new(day_params)
+    logger.debug("Hit")
+    hackery = params[:this_date].to_s + ' 00:00:00'
+    @existing_date = Day.where("this_date = ?", hackery)
+    logger.debug("h #{@existing_date.length}")
 
-    respond_to do |format|
-      if @day.save
-        format.html { redirect_to @day, notice: 'Day was successfully created.' }
-        format.json { render :show, status: :created, location: @day }
-      else
-        format.html { render :new }
-        format.json { render json: @day.errors, status: :unprocessable_entity }
-      end
-    end
+    if @existing_date.length == 0
+      @day = Day.new
+      @day.this_date = hackery
+      @day.todays_order = []
+      logger.debug("New Day Creation #{@day.inspect}")
+        respond_to do |format|
+          if @day.save
+            format.html { redirect_to @day, notice: 'Day was successfully created.' }
+            #format.json { render :show, status: :created, location: @day }
+            redirect_to root_path
+          else
+            format.html { render :new }
+            format.json { render json: @day.errors, status: :unprocessable_entity }
+          end
+        end
+    else
+      logger.debug("existing date, #{@existing_date[0].inspect}")
+      redirect_to day_path(@existing_date[0].id)
+    end 
   end
 
   # PATCH/PUT /days/1

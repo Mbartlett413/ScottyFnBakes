@@ -1,4 +1,55 @@
 <p id="notice"><%= notice %></p>
 
+<h1> Reserve your loaf</h1>
+<h6> Date: <%= @day.this_date.strftime("%Y-%m-%d") %></h6>
+<h6> Order Limit: <%= @day.order_limit %></h6>
+<h6> Openings: <%= @day.openings %></h6>
+<h6> Current Orders: <%= @day.todays_order.length %></h6>
+<h6> Closed?: <%= @day.closed %></h6>
+
+<table>
+  <thead>
+    <tr>
+      <th> Type </th>
+      <th> Quantity </th>
+      <th><button id="add_row" type="button" onclick="cloneRowMethod()">More Bread</button></th>
+    </tr>
+  </thead>
+
+  <tbody id="tableToMod">
+      <tr id="rowToClone">
+        <td class="loafType" > <%= collection_select(:name, :loaf_id, @loafs, :id, :name, {:prompt => true}) %></td>
+        <td class="loafQuantity" > <input type="" name=""> </td> 
+      </tr>
+  </tbody>
+</table>
+
+<button id="submitOrder" type="button">Submit</button>
+
+<div>
+  <h6>current orders</h6>
+  <ul>
+  <% @day.orders.each do |order| %>
+    <% order.order_details.each do|k,v| %>
+      <li>Quantity:<%= v['quantity']%>  <%= v['type'] %></li>
+    <% end %>
+  <% end %>
+</ul>
+</div>
+
+<h6> Don't Mind This</h6>
+<p id="orderDate"> <%= @day.this_date.strftime("%Y-%m-%d") %></p>
+
 <%= link_to 'Edit', edit_day_path(@day) %> |
 <%= link_to 'Back', days_path %>
+
+<script type="text/javascript">
+
+	function cloneRowMethod(){
+		var table = document.getElementById('tableToMod')
+		var row = document.getElementById('rowToClone')
+	    var cloneRow = row.cloneNode(true)
+		cloneRow.id = "newID"
+		table.appendChild(cloneRow);
+	}
+</script>

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery prepend: true
 
   # GET /orders
   # GET /orders.json
@@ -14,7 +15,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    @order = Order.new 
   end
 
   # GET /orders/1/edit
@@ -22,14 +23,40 @@ class OrdersController < ApplicationController
   end
 
   # POST /orders
-  # POST /orders.json
+  # POST /orders.jsons
   def create
-    @order = Order.new(order_params)
+    logger.debug("hitt #{params}")
+    order_quantity = params[:order_details]['0']
+    order_type = params[:order_details]['1']
+    hackery = params[:order_date].to_s + ' 00:00:00'
+    @existing_date = Day.where("this_date = ?", hackery)
+    logger.debug("Existing Date #{@existing_date}")
+    order_builder = {}
+
+    i = 0
+    while i < order_type.length do
+      logger.debug("checking counter #{i}")
+      order_builder[[i]] = {'type': order_type[i], 'quantity': order_quantity[i]}
+      i = i + 1
+    end 
+    logger.debug("Finished JSON #{order_builder}")
+
+    @order = Order.new
+    @order.total = 0
+    @order.order_details = order_builder
+    @order.order_date = hackery
+    @order.paid = false
+    @order.order_made = false
+    @order.day_id = @existing_date[0].id
+    logger.debug("new order #{@order.inspect}")
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        @existing_date[0].openings = @existing_date[0].openings.to_i - order_quantity.sum.to_i
+        @existing_date[0].todays_order = @existing_date[0].todays_order.push(@order.id)
+        @existing_date[0].save!
+        format.html { redirect_to @existing_date[0], notice: 'Order was successfully created.' }
+        format.json { render :show, status: :created, location: @existing_date[0] }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }

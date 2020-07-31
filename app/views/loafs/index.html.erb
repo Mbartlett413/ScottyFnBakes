@@ -12,6 +12,7 @@
   <tbody>
     <% @loafs.each do |loaf| %>
       <tr>
+        <td><%= loaf.name %></td>
         <td><%= link_to 'Show', loaf %></td>
         <td><%= link_to 'Edit', edit_loaf_path(loaf) %></td>
         <td><%= link_to 'Destroy', loaf, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,8 +1,5 @@
-<div class="container-fluid">
-	<!-- Section One -->
-	<div class="row sectionOne">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<header>
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			  <ol class="carousel-indicators">
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -10,8 +7,7 @@
 			  </ol>
 
 			  <div class="carousel-inner carPhoto">
-			    <div class="carousel-item active">
-			    	<%= image_tag("Bread1", id: 'logo', class: "img-fluid") %>
+			    <div class="carousel-item active" style="background-image: url(/assets/Bread1)">
 
 					  <div class="carousel-caption d-none d-md-block">
 					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
@@ -19,16 +15,14 @@
 					    <button type="button" class="btn btn-warning">Reserve Now</button>
 					  </div>
 			    </div>
-			    <div class="carousel-item">
-			    	<%= image_tag("Bread2", id: 'logo', class: "img-fluid") %>
+			    <div class="carousel-item" style="background-image: url('/assets/Bread2')">
 					  <div class="carousel-caption d-none d-md-block">
 					    <h5>Hand Made</h5>
 					    <p>Donec vel hendrerit quam, eget hendrerit arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam nec efficitur dolor. Integer maximus rhoncus dui. Integer non pellentesque ipsum, a vestibulum lorem. In vitae urna ac libero laoreet eleifend. Nunc vel justo id nisi lacinia interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices ante vitae tortor vestibulum bibendum. Duis quis sodales metus.</p>
 					    <button type="button" class="btn btn-warning">Reserve Now</button>
 					  </div>
 			    </div>
-			    <div class="carousel-item">
-			    	<%= image_tag("Bread3", id: 'logo', class: "img-fluid") %>
+			    <div class="carousel-item" style="background-image: url('/assets/Bread3')">
 					  <div class="carousel-caption d-none d-md-block d-sm-block">
 					    <h5>Scotty Fn Bakes</h5>
 					    <p>Donec fermentum turpis in semper gravida. Etiam sollicitudin, ligula a placerat pulvinar, erat odio hendrerit erat, venenatis scelerisque est tortor pellentesque tellus. Sed a ligula consequat, pharetra lorem placerat, rutrum tortor. Etiam varius gravida diam, in ornare justo lobortis nec. Etiam finibus mauris ac odio condimentum, sit amet pulvinar nunc facilisis. Nam magna tellus, posuere at suscipit eu, mollis non felis. Nullam finibus pellentesque sem, id congue velit dapibus non. </p>
@@ -45,40 +39,42 @@
 			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 			    <span class="sr-only">Next</span>
 			  </a>
-			</div>
-		</div>
-	</div>
+			</div> 
+	</header>		
 	<!-- Section Two -->
+<div class="container-fluid">
 	<div class="row sectionTwo">
 		<div class="col-sm-12 col-md-12 col-lg-12">
-			<div class="d-inline-block col-sm-12 col-md-4 col-lg-4">	
-				<div class="card" style="width: 18rem;">
-					<%= image_tag("Bread6.jpeg", class: "card-img-top") %>
+			<div class="d-inline-block col-sm-6 col-md-4 col-lg-4">	
+				<div class="card" style="max-width: 18rem;">
+					<%= image_tag("Bread6.jpeg", class: "card-img-top img-fluid") %>
 				</div>
 			</div>
 
 			<div class="d-inline-block col-sm-12 col-md-6 col-lg-6 infoBox">
 				<h3>Comin' in hot this Week</h3>
 				<ul>
-					<li>Apocolypse</li><sub>Wheat, Flour, Pepper, Egg</sub>
-					<li>Sour Dough</li><sub>Wheat, Flour, Pepper, Egg</sub>
-					<li>Stoneground mustard</li><sub>Wheat, Flour, Pepper, Egg</sub>
-					<li>Matcha Apricot Honey Pistachio</li><sub>Wheat, Flour, Pepper, Egg</sub>
-					<li>Pumpernickel</li><sub>Wheat, Flour, Pepper, Egg</sub>
-					<li>Texas Peach</li><sub>Wheat, Flour, Pepper, Egg</sub>
-					<li>Apple Pie</li><sub>Wheat, Flour, Pepper, Egg</sub>
+					<% @loafs.each do |x| %>
+						<li> <%= x.name %> </li>
+						<sub><%= x.ingredients %></sub>
+					<% end %>
 				</ul>
+				<h1>ADMIN LINK</h1>
+				<p><%= link_to 'admin', admin_page_path %></p>
 			</div>
 		</div>
 	</div>
 	<!-- Section Three -->
     <div class="row sectionThree">
     	<h3>Reserve yours today!</h3>
-    	<div class="col-sm-12 col-md-12 col-lg-12">
-			<%= month_calendar do |date| %>
-			  <%= date %>
-			  <button type="button" class="btn btn-warning">Book</button>
-			<% end %>
+    	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
+			<%= calendar events: @days, number_of_days: 7 do |date, event| %>
+			  <p class="day_selector"><%= date %></p>
+			  <% event.each do |x| %>
+			  	<p>Openings: <%= x.openings %></p>
+			  <% end %>
+ 
+			<% end %> 
     	</div>
 
 		
@@ -86,7 +82,7 @@
 </div>
 <div id="footer" class="py-4 bg-dark text-white-50">
         <div class="container text-right">
-        <p><i class="fa fa-instagram" style="font-size:25px;" ></i></p>
+		<i class="fa fa-instagram" style="font-size:25px;" ></i>
       </div>
     
     <div class="container text-left">
@@ -97,3 +93,5 @@
       <h6>Made By GlassMinds LLC</h6>
     </div>
 </div>
+
+
