@@ -28,7 +28,7 @@ class LoafsController < ApplicationController
 
     respond_to do |format|
       if @loaf.save
-        format.html { redirect_to @loaf, notice: 'Loaf was successfully created.' }
+        format.html { redirect_to admin_page_path, notice: 'Loaf was successfully created.' }
         format.json { render :show, status: :created, location: @loaf }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LoafsController < ApplicationController
   def update
     respond_to do |format|
       if @loaf.update(loaf_params)
-        format.html { redirect_to @loaf, notice: 'Loaf was successfully updated.' }
+        format.html { redirect_to admin_page_path, notice: 'Loaf was successfully updated.' }
         format.json { render :show, status: :ok, location: @loaf }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class LoafsController < ApplicationController
   def destroy
     @loaf.destroy
     respond_to do |format|
-      format.html { redirect_to loafs_url, notice: 'Loaf was successfully destroyed.' }
+      format.html { redirect_to admin_page_path, notice: 'Loaf was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

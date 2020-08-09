@@ -40,8 +40,11 @@ ActiveRecord::Schema.define(version: 2020_07_30_041442) do
     t.datetime "order_date"
     t.boolean "paid", default: false
     t.boolean "order_made", default: false
-    t.integer "user_id"
     t.integer "day_id"
+    t.string "guest_name"
+    t.string "guest_number"
+    t.boolean "call", default: false
+    t.boolean "text", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

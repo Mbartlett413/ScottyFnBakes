@@ -26,17 +26,25 @@ class OrdersController < ApplicationController
   # POST /orders.jsons
   def create
     logger.debug("hitt #{params}")
+    #Params
     order_quantity = params[:order_details]['0']
     order_type = params[:order_details]['1']
     hackery = params[:order_date].to_s + ' 00:00:00'
     @existing_date = Day.where("this_date = ?", hackery)
-    logger.debug("Existing Date #{@existing_date}")
-    order_builder = {}
 
+    if params[:call] == "on"
+      call = true
+    end 
+    if params[:text] == "on"
+      text = true
+    end 
+    
+    #Build JSON
+    order_builder = {}
     i = 0
     while i < order_type.length do
-      logger.debug("checking counter #{i}")
-      order_builder[[i]] = {'type': order_type[i], 'quantity': order_quantity[i]}
+
+      order_builder[i] = {'type': order_type[i], 'quantity': order_quantity[i]}
       i = i + 1
     end 
     logger.debug("Finished JSON #{order_builder}")
@@ -48,6 +56,11 @@ class OrdersController < ApplicationController
     @order.paid = false
     @order.order_made = false
     @order.day_id = @existing_date[0].id
+    @order.guest_name = params[:guest_name]
+    @order.guest_number = params[:guest_number]
+    @order.call = call
+    @order.text = text
+
     logger.debug("new order #{@order.inspect}")
 
     respond_to do |format|
@@ -83,7 +96,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to admin_page_path, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -96,7 +109,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:total, :order_details, :order_date, :paid, :order_made, :user_id, :day_id)
-
+      params.require(:order).permit(:total, :order_details, :order_date, :paid, :order_made, :day_id, :guest_name, :guest_number ,:call, :text)
     end
 end

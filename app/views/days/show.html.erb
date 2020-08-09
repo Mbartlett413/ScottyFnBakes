@@ -1,47 +1,96 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Reserve your loaf</h1>
-<h6> Date: <%= @day.this_date.strftime("%Y-%m-%d") %></h6>
-<h6> Order Limit: <%= @day.order_limit %></h6>
-<h6> Openings: <%= @day.openings %></h6>
-<h6> Current Orders: <%= @day.todays_order.length %></h6>
-<h6> Closed?: <%= @day.closed %></h6>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6 borderMe">
+      <h1> Date: <%= @day.this_date.strftime("%m/%d/%Y") %></h1>
+      <h6> Openings: <%= @day.openings %></h6>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th> Type </th>
-      <th> Quantity </th>
-      <th><button id="add_row" type="button" onclick="cloneRowMethod()">More Bread</button></th>
-    </tr>
-  </thead>
+  <div class="row formsection">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <label for="guestName">Name:</label>
+          <input type="email" class="form-control" id="guestName" placeholder="Jon Dough">
+        </div>
 
-  <tbody id="tableToMod">
-      <tr id="rowToClone">
-        <td class="loafType" > <%= collection_select(:name, :loaf_id, @loafs, :id, :name, {:prompt => true}) %></td>
-        <td class="loafQuantity" > <input type="" name=""> </td> 
-      </tr>
-  </tbody>
-</table>
+        <div class="form-group">
+          <label for="guestNumber">Number:</label>
+          <input type="email" class="form-control" id="guestNumber" placeholder="555-555-5555">
+        </div>
 
-<button id="submitOrder" type="button">Submit</button>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
+        <label class="form-check-label" for="call_pref">Calls are cool</label>
+      </div>
 
-<div>
-  <h6>current orders</h6>
-  <ul>
-  <% @day.orders.each do |order| %>
-    <% order.order_details.each do|k,v| %>
-      <li>Quantity:<%= v['quantity']%>  <%= v['type'] %></li>
-    <% end %>
-  <% end %>
-</ul>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
+        <label class="form-check-label" for="text_pref">Text are cool</label>
+      </div>  
+    </div>    
+
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th> Type: </th>
+              <th> Quantity: </th>
+            </tr>
+          </thead>
+
+          <tbody id="tableToMod">
+              <tr id="rowToClone">
+                <td class="loafType" > <%= collection_select(:name, :loaf_id, @loafs, :id, :name, {:prompt => true}, class: 'form-control') %></td>
+                <td class="loafQuantity" > <input type="" name="" class="form-control"> </td> 
+              </tr>
+          </tbody>
+        </table>
+
+        <button id="submitOrder" type="button" class="btn btn-primary btn-block">Get This Bread</button>
+        <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-warning btn-block">More Bread</button>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3 style="text-align: center;"> Comin' In Hot</h3>  
+    </div>
+    
+
+    <div class="col-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Order #</th>
+              <th>Order Details:</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% i = 1 %>        
+                <% @day.orders.each do |order| %>
+                    <tr>
+                    <td><%= i %></td>
+                    <td>
+                    <p>Order For Number <%= truncate(order.guest_number, :length => 9) %> </p>
+                    <p>
+                      <% order.order_details.each do|k,v| %>
+                        Quantity:<%= v['quantity']%>  <%= v['type'] %>,
+                      <% end %>
+                    </p>
+                    </td>
+                    </tr>
+                    <% i = i.to_i + 1  %>
+                <% end %>
+          </tbody>
+        </table>
+    </div>
+    <p id="orderDate" style="display: none;"> <%= @day.this_date.strftime("%Y-%m-%d") %></p>
+  </div>
+  
 </div>
-
-<h6> Don't Mind This</h6>
-<p id="orderDate"> <%= @day.this_date.strftime("%Y-%m-%d") %></p>
-
-<%= link_to 'Edit', edit_day_path(@day) %> |
-<%= link_to 'Back', days_path %>
 
 <script type="text/javascript">
 

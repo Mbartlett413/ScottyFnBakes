@@ -17,9 +17,32 @@
 @import "simple_calendar";
 
 body {
-	background-color: rgb(245, 239, 227);
 	color: rgb(59, 97, 148);
 }
 
+nav {
+	opacity: 0.8;
+	background: image_url('wheat.png');
+	font-family: 'Yellowtail', cursive; 
+	color: rgb(255, 205, 94);
+	font-size: 25px;
+}
+
+nav a:link{
+		color: rgb(255, 205, 94);
+	font-size: 25px;
+}
+nav a:visited{
+		color: rgb(255, 205, 94);
+	font-size: 25px;
+}
+nav a:a:hover{
+		color: rgb(255, 205, 94);
+	font-size: 25px;
+}
+nav a:a:active{
+		color: rgb(255, 205, 94);
+	font-size: 25px;
+}
 
 /* rgb(245, 239, 227) WHITE //// rgb(255, 205, 94) YELLOW // 59, 97, 148 BLUE    */

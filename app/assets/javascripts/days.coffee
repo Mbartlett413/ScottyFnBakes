@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-document.addEventListener 'DOMContentLoaded', (event) ->
+document.addEventListener 'turbolinks:load', (event) ->
 	submitBtn = document.getElementById('submitOrder')
 
 	submitBtn.onclick = ->
@@ -11,8 +11,10 @@ document.addEventListener 'DOMContentLoaded', (event) ->
 		allLoafs = document.getElementsByClassName('loafType')
 		allQuan = document.getElementsByClassName('loafQuantity')
 		allSelect = document.querySelectorAll("select");
-		console.log("Order Date", orderDate.innerHTML)
-		console.log("all Quan", allQuan.length)
+		guest_name = document.getElementById('guestName')
+		guest_number = document.getElementById('guestNumber')
+		call = document.getElementById('call_pref')
+		text = document.getElementById('text_pref')
 
 		q=0
 		qty = []
@@ -34,4 +36,8 @@ document.addEventListener 'DOMContentLoaded', (event) ->
 		console.log("Woof", order_collection)
 		$.post '/orders',
 			order_details: order_collection,
-			order_date: orderDate.innerHTML
+			order_date: orderDate.innerHTML,
+			guest_name: guest_name.value,
+			guest_number: guest_number.value,
+			call: call.value,
+			text: text.value

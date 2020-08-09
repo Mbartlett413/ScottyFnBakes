@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-document.addEventListener 'DOMContentLoaded', (event) ->
+document.addEventListener 'turbolinks:load', (event) ->
   all_dates = document.getElementsByClassName('day_selector')
   i = 0
   while i < all_dates.length

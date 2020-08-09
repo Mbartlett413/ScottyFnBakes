@@ -9,24 +9,24 @@
 			  <div class="carousel-inner carPhoto">
 			    <div class="carousel-item active" style="background-image: url(/assets/Bread1)">
 
-					  <div class="carousel-caption d-none d-md-block">
+					  <div class="carousel-caption d-none d-sm-block">
 					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
-					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin iaculis, purus sed pretium pellentesque, lorem ipsum eleifend est, convallis ultricies massa ipsum quis ex. Pellentesque pharetra, diam ac ornare maximus, elit urna cursus massa, id accumsan metus turpis et metus. Proin quis sem non erat dignissim blandit.</p>
-					    <button type="button" class="btn btn-warning">Reserve Now</button>
+					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
 					  </div>
 			    </div>
 			    <div class="carousel-item" style="background-image: url('/assets/Bread2')">
-					  <div class="carousel-caption d-none d-md-block">
-					    <h5>Hand Made</h5>
-					    <p>Donec vel hendrerit quam, eget hendrerit arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam nec efficitur dolor. Integer maximus rhoncus dui. Integer non pellentesque ipsum, a vestibulum lorem. In vitae urna ac libero laoreet eleifend. Nunc vel justo id nisi lacinia interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices ante vitae tortor vestibulum bibendum. Duis quis sodales metus.</p>
-					    <button type="button" class="btn btn-warning">Reserve Now</button>
+					  <div class="carousel-caption d-none d-sm-block">
+					    <h4>Hand Made</h4>
+					    <p>Donec vel hendrerit quam, eget hendrerit arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
 					  </div>
 			    </div>
 			    <div class="carousel-item" style="background-image: url('/assets/Bread3')">
 					  <div class="carousel-caption d-none d-md-block d-sm-block">
-					    <h5>Scotty Fn Bakes</h5>
-					    <p>Donec fermentum turpis in semper gravida. Etiam sollicitudin, ligula a placerat pulvinar, erat odio hendrerit erat, venenatis scelerisque est tortor pellentesque tellus. Sed a ligula consequat, pharetra lorem placerat, rutrum tortor. Etiam varius gravida diam, in ornare justo lobortis nec. Etiam finibus mauris ac odio condimentum, sit amet pulvinar nunc facilisis. Nam magna tellus, posuere at suscipit eu, mollis non felis. Nullam finibus pellentesque sem, id congue velit dapibus non. </p>
-					    <button type="button" class="btn btn-warning">Reserve Now</button>
+					    <h4>Scotty Fn Bakes</h4>
+					    <p>Donec fermentum turpis in semper gravida. Etiam sollicitudin, ligula a placerat pulvinar, erat odio hendrerit erat, venenatis scelerisque est tortor pellentesque tellus. Sed a ligula consequat, pharetra lorem placerat, rutrum tortor. Etiam varius gravida diam, in ornare justo lobortis nec. </p>
+					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
 					  </div>
 			    </div>
 			  </div>
@@ -45,33 +45,38 @@
 <div class="container-fluid">
 	<div class="row sectionTwo">
 		<div class="col-sm-12 col-md-12 col-lg-12">
+			<!--
 			<div class="d-inline-block col-sm-6 col-md-4 col-lg-4">	
 				<div class="card" style="max-width: 18rem;">
 					<%= image_tag("Bread6.jpeg", class: "card-img-top img-fluid") %>
 				</div>
 			</div>
+		-->
 
-			<div class="d-inline-block col-sm-12 col-md-6 col-lg-6 infoBox">
+			<div class="d-inline-block col-sm-12 col-md-12 col-lg-12 infoBox">
 				<h3>Comin' in hot this Week</h3>
 				<ul>
 					<% @loafs.each do |x| %>
 						<li> <%= x.name %> </li>
-						<sub><%= x.ingredients %></sub>
+						<sub><%= x.ingredients %> $<%= x.price %></sub>
 					<% end %>
 				</ul>
-				<h1>ADMIN LINK</h1>
-				<p><%= link_to 'admin', admin_page_path %></p>
 			</div>
 		</div>
 	</div>
 	<!-- Section Three -->
     <div class="row sectionThree">
-    	<h3>Reserve yours today!</h3>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+	<h3>Reserve your loaf today!</h3>
+</div>
+    	
     	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
 			<%= calendar events: @days, number_of_days: 7 do |date, event| %>
-			  <p class="day_selector"><%= date %></p>
+
+			  <button class="day_selector btn-sm btn-warning"><%= date.strftime("%Y-%m-%d") %></button>
 			  <% event.each do |x| %>
-			  	<p>Openings: <%= x.openings %></p>
+			  	<p><%= x.openings %> Left</p>
 			  <% end %>
  
 			<% end %> 
@@ -81,9 +86,6 @@
 	</div>
 </div>
 <div id="footer" class="py-4 bg-dark text-white-50">
-        <div class="container text-right">
-		<i class="fa fa-instagram" style="font-size:25px;" ></i>
-      </div>
     
     <div class="container text-left">
       <h5>Scotty Fn Bakes <br>
@@ -92,6 +94,18 @@
       (555) 555-5555 </h5><br>
       <h6>Made By GlassMinds LLC</h6>
     </div>
+
 </div>
+
+<script type="text/javascript">
+	var btnlis = document.getElementsByClassName('redica')
+	for (var i = 0; i < btnlis.length; i++) {
+		btnlis[i].addEventListener('click', function(e){
+			console.log("click")
+			document.getElementById('calendar').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
+		})
+	}
+
+</script>
 
 

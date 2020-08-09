@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <%= simple_form_for @order do |f| %>
-          <%= f.input :total %>
-          <%= f.input :order_details %>
-          <%= f.input :order_date %>
-          <%= f.input :paid %>
-          <%= f.input :order_made %>
-          <%= f.input :user_id %>
-          <%= f.input :day_id %>
+            <%= f.input :guest_name %>
+            <%= f.input :guest_number %>
+            <%= f.input :order_date %>
+            <%= f.input :order_details %>
+            <%= f.input :paid %>
+            <%= f.input :order_made %>
+            <%= f.input :call %>
+            <%= f.input :text %>
           <%= f.button :submit %>
         <% end %>
     </div>

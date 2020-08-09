@@ -6,8 +6,11 @@ class CreateOrders < ActiveRecord::Migration[5.2]
 		t.datetime :order_date
 		t.boolean :paid, default: false
 		t.boolean :order_made, default: false
-		t.integer :user_id
 		t.integer :day_id
+		t.string :guest_name
+		t.string :guest_number
+		t.boolean :call, default: false
+		t.boolean :text, default: false
       t.timestamps
     end
   end

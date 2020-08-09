@@ -5,7 +5,7 @@ class DaysController < ApplicationController
   # GET /days
   # GET /days.json
   def index
-    @days = Day.all
+    @days = Day.all 
   end
 
   # GET /days/1
@@ -41,7 +41,6 @@ class DaysController < ApplicationController
           if @day.save
             format.html { redirect_to @day, notice: 'Day was successfully created.' }
             #format.json { render :show, status: :created, location: @day }
-            redirect_to root_path
           else
             format.html { render :new }
             format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -49,6 +48,18 @@ class DaysController < ApplicationController
         end
     else
       logger.debug("existing date, #{@existing_date[0].inspect}")
+        #passive update of day
+        sum_array = []
+        @existing_date[0].orders.each do |x|
+          x.order_details.each do |f,k|
+            sum_array.push(k['quantity'].to_i)
+          end 
+        end 
+        logger.debug("mehh #{@existing_date[0].openings}")
+        @existing_date[0].openings = @existing_date[0].order_limit - sum_array.sum
+        @existing_date[0].save
+        logger.debug("sum array sum #{sum_array.sum}")
+        #end passive
       redirect_to day_path(@existing_date[0].id)
     end 
   end
@@ -58,7 +69,7 @@ class DaysController < ApplicationController
   def update
     respond_to do |format|
       if @day.update(day_params)
-        format.html { redirect_to @day, notice: 'Day was successfully updated.' }
+        format.html { redirect_to admin_page_path, notice: 'Day was successfully updated.' }
         format.json { render :show, status: :ok, location: @day }
       else
         format.html { render :edit }

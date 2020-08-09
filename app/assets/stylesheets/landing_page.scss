@@ -12,6 +12,10 @@
             line-height: 1;
             margin: 0 auto;
 }
+.carousel-caption h4 {
+font-family: 'Yellowtail', cursive;
+font-size: 30px;
+}
 
 .sectionTwo{
 	height: auto;
@@ -21,23 +25,38 @@
 
 .sectionTwo .infoBox h3{
 	text-align: center;
+  font-family: 'Cabin Sketch', cursive;
 }
 .sectionTwo ul {
 	list-style: none;
+  font-family: 'Yellowtail', cursive;
+  font-size: 20px;
+}
+.sectionTwo li {
+  padding-top: 15px;
 }
 .sectionTwo sub {
 	color: black;
 	padding-left: 15px;
+  font-family: 'Yellowtail', cursive;
+  font-size: 12px;
 }
 .infoBox{
 	vertical-align: top;
+  font-family: 'Yellowtail', cursive;
 }
 
 .sectionThree{
 	padding-left: 10px;
 	padding-right: 50px;
+  text-align: center;
+  background-color: rgb(245, 239, 227);
+  font-family: 'Cabin Sketch', cursive;
 }
-
+.sectionThree h3{
+ text-align: center; 
+ color: black;
+}
 
 .carousel-item {
   min-height: 300px;
@@ -46,4 +65,21 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+#calendar {
+  margin: auto;
+}
+
+.day_selector{
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.day{
+  color: red;
+  font-family: 'Anonymous Pro', monospace;
+}
+
+#footer {
+  background: image_url('wheat.png');
 }
