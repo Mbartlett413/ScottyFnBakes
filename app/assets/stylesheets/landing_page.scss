@@ -3,6 +3,41 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.introSection {
+  text-align: center;
+  font-family: 'Yellowtail', cursive;
+  font-size: 20px;
+  }
+.introSection h4{
+  color: #3B6194;
+  margin: auto;
+  padding: auto;
+}
+
+.signature a {
+  font-family: 'Yellowtail', cursive;
+  font-size: 30px;
+  color: rgb(255, 205, 94);
+}
+.signature a:link{
+    color: rgb(255, 205, 94);
+  font-size: 30px;
+}
+.signature a:visited{
+    color: rgb(255, 205, 94);
+  font-size: 30px;
+}
+.signature a:hover{
+  color: rgb(255, 205, 94);
+  font-size: 30px;
+  background-color: transparent;
+}
+.signature a:active{
+    color: rgb(255, 205, 94);
+  font-size: 30px;
+}
+
+/* SECOND SECTION */
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
             display: block;
             position: absolute;
@@ -17,15 +52,29 @@ font-family: 'Yellowtail', cursive;
 font-size: 30px;
 }
 
+.infoBox{
+  vertical-align: top;
+  font-family: 'Yellowtail', cursive;
+  margin: 15px;
+  border: 1px solid;
+  border-color: black;
+  color: black;
+  box-shadow: 3px 6px #888888;
+  background: image_url('linedpaper.png');
+}
+.infoPhoto{
+  margin: 15px;
+  border: 1px black solid;
+}
 .sectionTwo{
 	height: auto;
-	background-color: rgb(245, 239, 227);
-	color: rgb(255, 205, 94);
+  background-color: rgb(245, 239, 227); 
 }
 
 .sectionTwo .infoBox h3{
 	text-align: center;
   font-family: 'Cabin Sketch', cursive;
+  text-shadow: 2px 2px #FFCC5E;
 }
 .sectionTwo ul {
 	list-style: none;
@@ -41,17 +90,16 @@ font-size: 30px;
   font-family: 'Yellowtail', cursive;
   font-size: 12px;
 }
-.infoBox{
-	vertical-align: top;
-  font-family: 'Yellowtail', cursive;
-}
 
+
+
+/* SECTION THREE */
 .sectionThree{
 	padding-left: 10px;
 	padding-right: 50px;
   text-align: center;
-  background-color: rgb(245, 239, 227);
   font-family: 'Cabin Sketch', cursive;
+  background-color: rgb(245, 239, 227); 
 }
 .sectionThree h3{
  text-align: center; 
@@ -77,10 +125,13 @@ font-size: 30px;
 }
 
 .day{
-  color: red;
+  color: #2B7AF0;
   font-family: 'Anonymous Pro', monospace;
+}
+.calendar-heading a {
+  display: none;
 }
 
 #footer {
-  background: image_url('wheat.png');
+  background-color: rgb(43, 123, 239); 
 }
