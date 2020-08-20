@@ -80,10 +80,10 @@
                     <tr>
                     <td><%= i %></td>
                     <td>
-                    <p>Order For Number <%= truncate(order.guest_number, :length => 9) %> </p>
+                    <p> <%= truncate(order.guest_number, :length => 9) %> Ordered</p>
                     <p>
                       <% order.order_details.each do|k,v| %>
-                        Quantity:<%= v['quantity']%>  <%= v['type'] %>,
+                        <%= v['quantity']%>  <%= v['type'] %>,
                       <% end %>
                     </p>
                     </td>
