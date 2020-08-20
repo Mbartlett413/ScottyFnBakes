@@ -1,68 +1,102 @@
 
 <h1>Admin Page</h1> 
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+        <h1>Days</h1>
+        <!-- Start -->
+        <div id="accordion">
+            <% counter = 0 %>
+            <% @days.each do |day| %>
+            <% counter = counter.to_i + 1%>
+              <div class="card">
+
+                  <div class="card-header" id="headingOne<%=counter%>">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne<%=counter%>" aria-expanded="true" aria-controls="collapseOne<%=counter%>">
+                        <h4>DATE: <%= day.this_date.strftime("%Y-%m-%d") %></h4><p> Orders: <%= day.openings %></p>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="collapseOne<%=counter%>" class="collapse" aria-labelledby="headingOne<%=counter%>" data-parent="#accordion">
+                    <div class="card-body">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+
+                            <th>Date:</th>
+                            <th>Total Orders:</th>
+                            <th>Order Limit </th>
+                            <th>ORDER Details:</th>
+                            <th colspan="3">Edit/Delete DAY</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        
+                              <tr>
+                                <td><%= day.this_date.strftime("%Y-%m-%d") %> </td>
+                                <td><%= day.openings %> </td>
+                                <td><%= day.order_limit %></td>
+                                <td> <% day.orders.each do |order| %>
+                                        <% order.order_details.each do|k,v| %>
+                                          <p><%= order.guest_name %> wants <%= v['quantity']%> : <%= v['type'] %></p>
+                                          <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Delete This Order??' }, class: 'btn btn-danger text-white' %>
+
+                                         <%= link_to 'Show', order, class: 'btn btn-info text-white' %>
+
+                                        <% end %>
+                                     <% end %>
+                                </td>
+                                <td><%= link_to 'Edit', edit_day_path(day), class: 'btn btn-info text-white' %></td>
+                                <td><%= link_to 'Destroy', day, method: :delete, data: { confirm: 'Delete Entire Day??' }, class: 'btn btn-danger text-white' %> </td>
+                              </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+              </div><!-- Card -->
+            <% end %>
+        </div><!-- Accord-->
+        <!-- End -->
+        <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>Loafs</h1>
+      <td><%= link_to 'New Loaf', new_loaf_path %></td>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Ingredients </th>
+            <th> Price </th>
+            <th> Active? </th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @loafs.each do |loaf| %>
+            <tr>
+              <td><%= loaf.name %></td>
+              <td><%= loaf.ingredients %></td>
+              <td><%= loaf.price %></td>
+              <td><%= loaf.active_item %></td>
+              <td><%= link_to 'Show', loaf %></td>
+              <td><%= link_to 'Edit', edit_loaf_path(loaf) %></td>
+              <td><%= link_to 'Destroy', loaf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 
-<h1>Days</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
 
-      <th>Date:</th>
-      <th>Total Orders:</th>
-      <th>Order Limit </th>
-      <th>Order Details:</th>
-      <th colspan="3">Edit/Delete Day</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @days.each do |day| %>
-      <tr>
-        <td><%= day.this_date.strftime("%Y-%m-%d") %> </td>
-        <td><%= day.openings %> </td>
-        <td><%= day.order_limit %></td>
-        <td> <% day.orders.each do |order| %>
-                <% order.order_details.each do|k,v| %>
-                  <p><%= order.guest_name %> wants <%= v['quantity']%> : <%= v['type'] %></p>
-                  <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %>
-                 <%= link_to 'Show', order %>
-                <% end %>
-             <% end %>
-        </td>
-        <td><%= link_to 'Edit', edit_day_path(day) %></td>
-        <td><%= link_to 'Destroy', day, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<h1>Loafs</h1>
-<td><%= link_to 'New Loaf', new_loaf_path %></td>
-<table>
-  <thead>
-    <tr>
-      <th> Name </th>
-      <th> Ingredients </th>
-      <th> Price </th>
-      <th> Active? </th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @loafs.each do |loaf| %>
-      <tr>
-        <td><%= loaf.name %></td>
-        <td><%= loaf.ingredients %></td>
-        <td><%= loaf.price %></td>
-        <td><%= loaf.active_item %></td>
-        <td><%= link_to 'Show', loaf %></td>
-        <td><%= link_to 'Edit', edit_loaf_path(loaf) %></td>
-        <td><%= link_to 'Destroy', loaf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
