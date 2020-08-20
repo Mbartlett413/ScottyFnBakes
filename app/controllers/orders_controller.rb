@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
     i = 0
     while i < order_type.length do
 
-      order_builder[i] = {'type': order_type[i], 'quantity': order_quantity[i]}
+      order_builder[i] = {'type': order_type[i].to_i, 'quantity': order_quantity[i].to_i}
       i = i + 1
     end 
     logger.debug("Finished JSON #{order_builder}")
@@ -65,7 +65,12 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        @existing_date[0].openings = @existing_date[0].openings.to_i - order_quantity.sum.to_i
+        logger.debug("WTF #{order_quantity}")
+        #array comes through as strings versus integers, so convert
+        intQuan = order_quantity.map(&:to_i)
+        logger.debug("WTF #{intQuan}")
+        logger.debug("wts #{@existing_date[0].openings.to_i}")
+        @existing_date[0].openings = @existing_date[0].openings.to_i - intQuan.sum.to_i
         @existing_date[0].todays_order = @existing_date[0].todays_order.push(@order.id)
         @existing_date[0].save!
         format.html { redirect_to @existing_date[0], notice: 'Order was successfully created.' }
