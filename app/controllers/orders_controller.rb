@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
     i = 0
     while i < order_type.length do
 
-      order_builder[i] = {'type': order_type[i].to_i, 'quantity': order_quantity[i].to_i}
+      order_builder[i] = {'type': order_type[i], 'quantity': order_quantity[i].to_i}
       i = i + 1
     end 
     logger.debug("Finished JSON #{order_builder}")
