@@ -12,21 +12,21 @@
 
 					  <div class="carousel-caption  ">
 					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
-					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet.</p>
 					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
 					  </div>
 			    </div>
 			    <div class="carousel-item" style="background-image: url('/assets/Bread2')">
 					  <div class="carousel-caption ">
-					    <h4>Hand Made</h4>
+					    <h4>Hand <i style="color:rgb(255, 205, 94);">Made</i></h4>
 					    <p>Donec vel hendrerit quam, eget hendrerit arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
 					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
 					  </div>
 			    </div>
 			    <div class="carousel-item" style="background-image: url('/assets/Bread3')">
 					  <div class="carousel-caption ">
-					    <h4>Scotty Fn Bakes</h4>
-					    <p>Donec fermentum turpis in semper gravida. Etiam sollicitudin, ligula a placerat pulvinar, erat odio hendrerit erat, venenatis scelerisque est tortor pellentesque tellus. Sed a ligula consequat, pharetra lorem placerat, rutrum tortor. Etiam varius gravida diam, in ornare justo lobortis nec. </p>
+					    <h4><i style="color:rgb(255, 205, 94);">Scotty Fn Bakes</i></h4>
+					    <p>Donec fermentum turpis in semper gravida. Etiam sollicitudin, ligula a placerat pulvinar, erat odio hendrerit erat, venenatis scelerisque est tortor pellentesque tellus. Sed a ligula consequat, pharetra lorem placerat, rutrum tortor.  </p>
 					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
 					  </div>
 			    </div>
@@ -50,8 +50,10 @@
 				<h3>Comin' in hot this Week</h3>
 				<ul>
 					<% @loafs.each do |x| %>
-						<li> <%= x.name %> </li>
-						<sub><%= x.ingredients %>... $<%= x.price %></sub>
+						<% if x.active_item == true %>
+							<li> <%= x.name %> </li>
+							<sub><%= x.ingredients %>... $<%= x.price %></sub>
+						<% end %>
 					<% end %>
 				</ul>
 			</div>
@@ -74,6 +76,7 @@
 			  <% end %>
  
 			<% end %> 
+			<hr>
     	</div>
 
 		

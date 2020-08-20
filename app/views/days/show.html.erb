@@ -10,6 +10,9 @@
 
   <div class="row formsection">
     <div class="col-sm-12 col-md-12 col-lg-12">
+    <% if @day.closed == true || @day.openings == 0 %>
+        <h3 style="color: red; text-align: center;">No Loaf For You Today. Try Tomorrow!</h3>
+  <% else %> 
         <div class="form-group">
           <label for="guestName">Name:</label>
           <input type="email" class="form-control" id="guestName" placeholder="Jon Dough">
@@ -48,8 +51,11 @@
           </tbody>
         </table>
 
+      <%= @day.openings %><%= @day.order_limit%>
         <button id="submitOrder" type="button" class="btn btn-primary btn-block">Get This Bread</button>
         <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-warning btn-block">More Bread</button>
+<% end %>
+        <hr>
       </div>
   </div>
 
