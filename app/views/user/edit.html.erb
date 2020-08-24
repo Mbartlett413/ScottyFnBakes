@@ -1,0 +1,13 @@
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+			<%= form_with(model: @user, local: true) do |form| %>
+			    <%= form.label :admin_toggle %><br>
+			    <%= form.check_box :admin_login_toggle %>
+				  <div class="actions">
+				    <%= form.submit %>
+				  </div>
+			<% end %>
+    </div>
+  </div>
+
+

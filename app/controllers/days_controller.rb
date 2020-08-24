@@ -94,7 +94,7 @@ class DaysController < ApplicationController
       @day = Day.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a list of trusted parameters through. 
     def day_params
         params.require(:day).permit(:order_limit, :openings, :this_date, :todays_order, :closed)
     end

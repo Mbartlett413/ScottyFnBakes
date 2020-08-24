@@ -1,10 +1,16 @@
 
 <h1>Admin Page</h1> 
-<p id="notice"><%= notice %></p>
+
+<p> <%= @user.admin_login_toggle %> </p>
+<%= link_to 'update admin', edit_user_path(@user.id) %>
+
+  <!-- -->
+  <hr>
+<p id="notice"><%= notice %></p> 
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-        <h1>Days</h1>
+        <h1>Daze & Orders</h1>
         <!-- Start -->
         <div id="accordion">
             <% counter = 0 %>
@@ -65,15 +71,18 @@
         <br>
     </div>
   </div>
+    <!-- -->
+  <hr>
   <div class="row">
     <div class="col-12">
       <h1>Loafs</h1>
-      <td><%= link_to 'New Loaf', new_loaf_path %></td>
+      <td><%= link_to 'New Loaf', new_loaf_path, class: 'btn btn-primary' %></td>
       <table class="table table-striped">
         <thead>
           <tr>
             <th> Name </th>
             <th> Ingredients </th>
+            <th> Category </th>
             <th> Price </th>
             <th> Active? </th>
             <th colspan="3"></th>
@@ -85,11 +94,41 @@
             <tr>
               <td><%= loaf.name %></td>
               <td><%= loaf.ingredients %></td>
+              <td><%= loaf.category_id %></td>
               <td><%= loaf.price %></td>
               <td><%= loaf.active_item %></td>
               <td><%= link_to 'Show', loaf %></td>
               <td><%= link_to 'Edit', edit_loaf_path(loaf) %></td>
               <td><%= link_to 'Destroy', loaf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- -->
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h1>Categories</h1>
+      <%= link_to 'New Category', new_category_path %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Active? </th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @categories.each do |cat| %>
+            <tr>
+              <td><%= cat.name %></td>
+              <td><%= cat.active %></td>
+              <td><%= link_to 'Show', cat %></td>
+              <td><%= link_to 'Edit', edit_loaf_path(cat) %></td>
+              <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>

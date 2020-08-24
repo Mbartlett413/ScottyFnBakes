@@ -7,6 +7,9 @@
           <%= f.input :ingredients %>
           <%= f.input :active_item, as: :radio_buttons %>
           <%= f.input :price %>
+          <%= f.file_field :image %>
+       
+          <%= f.input :category_id, collection: @categories %>
           <%= f.button :submit %>
         <% end %>
     </div>

@@ -15,6 +15,7 @@ class LoafsController < ApplicationController
   # GET /loafs/new
   def new
     @loaf = Loaf.new
+    @categories = Category.all 
   end
 
   # GET /loafs/1/edit
@@ -69,6 +70,6 @@ class LoafsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loaf_params
-      params.require(:loaf).permit(:name, :ingredients, :active_item, :price )
+      params.require(:loaf).permit(:name, :ingredients, :active_item, :price, :image, :category_id )
     end
 end

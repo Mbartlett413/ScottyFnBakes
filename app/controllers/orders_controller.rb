@@ -99,10 +99,12 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    #update the associated day openings
+    #this.day.openings = day.openings + quantity
     @order.destroy
     respond_to do |format|
       format.html { redirect_to admin_page_path, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { head :no_content } 
     end
   end
 

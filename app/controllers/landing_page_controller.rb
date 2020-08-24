@@ -5,13 +5,16 @@ before_action :authenticate_user!, only:[:admin_page]
 	def index
 		@days = Day.all 
 		@loafs = Loaf.all
+		@category = Category.all 
 	end 
 
 
 	def admin_page
-		@days = Day.all
+		@user = current_user
+		@days = Day.all.sort_by(&:this_date)
 		@loafs = Loaf.all
 		@orders = Order.all	
+		@categories = Category.all 
 
 	end 
 

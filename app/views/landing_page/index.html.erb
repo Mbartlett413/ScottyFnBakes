@@ -1,4 +1,44 @@
 
+
+<div class="container-fluid">
+<!-- Section Three -->
+    <div class="row sectionThree">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h3>Reserve your loaf today!</h3>
+			<hr>
+		</div>
+    	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
+			<%= calendar events: @days, number_of_days: 7 do |date, event| %>
+
+			  <button class="day_selector btn-sm btn-warning"><%= date.strftime("%Y-%m-%d") %></button>
+			  <% event.each do |x| %>
+			  	<p><%= x.openings %> Left</p>
+			  <% end %>
+ 
+			<% end %> 
+			<hr>
+    	</div>
+	</div>
+<!-- -->
+<div class="row sectionTwo">
+	<div class="col-12">
+		<h3>Comin' in hot this Week</h3>
+	</div>
+	<% @category.each do |cat| %>
+		<div class="col-sm col-md col-lg infoBox">
+			<h3><%= cat.name %></h3>
+			<ul>
+			<% @loafs.each do |loaf| %>
+				<% if loaf.category_id == cat.id %>
+					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> <%= loaf.price %> </li>
+				<% end %>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+</div>
+<!-- -->
+</div>
 <header>
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			  <ol class="carousel-indicators">
@@ -43,45 +83,7 @@
 			</div> 
 	</header>		
 	<!-- Section Two --> 
-<div class="container-fluid">
-	<div class="row justify-content-center sectionTwo">
 
-			<div class="d-inline-block col-sm-8 col-md-8 col-lg-8 infoBox">
-				<h3>Comin' in hot this Week</h3>
-				<ul>
-					<% @loafs.each do |x| %>
-						<% if x.active_item == true %>
-							<li> <%= x.name %> </li>
-							<sub><%= x.ingredients %>... $<%= x.price %></sub>
-						<% end %>
-					<% end %>
-				</ul>
-			</div>
-
-	</div>
-	<!-- Section Three -->
-    <div class="row sectionThree">
-
-<div class="col-sm-12 col-md-12 col-lg-12">
-	<h3>Reserve your loaf today!</h3>
-	<hr>
-</div>
-    	
-    	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
-			<%= calendar events: @days, number_of_days: 7 do |date, event| %>
-
-			  <button class="day_selector btn-sm btn-warning"><%= date.strftime("%Y-%m-%d") %></button>
-			  <% event.each do |x| %>
-			  	<p><%= x.openings %> Left</p>
-			  <% end %>
- 
-			<% end %> 
-			<hr>
-    	</div>
-
-		
-	</div>
-</div>
 <div id="footer" class="py-4 text-white-50">
     
     <div class="container text-left">
@@ -104,5 +106,6 @@
 	}
 
 </script>
+
 
 
