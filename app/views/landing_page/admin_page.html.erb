@@ -36,14 +36,14 @@
                         <tbody>
                               <tr >
                                   <td> <% day.orders.each do |order| %>
+                                      <div style="border: 1px black solid; margin-bottom: 5px;">
                                           <% order.order_details.each do|k,v| %>
-                                            <div style="border: 1px black solid; margin-bottom: 5px;">
                                               <p><%= order.guest_name %> wants <%= v['quantity']%> : <%= v['type'] %></p>
+                                          <% end %>
                                               <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Delete This Order??' }, class: 'btn btn-danger text-white' %>
                                              <%= link_to 'Show', order, class: 'btn btn-info text-white' %>
-                                            </div>
-                                          <% end %>
-                                       <% end %>
+                                      </div>       
+                                      <% end %>
                                   </td>
 
                                   <td><%= link_to 'Edit', edit_day_path(day), class: 'btn btn-info text-white' %></td>
