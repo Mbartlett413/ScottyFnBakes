@@ -6,7 +6,6 @@
         <%= simple_form_for @day do |f| %>
           <%= f.input :order_limit %>
           <%= f.input :openings %>
-          <%= f.input :this_date %>
           <%= f.input :closed, as: :radio_buttons %>
           <%= f.button :submit %>
         <% end %>
