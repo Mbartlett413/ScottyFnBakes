@@ -1,45 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-		<th> guest_name </th>
-		<th> guest_number </th>
-		<th> order_date </th>
-		<th> order_details </th>
-
-		<th> paid </th>
-		<th> order_made </th>
-		<th> day_id </th>
-
-		<th> call </th>
-		<th> text </th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <tr>
-		<td><%= @order.guest_name %> </td>
-		<td><%= @order.guest_number %> </td>
-		<td><%= @order.order_date %> </td>
-
-		<td><%= @order.order_details %> </td>
-		<td><%= @order.paid %> </td>
-		<td><%= @order.order_made %> </td>
-		<td><%= @order.day_id %> </td>
-
-		<td><%= @order.call %> </td>
-		<td><%= @order.text %> </td>
-
-        <td><%= link_to 'Edit', edit_order_path(@order) %></td>
-        <td><%= link_to 'Destroy', @order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-
-  </tbody>
-</table>
-
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h6>Guest Name</h6>
+			<p><%= @order.guest_name %></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Guest Number</h6>
+			<p><%= @order.guest_number %></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Order Date</h6>
+			<p><%= @order.order_date %></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Order Details</h6>
+			<p><%= @order.order_details %></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Paid?</h6>
+			<p><%= @order.paid %></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Calls Ok?</h6>
+			<p><%= @order.call %></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Text Ok?</h6>
+			<p><%= @order.text %></p>
+		</div>
+	</div>
+</div>
+<ul>
+	<li> 
+		<%= link_to 'Destroy', @order, method: :delete, data: { confirm: 'Are you sure?' } %> 
+	</li>
+	<li> 
+		<%= link_to 'Edit', edit_order_path(@order) %> 
+	</li>
+</ul>

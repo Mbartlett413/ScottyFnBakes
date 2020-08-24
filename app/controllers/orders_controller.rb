@@ -58,8 +58,8 @@ class OrdersController < ApplicationController
     @order.day_id = @existing_date[0].id
     @order.guest_name = params[:guest_name]
     @order.guest_number = params[:guest_number]
-    @order.call = call
-    @order.text = text
+    @order.call = params[:call]
+    @order.text = params[:text]
 
     logger.debug("new order #{@order.inspect}")
 

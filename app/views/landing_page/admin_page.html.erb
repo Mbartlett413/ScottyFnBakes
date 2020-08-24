@@ -28,7 +28,6 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th colspan="2">Total Orders:</th>
                             <th>ORDER Details:</th>
                             <th>Edit Day</th>
                             <th>Delete Day</th>
@@ -36,14 +35,13 @@
                         </thead>
                         <tbody>
                               <tr >
-                                  <td><%= day.openings %> of <%= day.order_limit %> </td>
-                                  <td></td>
                                   <td> <% day.orders.each do |order| %>
                                           <% order.order_details.each do|k,v| %>
-                                            <p><%= order.guest_name %> wants <%= v['quantity']%> : <%= v['type'] %></p>
-                                            <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Delete This Order??' }, class: 'btn btn-danger text-white' %>
-                                           <%= link_to 'Show', order, class: 'btn btn-info text-white' %>
-
+                                            <div style="border: 1px black solid; margin-bottom: 5px;">
+                                              <p><%= order.guest_name %> wants <%= v['quantity']%> : <%= v['type'] %></p>
+                                              <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Delete This Order??' }, class: 'btn btn-danger text-white' %>
+                                             <%= link_to 'Show', order, class: 'btn btn-info text-white' %>
+                                            </div>
                                           <% end %>
                                        <% end %>
                                   </td>
