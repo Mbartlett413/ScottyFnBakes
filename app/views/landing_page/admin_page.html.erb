@@ -122,8 +122,8 @@
               <td><%= cat.name %></td>
               <td><%= cat.price %> </td>
               <td><%= cat.active %></td>
-              <td><%= link_to 'Edit', edit_loaf_path(cat) %></td>
-              <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit', edit_category_path(cat) %></td>
+              <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
