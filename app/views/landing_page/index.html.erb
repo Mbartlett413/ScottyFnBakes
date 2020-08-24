@@ -26,11 +26,11 @@
 	</div>
 	<% @category.each do |cat| %>
 		<div class="col-sm col-md col-lg infoBox">
-			<h3><%= cat.name %></h3>
+			<h3><%= cat.name %>...$<%= cat.price %></h3>
 			<ul>
 			<% @loafs.each do |loaf| %>
 				<% if loaf.category_id == cat.id %>
-					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> <%= loaf.price %> </li>
+					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
 				<% end %>
 			<% end %>
 			</ul>

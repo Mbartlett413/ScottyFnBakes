@@ -110,6 +110,7 @@
         <thead>
           <tr>
             <th> Name </th>
+            <th> Price </th>
             <th> Active? </th>
             <th colspan="2"></th>
           </tr>
@@ -119,6 +120,7 @@
           <% @categories.each do |cat| %>
             <tr>
               <td><%= cat.name %></td>
+              <td><%= cat.price %> </td>
               <td><%= cat.active %></td>
               <td><%= link_to 'Edit', edit_loaf_path(cat) %></td>
               <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>

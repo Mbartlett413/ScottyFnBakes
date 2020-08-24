@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_215212) do
   create_table "categories", force: :cascade do |t|
     t.boolean "active"
     t.string "name"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
