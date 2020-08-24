@@ -112,6 +112,7 @@
             <th> Name </th>
             <th> Price </th>
             <th> Active? </th>
+            <th> ID </th>
             <th colspan="2"></th>
           </tr>
         </thead>
@@ -122,8 +123,9 @@
               <td><%= cat.name %></td>
               <td><%= cat.price %> </td>
               <td><%= cat.active %></td>
+              <td><%= cat.id %></td>
               <td><%= link_to 'Edit', edit_category_path(cat) %></td>
-              <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
