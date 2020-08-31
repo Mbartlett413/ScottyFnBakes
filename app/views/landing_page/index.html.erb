@@ -84,6 +84,26 @@
 	</header>		
 	<!-- Section Two --> 
 
+
+<!-- TEXT AREA -->
+<div class="row">
+
+
+		<div class="grid-container">
+		  <% @loafs.each do |x| %>
+		  <div class="grid-item">
+		 	<%= image_tag x.image%> 
+		 </div>
+		  <% end %>
+		</div>
+	
+
+
+	
+</div>
+
+<!-- TEXT AREA -->
+
 <div id="footer" class="py-4 text-white-50 container-fluid">
     <div class="row">
     	<div class="offset-1"></div>
@@ -95,7 +115,7 @@
 		      440 Coit Rd<br>
 		      Plano, TX 75075 <br>
 		  	</h5><br>
-		  	<h6>Operating Under Texas Cottage Act</h6><a href="https://texascottagefoodlaw.com/">Read More</a>
+		  	<h6>Operating Under Texas Cottage Act</h6><a class="text-white" href="https://texascottagefoodlaw.com/">Read More</a>
 		     <h6>Made By GlassMinds LLC</h6>	
     	</div>
 		<!--The div element for the map -->
@@ -112,21 +132,20 @@
 	}
 
 </script>
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: 33.004600, lng: -96.766260};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 11, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
-    </script>
-    <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=XXX&callback=initMap">
-    </script>
+<script>
+	// Initialize and add the map
+	function initMap() {
+	  // The location of Uluru
+	  var uluru = {lat: 33.004600, lng: -96.766260};
+	  // The map, centered at Uluru
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 11, center: uluru});
+	  // The marker, positioned at Uluru
+	  var marker = new google.maps.Marker({position: uluru, map: map});
+	}
+</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=XXX&callback=initMap">
+</script>
 
 
 
