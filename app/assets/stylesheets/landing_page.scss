@@ -72,13 +72,28 @@ text-shadow: 2px 2px black;
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  font-size: 30px;
-  text-align: center;
+  height: 20vw;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 130%;
+
 }
-.grid-item img {
-width:100%; 
-                height:100%; 
-                object-fit:cover; 
+
+.loafText {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  opacity: 0;
+  font-family: 'Yellowtail', cursive;
+}
+
+
+.grid-item:hover .loafText{
+  opacity: 1;
+  transition: .5s ease;
 }
 
 

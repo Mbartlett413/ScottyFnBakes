@@ -87,20 +87,15 @@
 
 <!-- TEXT AREA -->
 <div class="row">
-
-
-		<div class="grid-container">
-		  <% @loafs.each do |x| %>
-		  <div class="grid-item">
-		 	<%= image_tag x.image%> 
+	<div class="grid-container">
+	  <% @loafs.each do |x| %>
+		  <div class="grid-item" style="background-image: url(<%= rails_blob_url( x.image) %>)">
+		  	<p class="loafText"><%= x.name %> </p>
 		 </div>
-		  <% end %>
-		</div>
-	
-
-
-	
+	  <% end %>
+	</div>	
 </div>
+
 
 <!-- TEXT AREA -->
 
@@ -128,6 +123,15 @@
 		btnlis[i].addEventListener('click', function(e){
 			console.log("click")
 			document.getElementById('calendar').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
+		})
+	}
+
+	var gridImages = document.getElementsByClassName('grid-item')
+	for (var i=0; i < gridImages.length; i++){
+		gridImages[i].addEventListener('mouseover', function(e){
+			console.log("WHOA", e)
+			console.log("broken", e.srcElement.nextElementSibling.className)
+			//e.srcElement.nextElementSibling.className = 'overlay'
 		})
 	}
 
