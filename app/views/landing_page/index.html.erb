@@ -109,29 +109,14 @@
 			</div> 
 	</header>		
 	<!-- Section Two --> 
+	<div class="row">
+		<div id="map" class="col-lg col-md col-sm"></div>
+	</div>
 
-
-<!-- TEXT AREA -->
-<div class="row">
-	<div class="grid-container">
-	  <% @loafs.each do |x| %>
-		  <div class="grid-item" style="background-image: url(<%= rails_blob_url( x.image) %>)">
-		  	<p class="loafText"><%= x.name %> </p>
-		 </div>
-	  <% end %>
-	</div>	
-</div>
-
-
-<!-- TEXT AREA -->
 
 <div id="footer" class="py-4 text-white-50 container-fluid">
     <div class="row">
-    	<div class="offset-1"></div>
-		<div id="map" class="col-lg col-md col-sm">
-
-		</div>
-    	<div class="col-lg col-md col-sm text-right">
+    	<div class="col-lg col-md col-sm text-left">
 		     <h5>Scotty Fn Bakes <br>
 		      440 Coit Rd<br>
 		      Plano, TX 75075 <br>
