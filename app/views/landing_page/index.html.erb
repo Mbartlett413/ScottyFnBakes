@@ -84,16 +84,22 @@
 	</header>		
 	<!-- Section Two --> 
 
-<div id="footer" class="py-4 text-white-50">
-    
-    <div class="container text-left">
-      <h5>Scotty Fn Bakes <br>
-      555 Antique Street <br>
-      Edgewater, MD 55555 <br>
-      (555) 555-5555 </h5><br>
-      <h6>Made By GlassMinds LLC</h6>
-    </div>
+<div id="footer" class="py-4 text-white-50 container-fluid">
+    <div class="row">
+    	<div class="offset-1"></div>
+		<div id="map" class="col-lg col-md col-sm">
 
+		</div>
+    	<div class="col-lg col-md col-sm text-right">
+		     <h5>Scotty Fn Bakes <br>
+		      440 Coit Rd<br>
+		      Plano, TX 75075 <br>
+		  	</h5><br>
+		  	<h6>Operating Under Texas Cottage Act</h6><a href="https://texascottagefoodlaw.com/">Read More</a>
+		     <h6>Made By GlassMinds LLC</h6>	
+    	</div>
+		<!--The div element for the map -->
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -106,6 +112,21 @@
 	}
 
 </script>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 33.004600, lng: -96.766260};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 11, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuJLvvPBRjpDhzE2JmStKoyA_ij6RrNcU&callback=initMap">
+    </script>
 
 
 
