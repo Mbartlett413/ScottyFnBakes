@@ -41,12 +41,13 @@
 </div>
 <header>
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			 <!--
 			  <ol class="carousel-indicators">
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 			  </ol>
-
+			
 			  <div class="carousel-inner carPhoto">
 			    <div class="carousel-item active" style="background-image: url(/assets/Bread1)">
 
@@ -71,6 +72,31 @@
 					  </div>
 			    </div>
 			  </div>
+				
+			-->
+
+		<div class="carousel-inner carPhoto">
+			    <div class="carousel-item active" style="background-image: url(/assets/Bread1)">
+
+					  <div class="carousel-caption  ">
+					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
+					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet.</p>
+					    <button type="button" class="btn btn-warning redica">Reserve Now</button>
+					  </div>
+			    </div>
+				<% @loafs.each do |x| %>
+				    <div class="carousel-item" style="background-image: url(<%= rails_blob_url( x.image) %>)">
+
+						  <div class="carousel-caption  ">
+						    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
+						    <p> <%= x.name %> </p>
+						  </div>
+				    </div>
+				<% end %>
+		</div>
+	
+
+
 
 			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
