@@ -25,6 +25,7 @@
 		<h3>Comin' in hot this Week</h3>
 	</div>
 	<% @category.each do |cat| %>
+		<% if cat.active != false %>
 		<div class="col-sm col-md col-lg infoBox">
 			<h3><%= cat.name %>...$<%= cat.price %></h3>
 			<ul>
@@ -35,6 +36,7 @@
 			<% end %>
 			</ul>
 		</div>
+		<% end %>
 	<% end %>
 </div>
 <!-- -->
@@ -85,13 +87,15 @@
 					  </div>
 			    </div>
 				<% @loafs.each do |x| %>
+					<% if x.active_item != false %>
 				    <div class="carousel-item" style="background-image: url(<%= rails_blob_url( x.image) %>)">
 
 						  <div class="carousel-caption  ">
-						    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
-						    <p> <%= x.name %> </p>
+						    <h4><i style="color:rgb(255, 205, 94);"><%= x.name %></i></h4>
+						    <p>  <%= x.ingredients %> </p>
 						  </div>
 				    </div>
+				    <% end %>
 				<% end %>
 		</div>
 	

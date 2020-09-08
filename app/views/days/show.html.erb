@@ -15,12 +15,12 @@
   <% else %> 
         <div class="form-group">
           <label for="guestName">Name:</label>
-          <input type="email" class="form-control" id="guestName" placeholder="Jon Dough">
+          <input type="email" class="form-control" id="guestName" placeholder="Jon Dough" required >
         </div>
 
         <div class="form-group">
           <label for="guestNumber">Number:</label>
-          <input type="email" class="form-control" id="guestNumber" placeholder="555-555-5555">
+          <input type="email" class="form-control" id="guestNumber" placeholder="555-555-5555" required>
         </div>
 
       <div class="form-check form-check-inline">
@@ -50,7 +50,8 @@
               </tr>
           </tbody>
         </table>
-        <button id="submitOrder" type="button" class="btn btn-primary btn-block">Get This Bread</button>
+        <button id="submitOrder" type="button" class="btn btn-primary btn-block" disabled="true" >Get This Bread</button>
+
         <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-warning btn-block">More Bread</button>
 <% end %>
         <hr>
@@ -105,4 +106,13 @@
 		cloneRow.id = "newID"
 		table.appendChild(cloneRow);
 	}
+
+  var orderBtn = document.getElementById('submitOrder');
+  var guestName = document.getElementById('guestName');
+  var guestNumber = document.getElementById('guestNumber'); 
+
+  guestName.addEventListener("keyup", function(){
+    orderBtn.disabled = false;
+  })
+
 </script>
