@@ -12,7 +12,11 @@
 
 			  <button class="day_selector btn-sm btn-warning"><%= date.strftime("%Y-%m-%d") %></button>
 			  <% event.each do |x| %>
-			  	<p><%= x.openings %> Left</p>
+			  	<% if x.closed == true%>
+			  		<p style="color: red">Closed </p>
+			  	<% else %>
+			  		<p><%= x.openings %> Left</p> 
+			  	<% end %>
 			  <% end %>
  
 			<% end %> 

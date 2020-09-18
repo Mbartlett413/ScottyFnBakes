@@ -28,6 +28,11 @@
             </div>
             <div class="col-sm signature">
               <a  href="https://www.instagram.com/scottyfnbakes/?igshid=1msej3frrklrp"> <i class="fa fa-instagram" style="font-size:25px; color: #F2A61B;" ></i></a>
+
+              <% if user_signed_in? %>
+                <%= link_to "ADMIN LINK", admin_page_path %>
+              <% end %>
+
             </div>
         </div>
         <div class="row">

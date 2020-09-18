@@ -7,7 +7,7 @@
           <%= f.input :name, required: true %>
           <%= f.input :ingredients %>
           <%= f.input :active_item, as: :radio_buttons, required: true %>
-          <%= f.file_field :image, required: false %>
+          <%= f.file_field :image, required: true %>
           <%= f.input :price %>          
           <%= f.button :submit, class: 'btn btn-info text-white' %> 
         <% end %>
