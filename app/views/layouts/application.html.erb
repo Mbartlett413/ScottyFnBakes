@@ -17,10 +17,10 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta name="description" content="Fresh baked bread from Plano Texas 75075">
 
-      <div class="introSection container-fluid">
+      <div class="introSection container-fluid"> 
         <div class="row">
             <div class="col-sm ">
-              <h4>713.392.3355</h4>
+              <a href="tel:713-392-3355">713.392.3355</a> <br>
               <a id="hoverEffect" href = "mailto: scottyfnbakes@gmail.com">Send Email</a>
             </div>
             <div class="col-sm signature">
@@ -35,19 +35,21 @@
 
             </div>
         </div>
+        
+        <!-- currently taking this away
         <div class="row">
           <div class="col-sm">
             </div>
             <div class="col-sm">
-              <%= image_tag("logo", class: "card-img-top img-fluid") %>
+              <%#= image_tag("logo", class: "card-img-top img-fluid") %>
             </div>
             <div class="col-sm">
             </div>
         </div>
+        -->
+
       </div>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

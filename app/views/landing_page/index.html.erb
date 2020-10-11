@@ -15,7 +15,9 @@
 			  	<% if x.closed == true%>
 			  		<p style="color: red">Closed </p>
 			  	<% else %>
-			  		<p><%= x.openings %> Left</p> 
+			  		<% if x.openings <= 5 %>
+			  			<p><%= x.openings %> spots left</p> 
+			  		<% end %>
 			  	<% end %>
 			  <% end %>
  
@@ -26,13 +28,13 @@
 <!-- -->
 <div class="row sectionTwo">
 	<div class="col-12">
-		<h3>Comin' in hot this Week</h3>
+		<h3 class="header_shadow">Comin' in hot this Week</h3>
 	</div>
 	<% @category.each do |cat| %>
 		<% if cat.active != false %>
 		<div class="col-sm col-md col-lg infoBox">
 			<h3><%= cat.name %>...$<%= cat.price %></h3>
-			<ul>
+			<ul class="menu_list">
 			<% @loafs.each do |loaf| %>
 				<% if loaf.category_id == cat.id %>
 					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
@@ -127,9 +129,12 @@
     	<div class="col-lg col-md col-sm text-left">
 		     <h5>Scotty Fn Bakes <br>
 		      440 Coit Rd<br>
-		      Plano, TX 75075 <br>
-		  	</h5><br>
-		  	<h6>Operating Under Texas Cottage Act</h6><a class="text-white" href="https://texascottagefoodlaw.com/">Read More</a>
+		      Plano, TX 75075 
+		      <sub></sub>
+		  	</h5>
+		  	<h6>I'm operating under the <a class="text-white" href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
+		  	</h6>
+		  	<br>
 		     <h6>Made By GlassMinds LLC</h6>	
     	</div>
 		<!--The div element for the map -->

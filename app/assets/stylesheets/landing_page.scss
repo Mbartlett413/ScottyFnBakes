@@ -2,12 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-color: rgb(14,17,17);
+}
 
 .introSection {
   text-align: center;
   font-family: 'Yellowtail', cursive;
   font-size: 20px;
+  background-color: rgb(14, 17, 17);
+  border-bottom: solid #FFC107 2px;
   }
+
 .introSection h4{
   color: #3B6194;
   margin: auto;
@@ -17,7 +23,7 @@
 .signature a {
   font-family: 'Yellowtail', cursive;
   font-size: 30px;
-  color: rgb(255, 205, 94);
+  color: rgb(255, 205, 94); 
 }
 .signature a:link{
     color: rgb(255, 205, 94);
@@ -66,7 +72,8 @@ text-shadow: 2px 2px black;
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
+  /*background-color: #2196F3;*/
+  background-color: #0e1111;
   padding: 10px;
 }
 .grid-item {
@@ -105,6 +112,8 @@ text-shadow: 2px 2px black;
   border-color: black;
   color: black;
   box-shadow: 3px 6px #888888;
+  -webkit-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
+  -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
   background: image_url('linedpaper.png');
 }
 .infoPhoto{
@@ -113,13 +122,17 @@ text-shadow: 2px 2px black;
 }
 .sectionTwo{
 	height: auto;
-  background-color: rgb(245, 239, 227); 
+  /*background-color: rgb(245, 239, 227);*/
+  background-color: #424242;
 }
 
 .sectionTwo h3{
 	text-align: center;
   font-family: 'Cabin Sketch', cursive;
-  text-shadow: 2px 2px #FFCC5E;
+}
+
+.header_shadow{
+  text-shadow: 2px 2px black;
 }
 .sectionTwo ul {
 	list-style: none;
@@ -127,13 +140,16 @@ text-shadow: 2px 2px black;
   font-size: 20px;
 }
 .sectionTwo li {
-  padding-top: 15px;
+  padding-top: 1px;
+  padding-bottom: 0px;
+  margin: none;
 }
 .sectionTwo sub {
 	color: black;
-	padding-left: 15px;
+	padding-left: 25px;
   font-family: 'Yellowtail', cursive;
   font-size: 12px;
+  padding-bottom: 1px;
 }
 
 
@@ -144,11 +160,12 @@ text-shadow: 2px 2px black;
 	padding-right: 50px;
   text-align: center;
   font-family: 'Cabin Sketch', cursive;
-  background-color: rgb(245, 239, 227); 
+  /* background-color: rgb(245, 239, 227);  */
+  background-color: #2A2829;
 }
 .sectionThree h3{
  text-align: center; 
- color: black;
+ color: #e0dbd1;
 }
 
 .carousel-item {
@@ -162,7 +179,7 @@ text-shadow: 2px 2px black;
 
 #calendar {
   margin: auto;
-  overflow-x: scroll;
+  overflow-x: scroll; 
 }
 
 .day_selector{
@@ -170,15 +187,31 @@ text-shadow: 2px 2px black;
 }
 
 .day{
-  color: #2B7AF0;
+  color: #e0dbd1;
   font-family: 'Anonymous Pro', monospace;
 }
+
+.start-date {
+  background-color: #e0dbd1 !important;
+  color: black;
+}
+
+.simple-calendar {
+  color: #e0dbd1;
+  background-color: #2A2829;
+  }
+
+.simple-calendar th {
+  color: white;
+}
+
 .calendar-heading a {
   display: none;
 }
 
 #footer {
-  background-color: rgb(43, 123, 239); 
+  /* background-color: rgb(43, 123, 239);  */
+  background-color: rgb(14,17,17);
 }
 
 #map {

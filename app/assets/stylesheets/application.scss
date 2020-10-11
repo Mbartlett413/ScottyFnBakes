@@ -14,10 +14,12 @@
  *= require_self
  */
 @import "bootstrap";
-@import "simple_calendar";
+@import "simple_calendar"; 
 
 body {
-	color: rgb(59, 97, 148);
+	/* color: rgb(59, 97, 148); */
+	color: #e0dbd1;
+
 }
 
 nav {
