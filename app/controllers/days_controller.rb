@@ -29,7 +29,7 @@ class DaysController < ApplicationController
   def create
     logger.debug("Hit")
     hackery = params[:this_date].to_s + ' 00:00:00'
-    
+    logger.debug("HERE ONE TWO THREE #{hackery}")
     @existing_date = Day.where("this_date = ?", hackery)
     logger.debug("h #{@existing_date.length}")
 

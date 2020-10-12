@@ -77,10 +77,10 @@ class OrdersController < ApplicationController
         newQuan = @existing_date[0].avaliable_spots.to_i - intQuan.sum.to_i
         @existing_date[0].update_attribute(:avaliable_spots, newQuan)
         #MAILERS
-        OrderMailer.alertBaker(@order.id).deliver_now
+#@#@#@#@#@#@#@#@#@        OrderMailer.alertBaker(@order.id).deliver_now
 
-        format.html { redirect_to @existing_date[0], notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @existing_date[0] }
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }

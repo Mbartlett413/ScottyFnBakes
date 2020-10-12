@@ -1,54 +1,87 @@
+  <!-- -->
+  <% if notice.present? %>
+     <p class="alert alert-info"><%= notice %></p>
+  <% end %>
+    <% if alert.kind_of?(Array)%>
+       <ul>
+         <% alert.each do |x| %>
+           <li class="alert alert-danger" ><%= x %></li>
+         <% end %>
+       </ul>
+    <% elsif alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% else %>    
+  
+  <% end %>
+
 <div class="container-fluid">
+
+<% if user_signed_in? %> 
+<!-- End Admin View -->
 	<div class="row">
+		<h3>Baker Notes</h3>
 		<div class="col-sm-12 col-md-12 col-lg-12">
-			<h6>Guest Name</h6>
-			<p><%= @order.guest_name %></p>
+			<ul>
+				<li> 
+					<%= link_to 'Destroy Whole Order', @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-warning' %> 
+				</li>
+			</ul>	
+		</div>
+
+
+
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h3>Name:: <%= @order.guest_name %></h3>
 		</div>
 		<div class="col-sm-12 col-md-12 col-lg-12">
-						<h6>Guest Number</h6>
-			<p><%= @order.guest_number %></p>
-		</div>
-		<div class="col-sm-12 col-md-12 col-lg-12">
-						<h6>Calls Ok?</h6>
-			<p><%= @order.call_pref %></p>
-		</div>
-		<div class="col-sm-12 col-md-12 col-lg-12">
-						<h6>Text Ok?</h6>
-			<p><%= @order.text_pref %></p>
-		</div>
-		<div class="col-sm-12 col-md-12 col-lg-12">
-						<h6>Order Date</h6>
-			<p><%= @order.order_date %></p>
+						<h6>Order Date:: <%= @order.order_date.strftime("%m/%d/%Y") %></h6>
+
 		</div>
 
 		<div class="col-sm-12 col-md-12 col-lg-12">
-						<h6>Paid?</h6>
-			<p><%= @order.paid %></p>
+						<h6>Guest Number: <a href="tel:<%= @order.guest_number %>"><%= @order.guest_number %></a> <br></h6>
+
 		</div>
-	</div>
-	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Calls Ok?:: <%= @order.call_pref %></h6>
+
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Texts Ok?:: <%= @order.text_pref %></h6><hr>
+
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h4>Order Details </h4>
+		</div>
 		<% @order.order_collections.each do |oc| %>
 			<%= simple_form_for(oc) do |z| %>
+			<div class="col-lg d-inline">
+				<%= z.input :loaf_id, collection: @loaf %>
+			</div>
 			<div class="col-lg d-inline">
 				<%= z.input :quantity%>
 			</div>
 				
-			<div class="col-lg d-inline">
-				<%= z.input :loaf_id, collection: @loaf %>
-			</div>
+
 				
 			<div class="col-lg d-inline">
-				<%= z.button :submit, class: 'btn btn-primary' %>
+				<%= z.button :submit, 'Update Order', class: 'btn btn-primary' %>
 				<%= link_to 'Destroy', oc, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-warning' %>
 			<% end %>
 		<% end %>
-	</div>	
+	</div>
+<!-- End Admin View -->
+<% else %>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h3><%= @order.guest_name %></h3>
+			<p>Your order for <%= @order.order_date.strftime("%m/%d/%Y") %> has been recieved! The baker will be in contact with you for any questions!</p>
+		</div>
+	</div>
+
+<% end %>
+
+
 </div>
-<ul>
-	<li> 
-		<%= link_to 'Destroy', @order, method: :delete, data: { confirm: 'Are you sure?' } %> 
-	</li>
-	<li> 
-		<%= link_to 'Edit', edit_order_path(@order) %> 
-	</li>
-</ul>
+

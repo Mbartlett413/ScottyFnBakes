@@ -4,6 +4,13 @@
 
 document.addEventListener 'turbolinks:load', (event) ->
   all_dates = document.getElementsByClassName('day_selector')
+  mobile_button = document.getElementById('mobile_day_select')
+  mobile_day_select = document.getElementById('mobile_date_selection')
+  mobile_button.onclick = ->
+    console.log("mobile", mobile_day_select.options[mobile_day_select.selectedIndex].text)
+    s_date = mobile_day_select.options[mobile_day_select.selectedIndex].text
+    $.post '/days',
+       this_date: s_date
   i = 0
   while i < all_dates.length
 
@@ -16,6 +23,8 @@ document.addEventListener 'turbolinks:load', (event) ->
   	     this_date: s_date
   	i++
   return
+
+
 
 
 

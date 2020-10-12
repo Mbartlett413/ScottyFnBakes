@@ -182,32 +182,56 @@ text-shadow: 2px 2px black;
   overflow-x: scroll; 
 }
 
-.day_selector{
-    font-family: 'Anonymous Pro', monospace;
-}
+    .day_selector{
+        font-family: 'Anonymous Pro', monospace;
+    }
 
-.day{
-  color: #e0dbd1;
-  font-family: 'Anonymous Pro', monospace;
-}
+    .day{
+      color: #e0dbd1;
+      font-family: 'Anonymous Pro', monospace;
+    }
 
-.start-date {
-  background-color: #e0dbd1 !important;
-  color: black;
-}
+    .start-date {
+      background-color: #e0dbd1 !important;
+      color: black;
+    }
 
-.simple-calendar {
-  color: #e0dbd1;
-  background-color: #2A2829;
+    .simple-calendar {
+      color: #e0dbd1;
+      background-color: #2A2829;
+      }
+
+    .simple-calendar th {
+      color: white;
+    }
+
+    .calendar-heading a {
+      display: none;
+    }
+
+/* Media Queries */
+/* mobile_calendar
+calendar */
+
+/* Unless width is 576px, this is true*/
+@media (min-width: 576px){ 
+  #mobile_calendar {
+    display: none;
   }
-
-.simple-calendar th {
-  color: white;
+  #calendar {
+    
+  }
+}
+@media (max-width: 576.98px) {
+  #mobile_calendar {
+    
+  }
+  #calendar {
+    display: none;
+  }
 }
 
-.calendar-heading a {
-  display: none;
-}
+
 
 #footer {
   /* background-color: rgb(43, 123, 239);  */

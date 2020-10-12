@@ -7,6 +7,23 @@
 			<h3>Reserve your loaf today!</h3>
 			<hr>
 		</div>
+
+		<!-- Mobile Calendar -->
+		<div class="col-sm-6 col-md-6 col-lg-12" id="mobile_calendar">
+			<h4>Mobile Calendar</h4>
+
+			<label for="date" class="">PICK A DAY ANY DAY...</label>
+			<select class="custom-select" for="date" id="mobile_date_selection">
+				<% @dayCollection.each do |dc| %>
+					<option > <%= dc %> </option>
+				<% end %>
+			</select>
+
+
+			<button  class="btn-sm btn-warning" id="mobile_day_select">View Day</button>
+		</div>
+
+		<!-- Desktop Calendar -->
     	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
 			<%= calendar events: @days, number_of_days: 7 do |date, event| %>
 
@@ -24,6 +41,7 @@
 			<% end %> 
 			<hr>
     	</div>
+    	<!-- End Desktop Calendar-->
 	</div>
 <!-- -->
 <!-- -->
