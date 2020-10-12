@@ -8,13 +8,12 @@ before_action :authenticate_user!, only:[:admin_page]
 		@category = Category.all 
 
 		#move to model
-		todayToday = DateTime.now
-		logger.debug("LOOK HERE #{todayToday.strftime("%Y-%m-%d")}")
+		@todayToday = DateTime.now
 		@dayCollection = []
-		@dayCollection.push(todayToday.strftime("%Y-%m-%d"))
+		@dayCollection.push(@todayToday.strftime("%Y-%m-%d"))
 		i = 1
 		while i < 7 do 
-			newdate = todayToday + i.day
+			newdate = @todayToday + i.day
 			@dayCollection.push(newdate.strftime("%Y-%m-%d"))
 		i = i + 1
 		end	
@@ -24,7 +23,7 @@ before_action :authenticate_user!, only:[:admin_page]
 
 	def admin_page
 		@user = current_user
-		@days = Day.all
+		@days = Day.all.order(:this_date)
 		@loafs = Loaf.all.sort_by { |obj| obj.category_id }
 		@orders = Order.all	
 		@categories = Category.all

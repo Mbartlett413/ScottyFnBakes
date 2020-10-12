@@ -15,7 +15,7 @@
   <% end %>
 <h1 style="text-align: center">Admin Page</h1> 
 
-<%= link_to 'log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white' %>
 <!-- -->
 <hr>
 <div class="container-fluid">
@@ -27,7 +27,7 @@
             <% counter = 0 %>
             <% @days.each do |day| %>
             <% counter = counter.to_i + 1%>
-              <div class="card">
+              <div class="card"> 
 
                   <div class="card-header" id="headingOne<%=counter%>">
                     <h5 class="mb-0">
@@ -49,7 +49,7 @@
                         </thead>
                         <tbody>
                               <tr >
-                                  <td> <% day.orders.each do |order| %>
+                                  <td class="order_box"> <% day.orders.each do |order| %>
                                         <div style="border: 1px black solid; margin-bottom: 5px;">
                                               <p>Name: <%= order.guest_name %></p>
                                              <!-- -->
