@@ -4,8 +4,8 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <%= simple_form_for @day do |f| %>
-          <%= f.input :order_limit %>
-          <%= f.input :openings %>
+          <%= f.input :max_orders %>
+          <%= f.input :avaliable_spots %>
           <%= f.input :closed, as: :radio_buttons %>
           <%= f.button :submit %>
         <% end %>

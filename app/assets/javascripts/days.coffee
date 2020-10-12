@@ -29,7 +29,8 @@ document.addEventListener 'turbolinks:load', (event) ->
 		while i < allSelect.length
 			selectElement = allSelect[i];
 			console.log("loaf",[i], selectElement.options[selectElement.selectedIndex].text)
-			loaf.push(selectElement.options[selectElement.selectedIndex].text)
+			#loaf.push(selectElement.options[selectElement.selectedIndex].text)
+			loaf.push(selectElement.options[selectElement.selectedIndex].value)
 			i++
 
 		order_collection.push(loaf)

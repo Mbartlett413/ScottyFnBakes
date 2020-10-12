@@ -15,8 +15,8 @@
 			  	<% if x.closed == true%>
 			  		<p style="color: red">Closed </p>
 			  	<% else %>
-			  		<% if x.openings <= 5 %>
-			  			<p><%= x.openings %> spots left</p> 
+			  		<% if x.avaliable_spots <= 5 %>
+			  			<p><%= x.avaliable_spots %> spots left</p> 
 			  		<% end %>
 			  	<% end %>
 			  <% end %>
@@ -25,6 +25,7 @@
 			<hr>
     	</div>
 	</div>
+<!-- -->
 <!-- -->
 <div class="row sectionTwo">
 	<div class="col-12">
@@ -94,13 +95,25 @@
 			    </div>
 				<% @loafs.each do |x| %>
 					<% if x.active_item != false %>
-				    <div class="carousel-item" style="background-image: url(<%= rails_blob_url( x.image) %>)">
+						
+						<% if x.image.attached? == true %>
+					    	<div class="carousel-item" style="background-image: url(<%= rails_blob_url( x.image) %>) ">
+								  <div class="carousel-caption  ">
+								    <h4><i style="color:rgb(255, 205, 94);"><%= x.name %></i></h4>
+								    <p>  <%= x.ingredients %> </p>
+								  </div>
+						    </div>
+					    <% else %> 
+					    	<!--
+					    	<div class="carousel-item" %>
+								  <div class="carousel-caption  ">
+								    <h4><i style="color:rgb(255, 205, 94);"><%= x.name %></i></h4>
+								    <p>  <%= x.ingredients %> </p>
+								  </div>
+						    </div>
+							-->
+					    <% end %>
 
-						  <div class="carousel-caption  ">
-						    <h4><i style="color:rgb(255, 205, 94);"><%= x.name %></i></h4>
-						    <p>  <%= x.ingredients %> </p>
-						  </div>
-				    </div>
 				    <% end %>
 				<% end %>
 		</div>

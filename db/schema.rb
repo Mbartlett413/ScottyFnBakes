@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_215212) do
+ActiveRecord::Schema.define(version: 2020_10_11_220526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,9 @@ ActiveRecord::Schema.define(version: 2020_08_23_215212) do
   end
 
   create_table "days", force: :cascade do |t|
-    t.integer "order_limit", default: 16
-    t.integer "openings", default: 16
+    t.integer "max_orders", default: 16
+    t.integer "avaliable_spots", default: 16
     t.datetime "this_date"
-    t.integer "todays_order", array: true
     t.boolean "closed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,21 +59,30 @@ ActiveRecord::Schema.define(version: 2020_08_23_215212) do
     t.boolean "active_item"
     t.integer "price"
     t.integer "category_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_collections", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "quantity"
+    t.integer "day_id"
+    t.integer "loaf_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.float "total"
-    t.json "order_details"
     t.datetime "order_date"
     t.boolean "paid", default: false
     t.boolean "order_made", default: false
-    t.integer "day_id"
     t.string "guest_name"
     t.string "guest_number"
-    t.boolean "call", default: false
-    t.boolean "text", default: false
+    t.boolean "call_pref", default: false
+    t.boolean "text_pref", default: false
+    t.integer "day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

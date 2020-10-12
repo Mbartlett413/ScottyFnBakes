@@ -1,18 +1,20 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 col-md-6 col-lg-6 borderMe">
       <h1> Date: <%= @day.this_date.strftime("%m/%d/%Y") %></h1>
-      <h6> Openings: <%= @day.openings %></h6>
+      <h6> Openings: <%= @day.avaliable_spots %></h6>
     </div>
   </div>
-
+<p id="notice"><%= notice %></p>
   <div class="row formsection">
     <div class="col-sm-12 col-md-12 col-lg-12">
-    <% if @day.closed == true || @day.openings == 0 %>
-        <h3 style="color: red; text-align: center;">No Loaf For You Today. Try Tomorrow!</h3>
-  <% else %> 
+        <% if @day.closed == true || @day.avaliable_spots == 0 %>
+          <h3 style="color: red; text-align: center;">No Loaf For You Today. Try Tomorrow!</h3>
+        <% else %> 
+
+
         <div class="form-group">
           <label for="guestName">Name:</label>
           <input type="email" class="form-control" id="guestName" placeholder="Jon Dough" required >
@@ -23,23 +25,23 @@
           <input type="email" class="form-control" id="guestNumber" placeholder="555-555-5555" required>
         </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
-        <label class="form-check-label" for="call_pref">Calls are cool</label>
-      </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
+          <label class="form-check-label" for="call_pref">Calls are cool</label>
+        </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
-        <label class="form-check-label" for="text_pref">Text are cool</label>
-      </div>  
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
+          <label class="form-check-label" for="text_pref">Text are cool</label>
+        </div>  
     </div>    
 
       <div class="col-sm-12 col-md-12 col-lg-12">
         <table class="table">
           <thead>
             <tr>
-              <th> Type: </th>
-              <th> Quantity: </th>
+              <th class="text-white"> Type: </th>
+              <th class="text-white"> Quantity: </th>
             </tr>
           </thead>
 
@@ -53,45 +55,13 @@
         <button id="submitOrder" type="button" class="btn btn-primary btn-block" disabled="true" >Get This Bread</button>
 
         <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-warning btn-block">More Bread</button>
-<% end %>
+
+      <% end %>
         <hr>
       </div>
   </div>
 
-  <div class="row">
-    <div class="col-12">
-      <h3 style="text-align: center;"> Comin' In Hot</h3>  
-    </div>
-    
 
-    <div class="col-12">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Order #</th>
-              <th>Order Details:</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% i = 1 %>        
-                <% @day.orders.each do |order| %>
-                    <tr>
-                    <td><%= i %></td>
-                    <td>
-                    <p> <%= truncate(order.guest_number, :length => 9) %> Ordered</p>
-                    <p>
-                      <% order.order_details.each do|k,v| %>
-                        <%= v['quantity']%>  <%= v['type'] %>,
-                      <% end %>
-                    </p>
-                    </td>
-                    </tr>
-                    <% i = i.to_i + 1  %>
-                <% end %>
-          </tbody>
-        </table>
-    </div>
     <p id="orderDate" style="display: none;"> <%= @day.this_date.strftime("%Y-%m-%d") %></p>
   </div>
   

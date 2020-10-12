@@ -10,26 +10,39 @@
 		</div>
 		<div class="col-sm-12 col-md-12 col-lg-12">
 						<h6>Calls Ok?</h6>
-			<p><%= @order.call %></p>
+			<p><%= @order.call_pref %></p>
 		</div>
 		<div class="col-sm-12 col-md-12 col-lg-12">
 						<h6>Text Ok?</h6>
-			<p><%= @order.text %></p>
+			<p><%= @order.text_pref %></p>
 		</div>
 		<div class="col-sm-12 col-md-12 col-lg-12">
 						<h6>Order Date</h6>
 			<p><%= @order.order_date %></p>
 		</div>
-		<div class="col-sm-12 col-md-12 col-lg-12">
-						<h6>Order Details</h6>
-			<p><%= @order.order_details %></p>
-		</div>
+
 		<div class="col-sm-12 col-md-12 col-lg-12">
 						<h6>Paid?</h6>
 			<p><%= @order.paid %></p>
 		</div>
-
 	</div>
+	<div class="row">
+		<% @order.order_collections.each do |oc| %>
+			<%= simple_form_for(oc) do |z| %>
+			<div class="col-lg d-inline">
+				<%= z.input :quantity%>
+			</div>
+				
+			<div class="col-lg d-inline">
+				<%= z.input :loaf_id, collection: @loaf %>
+			</div>
+				
+			<div class="col-lg d-inline">
+				<%= z.button :submit, class: 'btn btn-primary' %>
+				<%= link_to 'Destroy', oc, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-warning' %>
+			<% end %>
+		<% end %>
+	</div>	
 </div>
 <ul>
 	<li> 

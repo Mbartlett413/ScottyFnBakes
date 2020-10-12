@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
 
 <h6> Name:<%= @loaf.name %></h6>
 <h6> Ingredients: <%= @loaf.ingredients  %></h6>
@@ -8,7 +5,11 @@
 <h6> Price: <%= @loaf.price  %></h6>
 <h6> Category: <%= @loaf.category_id %></h6>
 <p>Image:</p>
+<% if @loaf.image.attached? == true %>
       <%= image_tag @loaf.image %>
+<% else %>
+	<p>no image yet</p>
+<% end %>
        
 
 <%= link_to 'Edit', edit_loaf_path(@loaf) %> |

@@ -29,37 +29,26 @@ class DaysController < ApplicationController
   def create
     logger.debug("Hit")
     hackery = params[:this_date].to_s + ' 00:00:00'
+    
     @existing_date = Day.where("this_date = ?", hackery)
     logger.debug("h #{@existing_date.length}")
 
-    if @existing_date.length == 0
+    if @existing_date.length == 0 
+      
       @day = Day.new
       @day.this_date = hackery
-      @day.todays_order = []
       logger.debug("New Day Creation #{@day.inspect}")
         respond_to do |format|
           if @day.save
             format.html { redirect_to @day, notice: 'Day was successfully created.' }
-            #format.json { render :show, status: :created, location: @day }
           else
             format.html { render :new }
             format.json { render json: @day.errors, status: :unprocessable_entity }
           end
         end
-    else
-      logger.debug("existing date, #{@existing_date[0].inspect}")
-        #passive update of day
-        sum_array = []
-        @existing_date[0].orders.each do |x|
-          x.order_details.each do |f,k|
-            sum_array.push(k['quantity'].to_i)
-          end 
-        end 
-        logger.debug("mehh #{@existing_date[0].openings}")
-        @existing_date[0].openings = @existing_date[0].order_limit - sum_array.sum
-        @existing_date[0].save
-        logger.debug("sum array sum #{sum_array.sum}")
-        #end passive
+    else 
+      logger.debug("finding orders for date, #{@existing_date[0].inspect}")
+        
       redirect_to day_path(@existing_date[0].id)
     end 
   end
@@ -69,6 +58,18 @@ class DaysController < ApplicationController
   def update
     respond_to do |format|
       if @day.update(day_params)
+
+        # NOT DRY
+        quanSum = []
+        @day.orders.each do |order|
+          order.order_collections.each do |oc|
+            quanSum.push(oc.quantity)
+          end 
+        end 
+        new_avaliablility = @day.max_orders - quanSum.sum
+        @day.update_attribute(:avaliable_spots, new_avaliablility)
+        ##
+
         format.html { redirect_to admin_page_path, notice: 'Day was successfully updated.' }
         format.json { render :show, status: :ok, location: @day }
       else
@@ -96,6 +97,6 @@ class DaysController < ApplicationController
 
     # Only allow a list of trusted parameters through. 
     def day_params
-        params.require(:day).permit(:order_limit, :openings, :this_date, :todays_order, :closed)
+        params.require(:day).permit(:max_orders, :avaliable_spots, :this_date, :closed)
     end
 end

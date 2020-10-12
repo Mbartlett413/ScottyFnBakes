@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :days, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :orders, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :order_collections
   resources :loafs, only: [:new, :create, :show, :edit, :update, :destroy]
   devise_for :users
   resources :user, only: [:edit, :update] 

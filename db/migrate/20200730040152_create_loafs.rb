@@ -5,7 +5,8 @@ class CreateLoafs < ActiveRecord::Migration[5.2]
       	t.string :ingredients
       	t.boolean :active_item
       	t.integer :price
-      	t.integer :category_id 
+        t.integer :category_id
+        t.integer :user_id
       t.timestamps
     end
   end

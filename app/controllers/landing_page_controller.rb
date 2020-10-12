@@ -12,9 +12,9 @@ before_action :authenticate_user!, only:[:admin_page]
 	def admin_page
 		@user = current_user
 		@days = Day.all.sort_by(&:this_date)
-		@loafs = Loaf.all
+		@loafs = Loaf.all.sort_by { |obj| obj.category_id }
 		@orders = Order.all	
-		@categories = Category.all 
+		@categories = Category.all
 
 	end 
 

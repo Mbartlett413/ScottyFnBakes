@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @loaf = Loaf.all
   end
 
   # GET /orders/new
@@ -25,10 +26,12 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.jsons
   def create
-    logger.debug("hitt #{params}")
+    logger.debug("hitt #{params}") 
     #Params
-    order_quantity = params[:order_details]['0']
+    order_quantity = params[:order_details]['0'] 
+    logger.debug("QUAN #{params[:order_details]['0']}")
     order_type = params[:order_details]['1']
+    logger.debug("LOAFFFF #{params[:order_details]['1']}")
     hackery = params[:order_date].to_s + ' 00:00:00'
     @existing_date = Day.where("this_date = ?", hackery)
 
@@ -39,40 +42,43 @@ class OrdersController < ApplicationController
       text = true
     end 
     
-    #Build JSON
-    order_builder = {}
-    i = 0
-    while i < order_type.length do
-
-      order_builder[i] = {'type': order_type[i], 'quantity': order_quantity[i].to_i}
-      i = i + 1
-    end 
-    logger.debug("Finished JSON #{order_builder}")
-
-    @order = Order.new
-    @order.total = 0
-    @order.order_details = order_builder
-    @order.order_date = hackery
-    @order.paid = false
-    @order.order_made = false
-    @order.day_id = @existing_date[0].id
-    @order.guest_name = params[:guest_name]
-    @order.guest_number = params[:guest_number]
-    @order.call = params[:call]
-    @order.text = params[:text]
-
-    logger.debug("new order #{@order.inspect}")
-
+    #Build Order & Order Collection
+      @order = Order.new
+      @order.total = 0
+      @order.order_date = hackery
+      @order.paid = false
+      @order.order_made = false
+      @order.guest_name = params[:guest_name]
+      @order.guest_number = params[:guest_number]
+      @order.call_pref = params[:call]
+      @order.text_pref = params[:text]
+      @order.day_id = @existing_date[0].id
+    
     respond_to do |format|
+
       if @order.save
-        logger.debug("WTF #{order_quantity}")
-        #array comes through as strings versus integers, so convert
-        intQuan = order_quantity.map(&:to_i)
-        logger.debug("WTF #{intQuan}")
-        logger.debug("wts #{@existing_date[0].openings.to_i}")
-        @existing_date[0].openings = @existing_date[0].openings.to_i - intQuan.sum.to_i
-        @existing_date[0].todays_order = @existing_date[0].todays_order.push(@order.id)
-        @existing_date[0].save!
+        intQuan = [] 
+        #Create All the associated Order Collections
+          i = 0
+          while i < order_type.length do
+            #
+            @OC = OrderCollection.new
+            @OC.quantity = order_quantity[i] 
+            intQuan.push(@OC.quantity)
+            @OC.loaf_id = order_type[i] 
+            @OC.day_id = @existing_date[0].id
+            @OC.order_id = @order.id
+            @OC.save
+            logger.debug("new order #{@OC.inspect}")
+            #
+            i = i + 1
+          end 
+
+        newQuan = @existing_date[0].avaliable_spots.to_i - intQuan.sum.to_i
+        @existing_date[0].update_attribute(:avaliable_spots, newQuan)
+        #MAILERS
+        OrderMailer.alertBaker(@order.id).deliver_now
+
         format.html { redirect_to @existing_date[0], notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @existing_date[0] }
       else
@@ -99,13 +105,22 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
-    #update the associated day openings
-    #this.day.openings = day.openings + quantity
+    quanInt = []
+    @day = Day.find_by_id(@order.day_id) 
+      @order.order_collections.each do |whoa|
+        quanInt.push(whoa.quantity.to_i)
+      end 
+    totalQuan = quanInt.sum + @day.avaliable_spots
+    @day.update_attribute(:avaliable_spots, totalQuan)
+
+
+
     @order.destroy
     respond_to do |format|
       format.html { redirect_to admin_page_path, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content } 
     end
+
   end
 
   private

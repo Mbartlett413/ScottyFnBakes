@@ -1,4 +1,18 @@
-
+  <!-- -->
+  <% if notice.present? %>
+     <p class="alert alert-info"><%= notice %></p>
+  <% end %>
+    <% if alert.kind_of?(Array)%>
+       <ul>
+         <% alert.each do |x| %>
+           <li class="alert alert-danger" ><%= x %></li>
+         <% end %>
+       </ul>
+    <% elsif alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% else %>    
+  
+  <% end %>
 <h1 style="text-align: center">Admin Page</h1> 
 
 <%= link_to 'log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -18,7 +32,7 @@
                   <div class="card-header" id="headingOne<%=counter%>">
                     <h5 class="mb-0">
                       <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne<%=counter%>" aria-expanded="true" aria-controls="collapseOne<%=counter%>">
-                        <h4>DATE: <%= day.this_date.strftime("%Y-%m-%d") %></h4><p> Orders: <%= day.openings %> of <%= day.order_limit %></p>
+                        <h4>DATE: <%= day.this_date.strftime("%Y-%m-%d") %></h4><p> Spots Open: <%= day.avaliable_spots %> of <%= day.max_orders %></p>
                       </button>
                     </h5>
                   </div>
@@ -36,14 +50,22 @@
                         <tbody>
                               <tr >
                                   <td> <% day.orders.each do |order| %>
-                                      <div style="border: 1px black solid; margin-bottom: 5px;">
-                                          <% order.order_details.each do|k,v| %>
-                                              <p><%= order.guest_name %> wants <%= v['quantity']%> : <%= v['type'] %></p>
-                                          <% end %>
+                                        <div style="border: 1px black solid; margin-bottom: 5px;">
+                                              <p>Name: <%= order.guest_name %></p>
+                                             <!-- -->
+                                             <% order.order_collections.each do |oc|%>
+                                             <p>
+                                              <%= oc.quantity %>
+                                              <%= Loaf.find_by_id(oc.loaf_id).name %>
+                                            </p>
+                                             <% end %>
+                                             <!-- -->
+
+
                                               <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Delete This Order??' }, class: 'btn btn-danger text-white' %>
                                              <%= link_to 'Show', order, class: 'btn btn-info text-white' %>
-                                      </div>       
-                                      <% end %>
+                                        </div>
+                                        <% end %>       
                                   </td>
 
                                   <td><%= link_to 'Edit', edit_day_path(day), class: 'btn btn-info text-white' %></td>
@@ -88,7 +110,7 @@
             <tr>
               <td><%= loaf.name %></td>
               <td><%= loaf.ingredients %></td>
-              <td><%= loaf.category_id %></td>
+              <td><%= Category.find_by_id(loaf.category_id).name %></td>
               <td><%= loaf.price %></td>
               <td><%= loaf.active_item %></td>
               <td><%= link_to 'Show', loaf %></td>
