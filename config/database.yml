@@ -22,7 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: augustus
   password: Puppet66
-  host: localhost
+  #host: localhost
 
 development:
   <<: *default
