@@ -21,11 +21,6 @@ set :keep_releases, 5
 # This is useful if you don't want to use ENV variables
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
-namespace :custom do
-  task :task do
-    run "cd #{current_path} && bundle exec rake db:reset RAILS_ENV=#{rails_env}"
-  end
-end
 
 namespace :deploy do
   after :restart, :clear_cache do
