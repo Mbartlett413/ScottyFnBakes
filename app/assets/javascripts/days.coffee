@@ -15,6 +15,12 @@ document.addEventListener 'turbolinks:load', (event) ->
 		guest_number = document.getElementById('guestNumber')
 		call = document.getElementById('call_pref')
 		text = document.getElementById('text_pref')
+		guest_email = document.getElementById('guestEmail')
+		guest_notes = document.getElementById('order_notes')
+		pickup_time = document.getElementById('pickupTime')
+		pickup_value = pickup_time.options[pickup_time.selectedIndex].text
+		console.log("What thats", pickup_value)
+
 
 		q=0
 		qty = []
@@ -29,16 +35,20 @@ document.addEventListener 'turbolinks:load', (event) ->
 		while i < allSelect.length
 			selectElement = allSelect[i];
 			console.log("loaf",[i], selectElement.options[selectElement.selectedIndex].text)
-			#loaf.push(selectElement.options[selectElement.selectedIndex].text)
-			loaf.push(selectElement.options[selectElement.selectedIndex].value)
+			if selectElement.id != 'pickupTime'
+				loaf.push(selectElement.options[selectElement.selectedIndex].value)
 			i++
 
 		order_collection.push(loaf)
 		console.log("Woof", order_collection)
 		$.post '/orders',
 			order_details: order_collection,
+			pickupTime: pickup_value,
 			order_date: orderDate.innerHTML,
 			guest_name: guest_name.value,
 			guest_number: guest_number.value,
 			call: call.value,
-			text: text.value
+			text: text.value,
+			guest_email: guest_email.value,
+			pickup_notes: guest_notes.value,
+            

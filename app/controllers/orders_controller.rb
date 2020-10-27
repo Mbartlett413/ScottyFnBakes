@@ -16,7 +16,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @loafs = Loaf.all 
+    @days = Day.all
     @order = Order.new 
+    @oc = @order.order_collections.new
+
   end
 
   # GET /orders/1/edit
@@ -25,7 +29,34 @@ class OrdersController < ApplicationController
 
   # POST /orders
   # POST /orders.jsons
+
+  def false_create
+    @order = Order.new(order_params)
+    @oc = @order.order_collections.new
+    @oc.order_id = @order.id
+
+    logger.debug("exist #{@order} and #{@oc}")
+    @order.day_id = params[:order][:order_date]
+    logger.debug("HERE #{params[:order][:order_date]}")
+    @day = Day.find_by_id(params[:order][:order_date])
+    logger.debug("HERE #{@day.inspect}")
+    @order.order_date = @day.this_date
+    
+    respond_to do |format|
+      if @order.save
+
+
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.json { render :show, status: :created, location: @order }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end 
+  end 
+
   def create
+    @order = Loaf.new(order_params) 
     logger.debug("hitt #{params}") 
     #Params
     order_quantity = params[:order_details]['0'] 
@@ -53,6 +84,9 @@ class OrdersController < ApplicationController
       @order.call_pref = params[:call]
       @order.text_pref = params[:text]
       @order.day_id = @existing_date[0].id
+      @order.guest_email = params[:guest_email]
+      @order.pickup_notes = params[:pickup_notes]
+      @order.pickupTime = params[:pickupTime]
     
     respond_to do |format|
 
@@ -131,6 +165,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:total, :order_details, :order_date, :paid, :order_made, :day_id, :guest_name, :guest_number ,:call, :text)
+      params.permit(:order_details)
+      #params.require(:order).permit(:total, :order_date, :paid, :order_made, :guest_name, :guest_number, :guest_email, :call_pref, :text_pref, :day_id, :pickupTime, :pickup_notes )
     end
 end

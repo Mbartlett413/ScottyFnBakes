@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'landing_page#index'
   get 'admin_page', to: 'landing_page#admin_page'
+  get 'about_me', to: 'landing_page#about_me'
 end

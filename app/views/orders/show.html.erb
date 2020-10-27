@@ -36,10 +36,14 @@
 		<div class="col-sm-12 col-md-12 col-lg-12">
 						<h6>Order Date:: <%= @order.order_date.strftime("%m/%d/%Y") %></h6>
 
-		</div>
+		</div> 
 
 		<div class="col-sm-12 col-md-12 col-lg-12">
 						<h6>Guest Number: <a href="tel:<%= @order.guest_number %>"><%= @order.guest_number %></a> <br></h6>
+
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Guest Email: <a href="mailto: <%= @order.guest_email %>"><%= @order.guest_email %></a> <br></h6>
 
 		</div>
 		<div class="col-sm-12 col-md-12 col-lg-12">
@@ -50,6 +54,16 @@
 						<h6>Texts Ok?:: <%= @order.text_pref %></h6><hr>
 
 		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Pickup Time:: <%= @order.pickupTime %></h6><hr>
+
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+						<h6>Pickup Notes:: <%= @order.pickup_notes %></h6><hr> 
+
+		</div>
+
+
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<h4>Order Details </h4>
 		</div>
@@ -76,7 +90,8 @@
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<h3><%= @order.guest_name %></h3>
-			<p>Your order for <%= @order.order_date.strftime("%m/%d/%Y") %> has been recieved! The baker will be in contact with you for any questions!</p>
+			<p>Your order has been received! If you have any questions or need to adjust your order, please email me</p>
+			<a href = "mailto: scottyfnbakes@gmail.com">Send Email</a>
 		</div>
 	</div>
 

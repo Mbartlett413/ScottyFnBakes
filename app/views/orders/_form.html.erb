@@ -1,16 +1,35 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-        <%= simple_form_for @order do |f| %>
+        <%= simple_form_for @order do |f| %> 
+
+            <%= f.input :order_date, collection: @days %>
             <%= f.input :guest_name %>
             <%= f.input :guest_number %>
-            <%= f.input :order_date %>
-            <%= f.input :paid %>
-            <%= f.input :order_made %>
-            <%= f.input :call %>
-            <%= f.input :text %>
+            <%= f.input :guest_email %>
+            <%= f.input :call_pref %>
+            <%= f.input :text_pref %>
+            <%= f.input :pickupTime %>
+            <%= f.input :pickup_notes %>
+
+            <%= simple_fields_for :order_collections do |p| %>
+
+              <%= p.input :quantity %>
+              <%= p.input :day_id, collection: @days %>
+              <%= p.input :loaf_id, collection: @loafs %>  
+            <% end %>
+
+            <%= simple_fields_for :order_collections do |p| %>
+
+              <%= p.input :quantity %>
+              <%= p.input :day_id, collection: @days %>
+              <%= p.input :loaf_id, collection: @loafs %>  
+            <% end %>
+
+
+
           <%= f.button :submit %>
-        <% end %>
+        <% end %> 
     </div>
   </div>
 </div>

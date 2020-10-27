@@ -18,36 +18,36 @@
      <meta name="description" content="Fresh baked bread from Plano Texas 75075">
 
       <div class="introSection container-fluid"> 
-        <div class="row">
-            <div class="col-sm ">
-              <a href="tel:713-392-3355">713.392.3355</a> <br>
-              <a id="hoverEffect" href = "mailto: scottyfnbakes@gmail.com">Send Email</a>
+
+        <div class="row" style="margin: none; padding: none;">
+          <div class="col-sm">
             </div>
+            <div class="col-sm">
+              <%= image_tag("SFB-b&w-round.png", class: "card-img-top img-fluid") %>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm" style="text-align: left;">
+              <%= link_to '713.392.3355', "tel:713-392-3355" %><br>
+              <%= mail_to "scottyfnbakes@gmail.com", 'scottyfnbakes@gmail.com', id: 'hoverEffect' %>
+            </div>
+
             <div class="col-sm signature">
               <%= link_to "Scotty Fn Bakes", root_path %>
             </div>
-            <div class="col-sm signature">
+
+            <div class="col-sm signature " style="text-align: right;">
               <a  href="https://www.instagram.com/scottyfnbakes/?igshid=1msej3frrklrp"> <i class="fa fa-instagram" style="font-size:25px; color: #F2A61B;" ></i></a>
 
               <% if user_signed_in? %>
                 <%= link_to "ADMIN LINK", admin_page_path %>
-              <% end %>
+              <% end %> 
 
             </div>
         </div>
-        
-        <!-- currently taking this away
-        <div class="row">
-          <div class="col-sm">
-            </div>
-            <div class="col-sm">
-              <%#= image_tag("logo", class: "card-img-top img-fluid") %>
-            </div>
-            <div class="col-sm">
-            </div>
-        </div>
-        -->
-
       </div>
 
     <%= yield %>

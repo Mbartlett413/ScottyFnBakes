@@ -80,9 +80,12 @@ ActiveRecord::Schema.define(version: 2020_10_11_220526) do
     t.boolean "order_made", default: false
     t.string "guest_name"
     t.string "guest_number"
+    t.string "guest_email"
     t.boolean "call_pref", default: false
     t.boolean "text_pref", default: false
     t.integer "day_id"
+    t.string "pickupTime"
+    t.text "pickup_notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

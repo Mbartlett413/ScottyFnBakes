@@ -26,7 +26,7 @@ class LoafsController < ApplicationController
   # POST /loafs
   # POST /loafs.json
   def create
-    @loaf = Loaf.new(loaf_params)
+    @loaf = Loaf.new(loaf_params) 
 
     respond_to do |format|
       if @loaf.save

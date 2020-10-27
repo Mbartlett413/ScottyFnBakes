@@ -1,3 +1,13 @@
 <h1> YOU GOT BREAD!!! ... to make</h1>
-<p> <%= @order.guest_name %>
-<p> <%= @order.guest_number %>
+<p> <%= @order.guest_name %></p>
+<p><%= @order.guest_number %></p>
+<p><%= @order.guest_email %></p>
+<p><%= @order.pickupTime %></p>
+<p><%= @order.pickup_notes %></p>
+<p><%= @order.guest_name %></p>
+
+<% @order.order_collections.each do |oc| %>
+	<p><%= oc.quantity %>::
+	<%= Loaf.find_by_id(oc.loaf_id).name %></p>
+<% end %>
+
