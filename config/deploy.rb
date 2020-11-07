@@ -42,7 +42,7 @@ namespace :deploy do
     end
   end
 end
-
+#bundle exec cap production deploy:seed
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
