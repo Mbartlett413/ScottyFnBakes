@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   root 'landing_page#index'
   get 'admin_page', to: 'landing_page#admin_page'
   get 'about_me', to: 'landing_page#about_me'
-  get 'FAQ', to: 'landing_page#FAQ'
+  get 'faq', to: 'landing_page#faq'
 end
