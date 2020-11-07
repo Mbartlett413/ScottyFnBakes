@@ -50,48 +50,20 @@
 <!-- Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//-->
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
     <div class="row sectionThree">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<h3>Reserve your loaf today!</h3>
-			<hr>
-		</div>
-
 		<!-- Mobile Calendar -->
-		<div class="col-sm-6 col-md-6 col-lg-12" id="mobile_calendar">
-			<h4>Mobile Calendar</h4>
-
-			<label for="date" class="">PICK A DAY ANY DAY...</label>
+		<div class="col-sm-12 col-md-6 col-lg-6" id="mobile_calendar">
+			<h4>Book Some Bread</h4>
 			<select class="custom-select" for="date" id="mobile_date_selection">
 				<% @dayCollection.each do |dc| %>
 					<option > <%= dc %> </option>
 				<% end %>
-			</select>
+			</select> <br>
 
 
 			<button  class="btn-sm btn-warning" id="mobile_day_select">View Day</button>
 		</div>
 
-		<!-- Desktop Calendar -->
-    	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
-			<%= calendar events: @days, number_of_days: 28 do |date, event| %>
-				<% if date.strftime("%Y-%m-%d") > @todayToday  %>	
-			  		<button class="day_selector btn-sm btn-warning"><%= date.strftime("%Y-%m-%d") %></button>
-			  	<% end %>
 
-			  	<% event.each do |x| %>
-
-			  		<% if x.closed == true %>
-			  			<p style="color: red">Closed </p>
-			  		<% else %>
-			  			<% if x.avaliable_spots <= 5 %>
-			  				<p><%= x.avaliable_spots %> spots left</p> 
-			  			<% end %>
-			  		<% end %>
-			  	<% end %>
- 
-			<% end %> 
-			<hr>
-    	</div>
-    	<!-- End Desktop Calendar-->
 	</div>
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
 <!-- -->

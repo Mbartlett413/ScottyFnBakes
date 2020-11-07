@@ -2,13 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Media Queries */
+/* mobile_calendar
+calendar */
+
+/* Unless width is 576px, this is true*/
+@media (min-width: 576px){ 
+
+
+}
+@media (max-width: 576.98px) {
+
+  
+} 
 body {
   background-color: rgb(14,17,17);
 }
 
 .introSection {
   text-align: center;
-  font-family: 'Yellowtail', cursive;
+  font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 20px;
   background-color: rgb(14, 17, 17);
   border-bottom: solid #FFC107 2px;
@@ -21,7 +34,7 @@ body {
 }
 
 .signature a {
-  font-family: 'Yellowtail', cursive;
+font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 30px;
   color: rgb(255, 205, 94); 
 }
@@ -58,7 +71,7 @@ body {
             margin: 0 auto;
 }
 .carousel-caption h4 {
-font-family: 'Yellowtail', cursive;
+font-family: 'Big Shoulders Inline Text', cursive;
 font-size: 30px;
 text-shadow: 2px 2px black;
 }
@@ -94,7 +107,7 @@ text-shadow: 2px 2px black;
   position: relative;
   top: 50%;
   opacity: 0;
-  font-family: 'Yellowtail', cursive;
+font-family: 'Big Shoulders Inline Text', cursive;
 }
 
 
@@ -106,7 +119,7 @@ text-shadow: 2px 2px black;
 
 .infoBox{
   vertical-align: top;
-  font-family: 'Yellowtail', cursive;
+font-family: 'Big Shoulders Inline Text', cursive;
   margin: 15px;
   border: 1px solid;
   border-color: black;
@@ -128,7 +141,7 @@ text-shadow: 2px 2px black;
 
 .sectionTwo h3{
 	text-align: center;
-  font-family: 'Cabin Sketch', cursive;
+font-family: 'Big Shoulders Inline Text', cursive;
 }
 
 .header_shadow{
@@ -136,7 +149,8 @@ text-shadow: 2px 2px black;
 }
 .sectionTwo ul {
 	list-style: none;
-  font-family: 'Yellowtail', cursive;
+  /*font-family: 'Yellowtail', cursive; */
+  font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 20px;
 }
 .sectionTwo li {
@@ -154,12 +168,12 @@ text-shadow: 2px 2px black;
 
 
 
-/* SECTION THREE */
+/* SECTION THREE CALENDAR SELECTION*/
 .sectionThree{
 	padding-left: 10px;
 	padding-right: 50px;
   text-align: center;
-  font-family: 'Cabin Sketch', cursive;
+font-family: 'Big Shoulders Inline Text', cursive;
   /* background-color: rgb(245, 239, 227);  */
   background-color: #2A2829;
 }
@@ -208,30 +222,15 @@ text-shadow: 2px 2px black;
     .calendar-heading a {
       display: none;
     }
+    #mobile_calendar{
+      margin: auto; 
+      padding-bottom: 10px; 
+    }
+    #mobile_day_select{
+        margin-top: 15px;
+    }
 
-/* Media Queries */
-/* mobile_calendar
-calendar */
 
-/* Unless width is 576px, this is true*/
-@media (min-width: 576px){ 
-  #mobile_calendar {
-    display: none;
-  }
-  #calendar {
-    
-  }
-
-}
-@media (max-width: 576.98px) {
-  #mobile_calendar {
-    
-  }
-  #calendar {
-    display: none;
-  }
-  
-} 
 
 .card-body{
   background-color: rgb(14, 17, 17);
@@ -258,3 +257,10 @@ calendar */
   height: 400px;  /* The height is 400 pixels */
   width: 100%;  /* The width is the width of the web page */
  }
+
+.about_me{
+  color: black;
+}
+.tab{
+  text-indent: 1sem;
+}

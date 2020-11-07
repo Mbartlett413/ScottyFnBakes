@@ -1,0 +1,22 @@
+		<!-- Desktop Calendar -->
+    	<div class="col-sm-12 col-md-12 col-lg-12" id="calendar">
+			<%= calendar events: @days, number_of_days: 28 do |date, event| %>
+				<% if date.strftime("%Y-%m-%d") > @todayToday  %>	
+			  		<button class="day_selector btn-sm btn-warning"><%= date.strftime("%Y-%m-%d") %></button>
+			  	<% end %>
+
+			  	<% event.each do |x| %>
+
+			  		<% if x.closed == true %>
+			  			<p style="color: red">Closed </p>
+			  		<% else %>
+			  			<% if x.avaliable_spots <= 5 %>
+			  				<p><%= x.avaliable_spots %> spots left</p> 
+			  			<% end %>
+			  		<% end %>
+			  	<% end %>
+ 
+			<% end %> 
+			<hr>
+    	</div>
+    	<!-- End Desktop Calendar-->

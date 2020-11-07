@@ -12,7 +12,7 @@ before_action :authenticate_user!, only:[:admin_page]
 		@dayCollection = []
 		@dayCollection.push(@todayToday.strftime("%Y-%m-%d"))
 		i = 1
-		while i < 7 do 
+		while i < 28 do 
 			newdate = @todayToday + i.day
 			@dayCollection.push(newdate.strftime("%Y-%m-%d"))
 		i = i + 1
@@ -20,7 +20,9 @@ before_action :authenticate_user!, only:[:admin_page]
 		logger.debug("LOOK HERE #{@dayCollection}")
 	end 
 
-
+	def faq
+	end 
+	
 	def admin_page
 		@user = current_user
 		@days = Day.all.order(:this_date)
