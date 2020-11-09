@@ -29,4 +29,5 @@ before_action :authenticate_user!, only:[:admin_page]
 
 	end 
 
+
 end 
