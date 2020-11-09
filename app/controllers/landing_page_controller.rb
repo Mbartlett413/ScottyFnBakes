@@ -19,9 +19,6 @@ before_action :authenticate_user!, only:[:admin_page]
 		end	
 		logger.debug("LOOK HERE #{@dayCollection}")
 	end 
-
-	def faq
-	end 
 	
 	def admin_page
 		@user = current_user
