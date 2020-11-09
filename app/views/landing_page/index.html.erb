@@ -9,7 +9,8 @@
 					  <div class="carousel-caption  ">
 					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
 					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet.</p>
-					    <button type="button" class="btn btn-warning redica"><%= link_to 'Learn More', about_me_path %></button>
+
+					    <%= link_to 'Learn More', about_me_path, class: 'btn btn-warning text-white' %>
 					  </div>
 			    </div>
 				<% @loafs.each do |x| %>
@@ -47,12 +48,14 @@
 			</div> 
 	</header>	
 
+
 <!-- Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//-->
+
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
     <div class="row sectionThree">
 		<!-- Mobile Calendar -->
 		<div class="col-sm-12 col-md-6 col-lg-6" id="mobile_calendar">
-			<h4>Book Some Bread</h4>
+			<h4 class="center">Book Some Bread</h4>
 			<select class="custom-select" for="date" id="mobile_date_selection">
 				<% @dayCollection.each do |dc| %>
 					<option > <%= dc %> </option>
@@ -60,10 +63,9 @@
 			</select> <br>
 
 
-			<button  class="btn-sm btn-warning" id="mobile_day_select">View Day</button>
+			<button  class="btn btn-warning" id="mobile_day_select">Order From This Date</button>
+			<hr>
 		</div>
-
-
 	</div>
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
 <!-- -->
@@ -105,12 +107,21 @@
 		  	</h5>
 		  	<h6>Operating under the <a class="text-white" href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
 		  	</h6>
+    	</div>
+    	<div class="col-lg col-md col-sm text-left">
+    		<ul>
+    			<li><%= link_to "About Me", about_me_path %></li>
+    			<li><%= link_to "FAQ", faq_path %></li>
+    		</ul>
 		  	<hr>
 		     <h6>Made By GlassMinds LLC</h6>	
     	</div>
 		<!--The div element for the map -->
     </div>
 </div>
+
+
+
 
 <script type="text/javascript">
 	var btnlis = document.getElementsByClassName('redica')
@@ -120,7 +131,6 @@
 			document.getElementById('calendar').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
 		})
 	}
-
 </script>
 <script>
 	// Initialize and add the map
