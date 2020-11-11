@@ -1,0 +1,43 @@
+
+
+<div class="row sectionTwo">
+	<div class="col-lg">
+		<h3 class="header_shadow">Comin' in hot this Week</h3>
+	</div>
+</div>
+
+	<% i=1%>
+	<% @category.each do |cat| %>
+		<% if cat.active != false %>
+
+			<div class="row sectionTwo">
+				<!-- small menu -->
+				<% if i%2 == 0 %>
+					<div class="col-sm menuBox">
+
+					</div>
+				<% end %>
+				<div class="col-sm infoBox">
+					<h3><%= cat.name %>...$<%= cat.price %></h3>
+					<ul class="menu_list">
+						<% @loafs.each do |loaf| %>
+							<% if loaf.category_id == cat.id %>
+								<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
+							<% end %>
+						<% end %>
+					</ul>
+				</div>
+
+				<% if i%2 != 0 %>
+					<div class="col-sm menuBox">
+
+					</div>
+				<% end %>
+				<!-- end menu row-->
+			</div>
+
+		<% end %>
+	<% i+=1 %>
+	<% end %>
+	
+</div>

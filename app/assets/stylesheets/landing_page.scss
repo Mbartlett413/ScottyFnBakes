@@ -9,10 +9,11 @@ calendar */
 /* Unless width is 576px, this is true*/
 @media (min-width: 576px){ 
 
-
 }
 @media (max-width: 576.98px) {
-
+  .menuBox{
+    display: none;
+  }
   
 } 
 body {
@@ -133,12 +134,25 @@ font-family: 'Big Shoulders Inline Text', cursive;
   -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
   background: image_url('linedpaper.png');
 }
+
+.menuBox{
+  vertical-align: top;
+  font-family: 'Big Shoulders Inline Text', cursive;
+  margin: 3px;
+  border: 1px solid;
+  border-color: black;
+  color: black;
+  box-shadow: 3px 6px #888888;
+  -webkit-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
+  -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
+  background: image_url('Bread3.jpg');
+}
 .infoPhoto{
   margin: 15px;
   border: 1px black solid;
 }
 .sectionTwo{
-	height: auto;
+	height: auto; 
   /*background-color: rgb(245, 239, 227);*/
   background-color: #2A2829;
 }
@@ -228,6 +242,7 @@ font-family: 'Big Shoulders Inline Text', cursive;
     #mobile_calendar{
       margin: auto; 
       padding-bottom: 10px; 
+      padding-top: 13px; 
     }
     #mobile_day_select{
         margin-top: 15px;
@@ -250,6 +265,30 @@ font-family: 'Big Shoulders Inline Text', cursive;
   }
 
 
+
+.marketSection{
+  background-color: white;
+  height: 400px;
+}
+.marketSection h4{
+  color: black;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.marketSection h1{
+  padding-top: 25px;
+  color: black;
+  letter-spacing: 3px;
+  border-bottom: solid black 3px;
+  width: 350px;
+  margin: auto;
+  padding-bottom: 30px; 
+}
+.marketSection p{
+  padding-top: 50px;
+  color: black;
+}
 
 #footer {
   /* background-color: rgb(43, 123, 239);  */

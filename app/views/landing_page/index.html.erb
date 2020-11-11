@@ -8,7 +8,7 @@
 
 					  <div class="carousel-caption  ">
 					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
-					    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet vehicula mi, sit amet tincidunt lectus. Morbi non dapibus nunc, at molestie tortor. Nam aliquet velit eros, sit amet ultricies sapien molestie sit amet.</p>
+					    <p>All our bread is made from scratch! Our ingredients are locally sourced from the great state of Texas and 10% if our profits go back to the community that takes care of us.</p>
 
 					    <%= link_to 'Learn More', about_me_path, class: 'btn btn-warning text-white' %>
 					  </div>
@@ -46,7 +46,7 @@
 			    <span class="sr-only">Next</span>
 			  </a>
 			</div> 
-	</header>	
+</header>	
 
 
 <!-- Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//-->
@@ -55,7 +55,8 @@
     <div class="row sectionThree">
 		<!-- Mobile Calendar -->
 		<div class="col-sm-12 col-md-6 col-lg-6" id="mobile_calendar">
-			<h4 class="center">Book Some Bread</h4>
+			<h1 class="center">Order Online Now</h1>
+			<p>Offering Curbside Pickup</p>
 			<select class="custom-select" for="date" id="mobile_date_selection">
 				<% @dayCollection.each do |dc| %>
 					<option > <%= dc %> </option>
@@ -63,32 +64,13 @@
 			</select> <br>
 
 
-			<button  class="btn btn-warning" id="mobile_day_select">Order From This Date</button>
+			<button  class="btn btn-outline-warning btn-lg text-white" id="mobile_day_select">Order From This Date</button>
 			<hr>
 		</div>
 	</div>
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
-<!-- -->
-<div class="row sectionTwo">
-	<div class="col-12">
-		<h3 class="header_shadow">Comin' in hot this Week</h3>
-	</div>
-	<% @category.each do |cat| %>
-		<% if cat.active != false %>
-		<div class="col-sm col-md col-lg infoBox">
-			<h3><%= cat.name %>...$<%= cat.price %></h3>
-			<ul class="menu_list">
-			<% @loafs.each do |loaf| %>
-				<% if loaf.category_id == cat.id %>
-					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
-				<% end %>
-			<% end %>
-			</ul>
-		</div>
-		<% end %>
-	<% end %>
-</div>
-<!-- -->
+<%= render partial: 'menu' %>
+<%= render partial: 'marketing' %>
 </div>
 	
 	<!-- Section Two --> 
@@ -108,13 +90,8 @@
 		  	<h6>Operating under the <a class="text-white" href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
 		  	</h6>
     	</div>
-    	<div class="col-lg col-md col-sm text-left">
-    		<ul>
-    			<li><%= link_to "About Me", about_me_path %></li>
-    			<li><%= link_to "FAQ", faq_path %></li>
-    		</ul>
-		  	<hr>
-		     <h6>Made By GlassMinds LLC</h6>	
+    	<div class="col-lg col-md col-sm" style="bottom: 0;">
+		     <h6 class="text-left" >Made By GlassMinds LLC</h6>	
     	</div>
 		<!--The div element for the map -->
     </div>

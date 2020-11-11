@@ -1,0 +1,21 @@
+<!-- -->
+<div class="row sectionTwo">
+	<div class="col-12">
+		<h3 class="header_shadow">Comin' in hot this Week</h3>
+	</div>
+	<% @category.each do |cat| %>
+		<% if cat.active != false %>
+		<div class="col-sm infoBox">
+			<h3><%= cat.name %>...$<%= cat.price %></h3>
+			<ul class="menu_list">
+			<% @loafs.each do |loaf| %>
+				<% if loaf.category_id == cat.id %>
+					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
+				<% end %>
+			<% end %>
+			</ul>
+		</div>
+		<% end %>
+	<% end %>
+</div>
+<!-- -->

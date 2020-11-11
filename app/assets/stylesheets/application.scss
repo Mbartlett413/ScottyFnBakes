@@ -33,32 +33,31 @@ table tr{
 
 nav {
 	opacity: 0.8;
-	background: image_url('wheat.png');
-	font-family: 'Yellowtail', cursive; 
+	font-family: 'Big Shoulders Inline Text', cursive;
 	color: rgb(255, 205, 94);
-	font-size: 25px;
+	font-size: 20px;
 }
 
 nav a:link{
 		color: rgb(255, 205, 94);
-	font-size: 25px;
+	font-size: 20px;
 }
 nav a:visited{
 		color: rgb(255, 205, 94);
-	font-size: 25px;
+	font-size: 20px;
 }
 nav a:a:hover{
 		color: rgb(255, 205, 94);
-	font-size: 25px;
+	font-size: 20px;
 }
 nav a:a:active{
 		color: rgb(255, 205, 94);
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .logo_image img{
 	height: 250px;
-	margin-top: -50px;
+	margin-top: -20px;
 	margin-bottom: -60px;
 	padding: -10px;
 }
@@ -76,6 +75,9 @@ nav a:a:active{
 	.mobile_View {
 		text-align: right;
 	}
+	.navbar{
+	  	display: none;
+	}
 
 }
 @media (max-width: 576.98px) {
@@ -83,5 +85,6 @@ nav a:a:active{
   .desktop_View{
     display: none;
   }
+
   
 } 
