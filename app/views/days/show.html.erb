@@ -1,29 +1,49 @@
 
-
-<div class="container-fluid">
+<div class="container-fluid orderPage"> 
   <div class="row">
-    <div class="col-sm-6 col-md-6 col-lg-6 borderMe">
-      <h1> Date: <%= @day.this_date.strftime("%m/%d/%Y") %></h1>
-      <h6> Openings: <%= @day.avaliable_spots %></h6>
+    <div class="col-sm-12 col-md-12 col-lg-12 borderMe">
+      <h1 class="center"> <%= @day.this_date.strftime("%m/%d/%Y") %></h1>
+
     </div>
   </div>
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
+
   <div class="row formsection">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
         <% if @day.closed == true || @day.avaliable_spots == 0 %>
           <h3 style="color: red; text-align: center;">No Loaf For You Today. Try Tomorrow!</h3>
         <% else %> 
-
-
+        <h3 class="center">ORDER INFO</h3>
         <div class="form-group">
-          <label for="guestName">Name:</label>
-          <input type="email" class="form-control" id="guestName" placeholder="Jon Dough" required >
+          <input type="email" class="testForm" id="guestName" placeholder="Full Name" required >
         </div>
 
         <div class="form-group">
-          <label for="guestNumber">Number:</label>
-          <input type="tel" class="form-control" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555" required>
+          <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555" required>
         </div>
+
+        <div class="form-group">
+          <input type="email" class="testForm" id="guestEmail" placeholder="Email Address" required>
+        </div>
+
+          <div class="form-group">
+            <input type="textarea" class="testForm" id="order_notes" placeholder="Message For Baker" required>
+          </div>
+
+          <div class="form-group">
+            <select class="testForm" id="pickupTime">
+              <option>Pick Up Time</option>
+              <option>9AM-12PM</option>
+              <option>12PM-3PM</option>
+              <option>3PM-6PM</option>
+              <option>6PM-9PM</option>
+            </select>
+          </div>
+    </div>    
+  </div>
+
+  <div class="row checkboxOrder">
+    <div class="col-10">
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
           <label class="form-check-label" for="call_pref">Calls are cool</label>
@@ -33,36 +53,19 @@
           <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
           <label class="form-check-label" for="text_pref">Text are cool</label>
         </div> 
-
-        <div class="form-group">
-          <label for="guestEmail">Email:</label>
-          <input type="email" class="form-control" id="guestEmail" placeholder="JonDough@Bread.com" required>
-        </div>
-
-          <div class="form-group">
-            <label for="order_notes">Notes, Special Request, Etc...</label>
-            <input type="textarea" class="form-control" id="order_notes" placeholder="I Love Bread" required>
-          </div>
-
-          <div class="form-group">
-            <label for="pickupTime">Pickup Time</label>
-            <select multiple class="form-control" id="pickupTime">
-              <option>9AM-12PM</option>
-              <option>12PM-3PM</option>
-              <option>3PM-6PM</option>
-              <option>6PM-9PM</option>
-            </select>
-          </div>
+      </div>
+  </div>
 
 
-    </div>    
 
-      <div class="col-sm-12 col-md-12 col-lg-12">
+  <div class="row breadSelection">
+    <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
+        <h3 class="center">Select Bread</h3>
         <table class="table">
           <thead>
             <tr>
-              <th class="text-white"> Type: </th>
-              <th class="text-white"> Quantity: </th>
+              <th class="text-white" >Type: </th>
+              <th class="text-white" >Quantity: </th>
             </tr>
           </thead>
 
@@ -81,6 +84,7 @@
         <hr>
       </div>
   </div>
+
 
 
     <p id="orderDate" style="display: none;"> <%= @day.this_date.strftime("%Y-%m-%d") %></p>
