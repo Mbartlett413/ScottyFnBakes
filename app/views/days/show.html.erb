@@ -15,7 +15,7 @@
         <% else %> 
         <h3 class="center">ORDER INFO</h3>
         <div class="form-group">
-          <input type="email" class="testForm" id="guestName" placeholder="Full Name" required >
+          <input type="email" class="testForm" id="guestName" placeholder="Full Name*" required >
         </div>
 
         <div class="form-group">
@@ -76,9 +76,9 @@
               </tr>
           </tbody>
         </table>
-        <button id="submitOrder" type="button" class="btn btn-primary btn-block" disabled="true" >Get This Bread</button>
+        <button id="submitOrder" type="button" class="btn btn-outline-primary btn-block" disabled="true" >Get This Bread</button>
 
-        <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-warning btn-block">More Bread</button>
+        <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-outline-warning btn-block">More Bread</button>
 
       <% end %>
         <hr>
