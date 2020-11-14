@@ -143,18 +143,32 @@ font-family: 'Big Shoulders Inline Text', cursive;
   -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
   background: image_url('linedpaper.png');
 }
+.infoBox li{
+  padding-bottom: none;
+  margin-bottom: none;
+  height: 33px;
+  vertical-align: bottom;
+  bottom: 0;
+
+}
+
+.ingredients{
+  padding-top: -15px;
+  margin-top: -15px;
+}
 
 .menuBox{
-  vertical-align: top;
-  font-family: 'Big Shoulders Inline Text', cursive;
+  background-repeat: no-repeat;
+
+  background-position: center; 
+  background-size: cover;
   margin: 3px;
   border: 1px solid;
   margin-bottom: 10px;
   border-color: black;
   color: black;
   box-shadow: 3px 6px #888888;
-  -webkit-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
-  -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
+
   /*background: image_url('Bread3.jpg');*/
 }
 .infoPhoto{

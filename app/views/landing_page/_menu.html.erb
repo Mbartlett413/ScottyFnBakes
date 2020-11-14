@@ -21,7 +21,10 @@
 					<ul class="menu_list">
 						<% @loafs.each do |loaf| %>
 							<% if loaf.category_id == cat.id %>
-								<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
+							<li>
+								<%= loaf.name %><br> 
+								<sub class="ingredients"><%= loaf.ingredients%> </sub> 
+							</li>
 							<% end %>
 						<% end %>
 					</ul>
@@ -39,4 +42,4 @@
 	<% i+=1 %>
 	<% end %>
 	
-</div>
+</div> 
