@@ -110,15 +110,21 @@
   loafSelection.addEventListener('change', function(e){
     console.log("here", e.srcElement.options[e.srcElement.selectedIndex].text)
     if(e.srcElement.options[e.srcElement.selectedIndex].text == 'Sourdough'){
-      alert("Sourdough takes at least 3 Days!!!")
+      alert("Sourdough takes at least 3 Days")
     }
-
   })
 
 
 
   guestName.addEventListener("keyup", function(){
-    orderBtn.disabled = false;
+    if (guestName.value.length >= 3){
+      orderBtn.disabled = false;
+    }
+    if (guestName.value.length < 3){
+      orderBtn.disabled = true;
+    }
+
+    
   })
 
 </script>
