@@ -27,9 +27,16 @@ body {
 .introSection {
   text-align: center;
   font-family: 'Big Shoulders Inline Text', cursive;
-  font-size: 20px;
-  background-color: rgb(14, 17, 17);
+  font-size: 25px;
+  background-color: rgb(14, 17, 17); 
   border-bottom: solid #FFC107 2px;
+
+  background: url('/assets/baker.jpg'); 
+    background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+
   }
 
 .introSection h4{
@@ -77,13 +84,15 @@ font-family: 'Big Shoulders Inline Text', cursive;
 }
 .carousel-caption h4 {
 font-family: 'Big Shoulders Inline Text', cursive;
-font-size: 30px;
-text-shadow: 2px 2px black;
+font-size: 35px;
+text-shadow: 1px 3px black;
 }
 
 .carousel-caption p {
+    font-size: 15px;
+    text-shadow: 2px 2px black; 
+    /*font-family: 'Yellowtail', cursive; */
 
-text-shadow: 2px 2px black;
 }
 
 .grid-container {
@@ -140,12 +149,13 @@ font-family: 'Big Shoulders Inline Text', cursive;
   font-family: 'Big Shoulders Inline Text', cursive;
   margin: 3px;
   border: 1px solid;
+  margin-bottom: 10px;
   border-color: black;
   color: black;
   box-shadow: 3px 6px #888888;
   -webkit-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
   -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
-  background: image_url('Bread3.jpg');
+  /*background: image_url('Bread3.jpg');*/
 }
 .infoPhoto{
   margin: 15px;
@@ -207,6 +217,21 @@ font-family: 'Big Shoulders Inline Text', cursive;
   -o-background-size: cover;
   background-size: cover;
 }
+
+.carousel-control-next{
+  background-color: black !important;
+  height: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.carousel-control-prev{
+  background-color: black !important;
+  height: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
 
 #calendar {
   margin: auto;
@@ -302,7 +327,16 @@ font-family: 'Big Shoulders Inline Text', cursive;
  }
 
 .about_me{
+  background-color: white!important;
   color: black;
+  height: 100%; 
+}
+.aboutMePic{
+  height: 500px;
+  background: image_url('aboutScott.jpg');
+  background-repeat: no-repeat;
+
+  background-position: center;
 }
 .tab{
   text-indent: 1sem;
