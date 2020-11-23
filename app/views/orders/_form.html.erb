@@ -1,51 +1,151 @@
-<div class="container-fluid">
+
+<div class="container-fluid orderPage">  
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <%= simple_form_for @order do |f| %> 
-
-            <%= f.input :order_date, collection: @days %>
-            <%= f.input :guest_name %>
-            <%= f.input :guest_number %>
-            <%= f.input :guest_email %>
-            <%= f.input :call_pref %>
-            <%= f.input :text_pref %>
-            <%= f.input :pickupTime %>
-            <%= f.input :pickup_notes %>
-
-            <%= simple_fields_for :order_collections do |p| %>
-
-              <%= p.input :quantity %>
-              <%= p.input :day_id, collection: @days %>
-              <%= p.input :loaf_id, collection: @loafs %>  
-            <% end %>
-
-            <%= simple_fields_for :order_collections do |p| %>
-
-              <%= p.input :quantity %>
-              <%= p.input :day_id, collection: @days %>
-              <%= p.input :loaf_id, collection: @loafs %>  
-            <% end %>
+    <div class="col-sm-12 col-md-12 col-lg-12 borderMe"> 
 
 
-
-          <%= f.button :submit %>
-        <% end %> 
     </div>
   </div>
-</div>
+    <p id="notice"><%= notice %></p>
+
+  <div class="row formsection">
+    <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
+
+        <h3 class="center">ORDER INFO</h3>
+
+        <div class="form-group">
+            <select class="testForm" for="date" id="date_selection">
+              <option>Pick Date</option>
+              <% @dayCollection.each do |dc| %>
+              <option > <%= Date.parse(dc).strftime('%A, %B %e, %Y') %> </option>
+
+              <% end %>
+            </select> 
+        </div>
+
+        <div class="form-group">
+          <select class="testForm" id="pickupTime">
+            <option>Pick Up Time</option>
+            <option>9AM-12PM</option>
+            <option>12PM-3PM</option>
+            <option>3PM-6PM</option>
+            <option>6PM-9PM</option>
+          </select>
+        </div>
 
 
 
+        <div class="form-group">
+          <input type="text" class="testForm" id="guestName" placeholder="Full Name*" required >
+        </div> 
 
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+        <div class="form-group">
+          <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555" required>
+        </div>
+        <!--
+        <div class="form-group">
+          <input type="email" class="testForm" id="guestEmail" placeholder="Email Address" required>
+        </div>
+        -->
+          <div class="form-group">
+            <input type="textarea" class="testForm" id="order_notes" placeholder="Message For Baker" required>
+          </div>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+
+    </div>    
+  </div>
+
+  <div class="row checkboxOrder">
+    <div class="col-10">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
+          <label class="form-check-label" for="call_pref">Calls are cool</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
+          <label class="form-check-label" for="text_pref">Text are cool</label>
+        </div> 
+      </div>
+  </div>
+
+  <% if notice.present? %>
+     <p class="alert alert-info"><%= notice %></p>
+  <% end %>
+    <% if alert.kind_of?(Array)%>
+       <ul>
+         <% alert.each do |x| %>
+           <li class="alert alert-danger" ><%= x %></li>
+         <% end %>
+       </ul>
+    <% elsif alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% else %>    
+  
   <% end %>
 
+  <div class="row breadSelection">
+    <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
+        <h3 class="center">Select Bread</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-white" >Type: </th>
+              <th class="text-white" >Quantity: </th>
+            </tr>
+          </thead>
+
+          <tbody id="tableToMod">
+              <tr id="rowToClone">
+                <td id ="loafSelection" class="loafType" > <%= collection_select(:name, :loaf_id, @loafs, :id, :name, {:prompt => true}, class: 'form-control') %></td>
+                <td class="loafQuantity" > <input type="" name="" class="form-control"> </td> 
+              </tr>
+          </tbody>
+        </table>
+        <button id="submitNewOrder" type="button" class="btn btn-outline-primary btn-block" disabled="true" >Get This Bread</button>
+
+        <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-outline-warning btn-block">More Bread</button>
+
+
+        <hr>
+      </div>
+  </div>
+  </div>
+  
+</div>
+
+<script type="text/javascript">
+
+  function cloneRowMethod(){
+    var table = document.getElementById('tableToMod')
+    var row = document.getElementById('rowToClone')
+      var cloneRow = row.cloneNode(true)
+    cloneRow.id = "newID"
+    table.appendChild(cloneRow);
+  }
+
+  var orderBtn = document.getElementById('submitNewOrder');
+  var guestName = document.getElementById('guestName');
+  var guestNumber = document.getElementById('guestNumber'); 
+  var loafSelection = document.getElementById('loafSelection')
+
+  loafSelection.addEventListener('change', function(e){
+    if(e.srcElement.options[e.srcElement.selectedIndex].text == 'Sourdough'){
+      alert("Sourdough takes at least 3 Days")
+    }
+  })
+
+
+
+  guestName.addEventListener("keyup", function(){
+    if (guestName.value.length >= 3){
+      orderBtn.disabled = false;
+    }
+    if (guestName.value.length < 3){
+      orderBtn.disabled = true;
+    }
+
+    
+  })
+
+</script>

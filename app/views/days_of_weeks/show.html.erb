@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @days_of_week.title %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @days_of_week.open %>
+</p>
+
+<%= link_to 'Edit', edit_days_of_week_path(@days_of_week) %> |
+<%= link_to 'Back', days_of_weeks_path %>

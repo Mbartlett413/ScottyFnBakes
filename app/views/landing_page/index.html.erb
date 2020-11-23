@@ -55,14 +55,15 @@
 		<div class="col-sm-12 col-md-6 col-lg-6" id="mobile_calendar">
 			<h1 class="center">Order Online Now</h1>
 			<p>Offering Curbside Pickup</p>
+<!--
 			<select class="custom-select" for="date" id="mobile_date_selection">
-				<% @dayCollection.each do |dc| %>
-					<option > <%= dc %> </option>
-				<% end %>
+				<#% @dayCollection.each do |dc| %>
+					<option > <#%= dc %> </option>
+				<#% end %>
 			</select> <br>
+-->
 
-
-			<button  class="btn btn-outline-warning btn-lg text-white" id="mobile_day_select">Order From This Date</button>
+			<%= link_to 'Order Online Now!', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
 			<hr>
 		</div>
 	</div>

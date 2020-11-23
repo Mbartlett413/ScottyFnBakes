@@ -1,5 +1,5 @@
 
-<div class="container-fluid orderPage"> 
+<div class="container-fluid orderPage">  
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 borderMe">
       <h1 class="center"> <%= @day.this_date.strftime("%m/%d/%Y") %></h1>
@@ -15,8 +15,8 @@
         <% else %> 
         <h3 class="center">ORDER INFO</h3>
         <div class="form-group">
-          <input type="email" class="testForm" id="guestName" placeholder="Full Name*" required >
-        </div>
+          <input type="text" class="testForm" id="guestName" placeholder="Full Name*" required >
+        </div> 
 
         <div class="form-group">
           <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555" required>

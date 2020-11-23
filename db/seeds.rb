@@ -8,6 +8,14 @@
 
 user = User.create(email: 'Tester@Test.com', password: 'password')
 
+DaysOfWeek.create(title: 'SUNDAY', open: true)
+DaysOfWeek.create(title: 'MONDAY', open: true)
+DaysOfWeek.create(title: 'TUESDAY', open: true)
+DaysOfWeek.create(title: 'WEDNESDAY', open: true)
+DaysOfWeek.create(title: 'THURSDAY', open: true)
+DaysOfWeek.create(title: 'FRIDAY', open: true)
+DaysOfWeek.create(title: 'SATURDAY', open: true)
+
 cat1 = Category.create( active: true, name: 'Sweet', price: 12)
 cat2 = Category.create( active: true, name: 'Savory', price: 10)
 cat3 = Category.create( active: true, name: 'Savory w/Cheese', price: 12)

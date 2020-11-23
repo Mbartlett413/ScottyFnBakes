@@ -9,7 +9,7 @@ document.addEventListener 'turbolinks:load', (event) ->
 		order_collection = []
 		orderDate = document.getElementById('orderDate')
 		allLoafs = document.getElementsByClassName('loafType')
-		allQuan = document.getElementsByClassName('loafQuantity')
+		allQuan = document.getElementsByClassName('loafQuantity') 
 		allSelect = document.querySelectorAll("select");
 		guest_name = document.getElementById('guestName')
 		guest_number = document.getElementById('guestNumber')

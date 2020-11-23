@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :days_of_weeks
   resources :categories, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :days, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :orders, only: [:new, :create, :show, :edit, :update, :destroy]
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   get 'admin_page', to: 'landing_page#admin_page'
   get 'about_me', to: 'landing_page#about_me'
   get 'faq', to: 'landing_page#faq'
+  post 'toggle', to: 'landing_page#toggle'
 end

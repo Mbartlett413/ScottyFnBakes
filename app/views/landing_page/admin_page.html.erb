@@ -87,6 +87,35 @@
         <br>
     </div>
   </div>
+  <hr>
+    <!-- -->
+  <div class="row">
+    <h1>Days Of Weeks</h1>
+    <div class="col-12">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Day Of Week</th>
+      <th>Open?</th>
+      <th>Toggle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @days_of_weeks.each do |dow| %>
+    <tr>
+      <td><%= dow.title %></td>
+      <td><%= dow.open %></td>
+      <td>
+        <%= link_to 'Toggle', toggle_path(dow), method: :post, class: 'btn btn-primary text-white', remote: true  %>
+      </td>
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>
+    </div>
+  </div>
+
     <!-- -->
   <hr>
   <div class="row">

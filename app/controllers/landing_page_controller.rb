@@ -6,27 +6,25 @@ before_action :authenticate_user!, only:[:admin_page]
 		@days = Day.all 
 		@loafs = Loaf.all
 		@category = Category.all 
-
-		#move to model
-		@todayToday = DateTime.now
-		@dayCollection = []
-		@dayCollection.push(@todayToday.strftime("%Y-%m-%d"))
-		i = 1
-		while i < 28 do 
-			newdate = @todayToday + i.day
-			@dayCollection.push(newdate.strftime("%Y-%m-%d"))
-		i = i + 1
-		end	
-		logger.debug("LOOK HERE #{@dayCollection}")
 	end 
 	
 	def admin_page
 		@user = current_user
+		@days_of_weeks = DaysOfWeek.all.sort_by { |obj| obj.id }
 		@days = Day.all.order(:this_date)
 		@loafs = Loaf.all.sort_by { |obj| obj.category_id }
 		@orders = Order.all	
 		@categories = Category.all
 
+	end 
+
+	def toggle
+		@dow = DaysOfWeek.find(params[:format])
+		if @dow.open == true
+			@dow.update_attribute(:open, false)
+		else
+			@dow.update_attribute(:open, true)
+		end 
 	end 
 
 
