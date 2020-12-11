@@ -1,75 +1,24 @@
-<section>
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner carPhoto">
-			    <div class="carousel-item active" style="background-image: url(/assets/Bread1)">
-
-					  <div class="carousel-caption  ">
-					    <h4><i style="color:rgb(255, 205, 94);">Delicous</i> Fresh Baked Bread</h4>
-					    <p>All our bread is made from scratch! Our ingredients are locally sourced from the great state of Texas and 10% if our profits go back to the community that takes care of us.</p>
-
-					    <%= link_to 'Learn More', about_me_path, class: 'btn btn-warning text-white' %>
-					  </div>
-			    </div>
-				<% @loafs.each do |x| %>
-					<% if x.active_item != false %>
-						
-						<% if x.image.attached? == true %>
-					    	<div class="carousel-item" style="background-image: url(<%= rails_blob_url( x.image) %>) ">
-								  <div class="carousel-caption  ">
-								    <h4><i style="color:rgb(255, 205, 94);"><%= x.name %></i></h4>
-								    <p>  <%= x.ingredients %> </p>
-								  </div>
-						    </div>
-					    <% else %> 
-					    	<!--
-					    	<div class="carousel-item" %>
-								  <div class="carousel-caption  ">
-								    <h4><i style="color:rgb(255, 205, 94);"><%= x.name %></i></h4>
-								    <p>  <%= x.ingredients %> </p>
-								  </div>
-						    </div>
-							-->
-					    <% end %>
-
-				    <% end %>
-				<% end %>
-		</div>
-			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
-			</div> 
-</section>	
-
 
 <!-- Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//-->
 
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
+
 <div class="container-fluid">
     <div class="row sectionThree">
 		<!-- Mobile Calendar -->
-		<div class="col-sm-12 col-md-6 col-lg-6" id="mobile_calendar">
+		<div class="col-sm-12 col-md-12 col-lg-12" id="mobile_calendar">
 			<h1 class="center">Order Online Now</h1>
 			<p>Offering Curbside Pickup</p>
-<!--
-			<select class="custom-select" for="date" id="mobile_date_selection">
-				<#% @dayCollection.each do |dc| %>
-					<option > <#%= dc %> </option>
-				<#% end %>
-			</select> <br>
--->
 
 			<%= link_to 'Order Online Now!', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
 			<hr>
 		</div>
 	</div>
 <!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
-<%= render partial: 'menu' %>
+<%= render partial: 'menu2' %>
+<%= render partial: 'photoGrid' %>
 <%= render partial: 'marketing' %>
+
 </div>
 	
 	<!-- Section Two --> 

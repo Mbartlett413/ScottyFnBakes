@@ -32,7 +32,7 @@ body {
   border-bottom: solid #FFC107 2px;
 
   background: url('/assets/baker.jpg'); 
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 
@@ -114,7 +114,7 @@ text-shadow: 1px 3px black;
 
 }
 
-.loafText {
+.loafText { 
   color: white;
   font-size: 20px;
   text-align: center;
@@ -129,6 +129,17 @@ font-family: 'Big Shoulders Inline Text', cursive;
   opacity: 1;
   transition: .5s ease;
 }
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail img{
+  max-height: 100%;
+  max-width: 100%;
+  padding-top: 3px;
+  padding-left: 5px;
+}
 
 
 .infoBox{
@@ -141,7 +152,13 @@ font-family: 'Big Shoulders Inline Text', cursive;
   box-shadow: 3px 6px #888888;
   -webkit-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
   -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
-  background: image_url('linedpaper.png');
+  background: image_url('IG-Story.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background: image_url('linedpaper.png');*/
+  
 }
 .infoBox li{
   padding-bottom: none;
@@ -177,13 +194,14 @@ font-family: 'Big Shoulders Inline Text', cursive;
 }
 .sectionTwo{
 	height: auto; 
-  /*background-color: rgb(245, 239, 227);*/
-  background-color: #2A2829;
+  background-color: #3B6194;
+  /*background-color: rgb(245, 239, 227);
+  background-color: #2A2829; */
 }
 
-.sectionTwo h3{
+.sectionTwo h1{
 	text-align: center;
-font-family: 'Big Shoulders Inline Text', cursive;
+  font-family: 'Big Shoulders Inline Text', cursive;
 }
 
 .header_shadow{
@@ -215,12 +233,14 @@ font-family: 'Big Shoulders Inline Text', cursive;
   padding: 0px 15px 0px 15px ;
   text-align: center;
   font-family: 'Big Shoulders Inline Text', cursive;
-  /* background-color: rgb(245, 239, 227);  */
-  background-color: #2A2829;
+  background-color: #3B6194;
+  /* background-color: rgb(245, 239, 227);  
+  background-color: #2A2829; */
 }
-.sectionThree h3{
+.sectionThree h1{
  text-align: center; 
  color: #e0dbd1;
+ font-family: 'Big Shoulders Inline Text', cursive;
 }
 
 .carousel-item {

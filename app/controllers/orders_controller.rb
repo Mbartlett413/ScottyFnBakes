@@ -194,8 +194,9 @@ class OrdersController < ApplicationController
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new, notice: 'Too Large Of Quantity.'  }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+        logger.debug("QUANTITY ISSUE")
+        format.html { render :new }
+        format.json { render json: @order.errors, notice: "Too Large" }
       end
     end  
   end

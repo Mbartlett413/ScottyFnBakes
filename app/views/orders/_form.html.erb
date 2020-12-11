@@ -68,21 +68,9 @@
         </div> 
       </div>
   </div>
-
-  <% if notice.present? %>
-     <p class="alert alert-info"><%= notice %></p>
-  <% end %>
-    <% if alert.kind_of?(Array)%>
-       <ul>
-         <% alert.each do |x| %>
-           <li class="alert alert-danger" ><%= x %></li>
-         <% end %>
-       </ul>
-    <% elsif alert.present? %>
-        <p class="alert alert-danger"><%= alert %></p>
-    <% else %>    
-  
-  <% end %>
+<h1>GERE</h1>
+     <p class="notice"><%= flash[:notice] %></p>
+      <p class="alert"><%= flash[:alert] %></p>
 
   <div class="row breadSelection">
     <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
