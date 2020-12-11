@@ -4,7 +4,7 @@ before_action :authenticate_user!, only:[:admin_page]
 	#Display everything from here
 	def index
 		@days = Day.all 
-		@loafs = Loaf.all
+		@loafs = Loaf.all.sort_by { |obj| obj.name }
 		@category = Category.all 
 	end 
 	
@@ -12,7 +12,7 @@ before_action :authenticate_user!, only:[:admin_page]
 		@user = current_user
 		@days_of_weeks = DaysOfWeek.all.sort_by { |obj| obj.id }
 		@days = Day.all.order(:this_date)
-		@loafs = Loaf.all.sort_by { |obj| obj.category_id }
+		@loafs = Loaf.all.sort_by { |obj| obj.name }
 		@orders = Order.all	
 		@categories = Category.all
 

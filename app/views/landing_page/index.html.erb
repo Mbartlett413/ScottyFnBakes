@@ -1,30 +1,23 @@
-
-<!-- Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//Photo Stuff//-->
-
-<!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
+<div class="jumbotron-fluid sectionThree">
+  <h1 class="display-4">Fresh, Handmade Bread</h1>
+  <p class="lead">Our craft is bread. Through trial and error, our bread is a true artisian experience.</p>
+  <hr class="my-4">
+  <p>Offering Curbside and Market Orders Now!</p>
+  <p class="lead">
+    <%= link_to 'Order Online Now!', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
+  </p>
+</div>
 
 <div class="container-fluid">
-    <div class="row sectionThree">
-		<!-- Mobile Calendar -->
-		<div class="col-sm-12 col-md-12 col-lg-12" id="mobile_calendar">
-			<h1 class="center">Order Online Now</h1>
-			<p>Offering Curbside Pickup</p>
-
-			<%= link_to 'Order Online Now!', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
-			<hr>
-		</div>
-	</div>
-<!-- Section Three // Section Three // Section Three // Section Three // Section Three //  -->
-<%= render partial: 'menu2' %>
-<%= render partial: 'photoGrid' %>
-<%= render partial: 'marketing' %>
-
+	<%= render partial: 'menu2' %>
+	<%= render partial: 'marketing' %>
+	<%= render partial: 'photoGrid' %>
 </div>
 	
-	<!-- Section Two --> 
-	<div class="row mapSection">
-		<div id="map" class="col-lg col-md col-sm"></div>
-	</div>
+	<!-- Section MAP --> 
+<div class="row mapSection">
+	<div id="map" class="col-lg col-md col-sm"></div>
+</div>
 
 
 <div id="footer" class="py-4 text-white-50 container-fluid">
@@ -33,13 +26,13 @@
 		     <h5>Scotty Fn Bakes <br>
 		      440 Coit Rd<br>
 		      Plano, TX 75075 
-		      <sub></sub>
 		  	</h5>
+		  	<h5>713-392-3355</h5>
 		  	<h6>Operating under the <a class="text-white" href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
 		  	</h6>
     	</div>
-    	<div class="col-lg col-md col-sm" style="bottom: 0;">
-		     <h6 class="text-left" >Made By GlassMinds LLC</h6>	
+    	<div class="col-lg col-md col-sm" >
+		     <h6 class="text-left" style="padding-top: 108px;" >Made By GlassMinds LLC</h6>	
     	</div>
     </div>
 </div>

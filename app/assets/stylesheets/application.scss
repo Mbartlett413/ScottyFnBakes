@@ -15,16 +15,23 @@
  */
 @import "bootstrap";
 @import "simple_calendar"; 
+//
+*{
 
-body {
-	/* color: rgb(59, 97, 148); */
-	color: #e0dbd1;
-  background-color: rgb(14, 17, 17); 
+}
+body{
+  color: white;
 } 
+
 html {
   overflow-x: hidden;
-  background-color: rgb(14, 17, 17); 
 }
+
+.header_div a:hover{
+	background-color: transparent;
+}
+
+
 .mapSection{
 	overflow-x: hidden;	
 	width: 99%;
@@ -32,42 +39,11 @@ html {
 	padding-top: 1px;
 }
 
-table th{
-	color: #e0dbd1;
-}
-table tr{
-	color: #e0dbd1;
-}
-
-nav {
-	opacity: 0.8;
-	font-family: 'Big Shoulders Inline Text', cursive;
-	color: rgb(255, 205, 94);
-	font-size: 20px;
-}
-
-nav a:link{
-		color: rgb(255, 205, 94);
-	font-size: 20px;
-}
-nav a:visited{
-		color: rgb(255, 205, 94);
-	font-size: 20px;
-}
-nav a:a:hover{
-		color: rgb(255, 205, 94);
-	font-size: 20px;
-}
-nav a:a:active{
-		color: rgb(255, 205, 94);
-	font-size: 20px;
-}
-
 .logo_image img{
-	height: 250px;
-	margin-top: -20px;
-	margin-bottom: -60px;
-	padding: -10px;
+	height: 150px;
+	margin-top: -30px;
+	margin-bottom: -45px;
+
 }
 .nav_div{
 	height: 50px;

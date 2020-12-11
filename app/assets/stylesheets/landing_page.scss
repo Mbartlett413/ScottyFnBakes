@@ -28,19 +28,22 @@ body {
   text-align: center;
   font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 25px;
-  background-color: rgb(14, 17, 17); 
-  border-bottom: solid #FFC107 2px;
-
-  background: url('/assets/baker.jpg'); 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  border-bottom: solid #CBAE72 4px;
+  background-color: white;
 
 
   }
 
+.jumbotron-fluid{
+  background-image: url('/assets/baker.jpg'); 
+
+  background-position: center center;
+  background-size: cover;  
+  height: 400px;
+}
+
 .introSection h4{
-  color: #3B6194;
+  color: black;
   margin: auto;
   padding: auto;
 }
@@ -48,23 +51,28 @@ body {
 .signature a {
 font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 30px;
-  color: rgb(255, 205, 94); 
+
+  color: black;
 }
 .signature a:link{
     color: rgb(255, 205, 94);
+    color: black;
   font-size: 30px;
 }
 .signature a:visited{
     color: rgb(255, 205, 94);
+    color: black;
   font-size: 30px;
 }
 .signature a:hover{
   color: rgb(255, 205, 94);
+  color: black;
   font-size: 30px;
   background-color: transparent;
 }
 .signature a:active{
     color: rgb(255, 205, 94);
+    color: black;
   font-size: 30px;
 }
 
@@ -121,7 +129,7 @@ text-shadow: 1px 3px black;
   position: relative;
   top: 50%;
   opacity: 0;
-font-family: 'Big Shoulders Inline Text', cursive;
+  font-family: 'Big Shoulders Inline Text', cursive;
 }
 
 
@@ -141,6 +149,23 @@ font-family: 'Big Shoulders Inline Text', cursive;
   padding-left: 5px;
 }
 
+.thumbnail p{
+  color: black;
+}
+
+.zoom:hover {
+-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.photoGridIngredients{
+  position: absolute;
+  z-index: 99;
+  margin: auto;
+  left: 35%;
+  top: 39%;
+
+}
 
 .infoBox{
   vertical-align: top;
@@ -198,6 +223,9 @@ font-family: 'Big Shoulders Inline Text', cursive;
   /*background-color: rgb(245, 239, 227);
   background-color: #2A2829; */
 }
+.menu_list{
+  padding-top: 35vw;
+}
 
 .sectionTwo h1{
 	text-align: center;
@@ -208,7 +236,7 @@ font-family: 'Big Shoulders Inline Text', cursive;
   text-shadow: 2px 2px black;
 }
 .sectionTwo ul {
-	list-style: none;
+
   /*font-family: 'Yellowtail', cursive; */
   font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 20px;
@@ -239,7 +267,7 @@ font-family: 'Big Shoulders Inline Text', cursive;
 }
 .sectionThree h1{
  text-align: center; 
- color: #e0dbd1;
+ color: white;
  font-family: 'Big Shoulders Inline Text', cursive;
 }
 

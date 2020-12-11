@@ -2,9 +2,17 @@
 	<% @loafs.each do |x| %>
 		<% if x.image.attached? == true %>
 	    	<div class="col-lg-4 col-sm-6">
-				  <div class="thumbnail">
-				    <%= image_tag(x.image) %>
+				  
+				  <div class="photoGridIngredients">
+				  	<button  class="btn btn-outline-warning btn-lg text-white ShowIngred" >READ MORE</button>
+				  	<h4 style="opacity: .1;" class="center"><%= x.ingredients %></h4>
 				  </div>
+
+				  <div class="thumbnail zoom">
+				    <%= image_tag(x.image) %>
+				    <p class="center"><%= x.name %></p>
+				  </div>
+
 		    </div>
 		<% else %> 
 					    	<!--
@@ -19,5 +27,24 @@
 	<% end %>
 </div>
 
+<script type="text/javascript">
+
+		var ingredientsNOW = document.getElementsByClassName('ShowIngred')
+
+		for(var i =0; i < ingredientsNOW.length; i++){
+			ingredientsNOW[i].addEventListener('click', function(e){
+				if(e.srcElement.nextElementSibling.style.opacity < .5){
+					e.srcElement.nextElementSibling.style.opacity = 1; 
+				} else {
+					e.srcElement.nextElementSibling.style.opacity = .1; 
+				}
+
+			})
+		}
+
+
+
+
+</script>
 
 
