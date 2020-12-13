@@ -14,8 +14,20 @@ before_action :authenticate_user!, only:[:admin_page]
 		@days = Day.all.order(:this_date)
 		@loafs = Loaf.all.sort_by { |obj| obj.name }
 		@orders = Order.all	
-		@categories = Category.all
+		@categories = Category.all 
 
+
+## This is the 3rd time. Need to put this in a model
+    @todayToday = DateTime.now
+    @dayCollection = []
+    i = 1
+    while i < 28 do 
+      newdate = @todayToday + i.day
+        @dayCollection.push(newdate.strftime("%Y-%m-%d"))
+
+    i = i + 1
+    end 
+ 
 	end 
 
 	def toggle
@@ -25,6 +37,11 @@ before_action :authenticate_user!, only:[:admin_page]
 		else
 			@dow.update_attribute(:open, true)
 		end 
+
+		redirect_to admin_page_path, notice: 'Days of week updated' 
+
+
+
 	end 
 
 

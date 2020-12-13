@@ -1,17 +1,11 @@
 
 <div class="container-fluid orderPage">  
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 borderMe"> 
-
-
-    </div>
+  <div class="row orderHeader">
+      <h1 class="center"> Order</h1>
   </div>
-    <p id="notice"><%= notice %></p>
 
   <div class="row formsection">
     <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
-
-        <h3 class="center">ORDER INFO</h3>
 
         <div class="form-group">
             <select class="testForm" for="date" id="date_selection">
@@ -31,16 +25,14 @@
             <option>3PM-6PM</option>
             <option>6PM-9PM</option>
           </select>
-        </div>
-
-
+        </div> 
 
         <div class="form-group">
           <input type="text" class="testForm" id="guestName" placeholder="Full Name*" required >
         </div> 
 
         <div class="form-group">
-          <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555" required>
+          <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555*" required>
         </div>
         <!--
         <div class="form-group">
@@ -51,35 +43,30 @@
             <input type="textarea" class="testForm" id="order_notes" placeholder="Message For Baker" required>
           </div>
 
+          <div class="col-10">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
+              <label class="form-check-label" for="call_pref">Calls are cool</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
+              <label class="form-check-label" for="text_pref">Text are cool</label>
+            </div> 
+          </div>
 
     </div>    
   </div>
-
-  <div class="row checkboxOrder">
-    <div class="col-10">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
-          <label class="form-check-label" for="call_pref">Calls are cool</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
-          <label class="form-check-label" for="text_pref">Text are cool</label>
-        </div> 
-      </div>
-  </div>
-<h1>GERE</h1>
-     <p class="notice"><%= flash[:notice] %></p>
-      <p class="alert"><%= flash[:alert] %></p>
+  <p class="pull-right">*Required</p>
+    <p class="notice"><%= flash[:notice] %></p>
+    <p class="alert"><%= flash[:alert] %></p>
 
   <div class="row breadSelection">
     <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
-        <h3 class="center">Select Bread</h3>
         <table class="table">
           <thead>
             <tr>
-              <th class="text-white" >Type: </th>
-              <th class="text-white" >Quantity: </th>
+              <th  >Bread Type: </th>
+              <th  >Bread Quantity: </th>
             </tr>
           </thead>
 
@@ -90,17 +77,14 @@
               </tr>
           </tbody>
         </table>
+
         <button id="submitNewOrder" type="button" class="btn btn-outline-primary btn-block" disabled="true" >Get This Bread</button>
 
         <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-outline-warning btn-block">More Bread</button>
+    </div>
+  </div>
 
 
-        <hr>
-      </div>
-  </div>
-  </div>
-  
-</div>
 
 <script type="text/javascript">
 

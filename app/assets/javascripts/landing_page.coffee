@@ -3,27 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 document.addEventListener 'turbolinks:load', (event) ->
-  all_dates = document.getElementsByClassName('day_selector')
-  mobile_button = document.getElementById('mobile_day_select')
-  mobile_day_select = document.getElementById('mobile_date_selection')
-  mobile_button.onclick = ->
-    console.log("mobile", mobile_day_select.options[mobile_day_select.selectedIndex].text)
-    s_date = mobile_day_select.options[mobile_day_select.selectedIndex].text
+  edit_date_selection = document.getElementById('edit_date_selection')
+  edit_date  = document.getElementById('edit_date')
+  edit_date.onclick = ->
+    console.log("mobile", edit_date_selection.options[edit_date_selection.selectedIndex].text)
+    s_date = edit_date_selection.options[edit_date_selection.selectedIndex].text
     $.post '/days',
-       this_date: s_date
-  i = 0
-  while i < all_dates.length
-
-  	all_dates[i].onclick = ->
-  		console.log("here", @parentElement.children[0].innerHTML)
-  		console.log("here", @parentElement.firstElementChild.innerHTML)
-  		s_date = @parentElement.firstElementChild.innerHTML
-  		false
-  		$.post '/days',
-  	     this_date: s_date
-  	i++
-  return
-
+      this_date: s_date
 
 
 

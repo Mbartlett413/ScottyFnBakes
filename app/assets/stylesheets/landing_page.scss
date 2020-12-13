@@ -13,13 +13,8 @@ calendar */
 @media (max-width: 576.98px) {
   .menuBox{
     display: none;
-  }
-  
+  }  
 } 
-body {
-  background-color: rgb(14,17,17);
-}
-
 .center {
   text-align: center;
 }
@@ -31,8 +26,6 @@ body {
   border-top: solid #CBAE72 4px;
   border-bottom: solid #CBAE72 4px;
   background-color: white;
-
-
   }
 
 .jumbotron-fluid{
@@ -41,6 +34,7 @@ body {
   background-position: center center;
   background-size: cover;  
   height: 400px;
+  color: white;
 }
 
 .introSection h4{
@@ -81,28 +75,6 @@ font-family: 'Big Shoulders Inline Text', cursive;
   background-color: transparent;
 }
 
-/* SECOND SECTION */
-.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-            display: block;
-            position: absolute;
-            width: 100%;
-            overflow-x: hidden;
-            height: 550px;
-            line-height: 1;
-            margin: 0 auto;
-}
-.carousel-caption h4 {
-font-family: 'Big Shoulders Inline Text', cursive;
-font-size: 35px;
-text-shadow: 1px 3px black;
-}
-
-.carousel-caption p {
-    font-size: 15px;
-    text-shadow: 2px 2px black; 
-    /*font-family: 'Yellowtail', cursive; */
-
-}
 
 .grid-container {
   width: 100%;
@@ -160,6 +132,7 @@ text-shadow: 1px 3px black;
 }
 
 .photoGridIngredients{
+  color: white;
   position: absolute;
   z-index: 99;
   margin: auto;
@@ -337,11 +310,11 @@ font-family: 'Big Shoulders Inline Text', cursive;
 
 
 .card-body{
-  background-color: rgb(14, 17, 17);
+
 }
 
 .card-header{
-  background-color: rgb(14, 17, 17) !important;
+
 }
 
 .order_box{  

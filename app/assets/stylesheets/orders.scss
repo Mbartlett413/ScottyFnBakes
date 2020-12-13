@@ -1,3 +1,58 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html{ 
+background-color: white;
+}
+
+label{
+	color: black;
+}
+
+.center{
+	margin: auto;
+}
+
+
+.orderPage{
+	background-color: white;
+}
+
+.orderInfo h3 {
+	color: black;
+}
+
+.orderPage p {
+	color: black;
+	text-align: center;
+	font-size: 25px;
+}
+
+.testForm{
+	width: 95%;
+	line-height: 30px;
+
+	outline: none;
+	border-bottom: 3px solid gray;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	padding-left: 20px; 
+	background-color: white; 
+	color: black;
+}
+
+.testForm select{
+	display: none;
+}
+
+.breadSelection{
+	padding-top: 25px;
+}
+
+
+
+.orderHeader{
+	background-color: #3B6194;	
+}

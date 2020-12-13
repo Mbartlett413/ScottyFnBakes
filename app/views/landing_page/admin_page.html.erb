@@ -13,12 +13,12 @@
     <% else %>    
   
   <% end %>
-<h1 style="text-align: center">Admin Page</h1> 
+<h1 style="text-align: center">Admin Page</h1>  
 
 <%= link_to 'log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white' %>
 <!-- -->
 <hr>
-<div class="container-fluid">
+<div class="container-fluid"> 
   <div class="row">
     <div class="col-12">
         <h1 style="text-align: center">Daze & Orders</h1>
@@ -87,36 +87,27 @@
         <br>
     </div>
   </div>
-  <hr>
-    <!-- -->
-  <div class="row">
-    <h1>Days Of Weeks</h1>
-    <div class="col-12">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Day Of Week</th>
-      <th>Open?</th>
-      <th>Toggle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @days_of_weeks.each do |dow| %>
-    <tr>
-      <td><%= dow.title %></td>
-      <td><%= dow.open %></td>
-      <td>
-        <%= link_to 'Toggle', toggle_path(dow), method: :post, class: 'btn btn-primary text-white', remote: true  %>
-      </td>
-    </tr>
 
-    <% end %>
-  </tbody>
-</table>
-    </div>
-  </div>
+<!-- -->
+<div class="row">
+  <p>Quick Edit Date</p>
 
-    <!-- -->
+        <div class="form-group">
+            <select class="testForm" for="date" id="edit_date_selection">
+              <option >Pick Date</option>
+              <% @dayCollection.each do |dc| %>
+              <option > <%= Date.parse(dc).strftime('%A, %B %e, %Y') %>  </option>
+
+              <% end %>
+            </select> 
+        </div>
+        <button type="button" id="edit_date">Edit Date</button>
+
+
+
+</div>
+
+<!-- -->
   <hr>
   <div class="row">
     <div class="col-12">
@@ -184,6 +175,35 @@
     </div>
   </div>
 </div>
+  <hr>
+    <!-- -->
+  <div class="row">
+    <h1>Days Of Weeks</h1>
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Day Of Week</th>
+            <th>Open?</th>
+            <th>Toggle</th>
+          </tr>
+        </thead>
+        <tbody id="musics">
+          <% @days_of_weeks.each do |dow| %>
+          <tr >
+            <td id="idk_<%=dow.id %>"><%= dow.title %></td>
+            <td><%= dow.open %></td>
+            <td>
+              <%= link_to 'Toggle', toggle_path(dow), method: :post, class: 'btn btn-primary text-white', remote: true  %>
+            </td>
+          </tr>
 
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+    <!-- -->
 
 

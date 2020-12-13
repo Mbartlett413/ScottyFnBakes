@@ -1,2 +1,17 @@
+  <!-- -->
+  <% if notice.present? %>
+     <p class="alert alert-info"><%= notice %></p>
+  <% end %>
+    <% if alert.kind_of?(Array)%>
+       <ul>
+         <% alert.each do |x| %>
+           <li class="alert alert-danger" ><%= x %></li>
+         <% end %>
+       </ul>
+    <% elsif alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% else %>    
+  
+  <% end %>
 <%= render 'form', order: @order %>
 

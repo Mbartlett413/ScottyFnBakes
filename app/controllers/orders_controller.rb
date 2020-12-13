@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @loafs = Loaf.all 
+    @loafs = Loaf.all.sort_by { |obj| obj.name }
     @days = Day.all
     @order = Order.new 
     @oc = @order.order_collections.new
@@ -98,7 +98,6 @@ class OrdersController < ApplicationController
     #array of avaliable days 
     @todayToday = DateTime.now
     @dayCollection = []
-    @dayCollection.push(@todayToday.strftime("%Y-%m-%d"))
     i = 1
     while i < 28 do 
       newdate = @todayToday + i.day

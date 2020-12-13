@@ -2,37 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html{
-	background-color: rgb(14, 17, 17); 
-	}
-.orderPage{
-	background-color: rgb(14, 17, 17); 
-	color: rgb(255, 205, 94);
-
-}
-
-
-.orderPage p {
-	color: rgb(255, 205, 94);
-	text-align: center;
-	font-size: 25px;
-}
-
-.testForm{
-	width: 95%;
-	line-height: 30px;
-	border-radius: 20px;
-	outline: none;
-	border-bottom: 3px solid gray;
-	padding-left: 20px; 
-	background-color: rgb(14, 17, 17); 
-	color: rgb(255, 205, 94);
-}
-
-.testForm select{
-	display: none;
-}
-
-.breadSelection{
-	padding-top: 25px;
-}

@@ -27,12 +27,9 @@ class DaysController < ApplicationController
   # POST /days
   # POST /days.json
   def create
-    logger.debug("Hit")
+    #CREATE METHOD IS USED FOR CREATING A DATE AND THEN EDITTIN FOR AN ADMIN
     hackery = params[:this_date].to_s + ' 00:00:00'
-    logger.debug("HERE ONE TWO THREE #{hackery}")
     @existing_date = Day.where("this_date = ?", hackery)
-    logger.debug("h #{@existing_date.length}")
-
     if @existing_date.length == 0 
       
       @day = Day.new
@@ -40,7 +37,7 @@ class DaysController < ApplicationController
       logger.debug("New Day Creation #{@day.inspect}")
         respond_to do |format|
           if @day.save
-            format.html { redirect_to @day, notice: 'Day was successfully created.' }
+            format.html { redirect_to edit_day_path(@day.id), notice: 'Day was successfully created.' }
           else
             format.html { render :new }
             format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -49,7 +46,7 @@ class DaysController < ApplicationController
     else 
       logger.debug("finding orders for date, #{@existing_date[0].inspect}")
         
-      redirect_to day_path(@existing_date[0].id)
+      redirect_to edit_day_path(@existing_date[0].id)
     end 
   end
 
