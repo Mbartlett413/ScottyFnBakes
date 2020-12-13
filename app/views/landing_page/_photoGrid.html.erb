@@ -3,14 +3,15 @@
 		<% if x.image.attached? == true %>
 	    	<div class="col-lg-4 col-sm-6">
 				  
-				  <div class="photoGridIngredients">
-				  	<button  class="btn btn-outline-warning btn-lg text-white ShowIngred" >READ MORE</button>
-				  	<h4 style="opacity: .1;" class="center"><%= x.ingredients %></h4>
+				  <div class="thumbnail ShowIngred">
+				    <%= image_tag(x.image) %>
 				  </div>
 
-				  <div class="thumbnail zoom">
-				    <%= image_tag(x.image) %>
-				    <p class="center"><%= x.name %></p>
+				  <div class="photoGridIngredients" style="opacity: .1;">
+				  	<h6 class="center">
+				  		<%= x.name %><br>
+				  		<%= x.ingredients %>
+				  	</h6>
 				  </div>
 
 		    </div>
@@ -32,13 +33,13 @@
 		var ingredientsNOW = document.getElementsByClassName('ShowIngred')
 
 		for(var i =0; i < ingredientsNOW.length; i++){
-			ingredientsNOW[i].addEventListener('click', function(e){
-				if(e.srcElement.nextElementSibling.style.opacity < .5){
-					e.srcElement.nextElementSibling.style.opacity = 1; 
-				} else {
-					e.srcElement.nextElementSibling.style.opacity = .1; 
-				}
 
+			ingredientsNOW[i].addEventListener('mouseover', function(e){
+					e.path[2].childNodes[3].style.opacity = 1; 
+			})
+
+			ingredientsNOW[i].addEventListener('mouseout', function(e){
+				e.path[2].childNodes[3].style.opacity = .1
 			})
 		}
 

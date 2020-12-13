@@ -28,6 +28,7 @@ body {
   text-align: center;
   font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 25px;
+  border-top: solid #CBAE72 4px;
   border-bottom: solid #CBAE72 4px;
   background-color: white;
 
@@ -177,7 +178,7 @@ font-family: 'Big Shoulders Inline Text', cursive;
   box-shadow: 3px 6px #888888;
   -webkit-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
   -moz-box-shadow: -1px 4px 4px 2px rgba(0,0,0,0.81);
-  background: image_url('IG-Story.png');
+  background: image_url('Grid');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -223,9 +224,7 @@ font-family: 'Big Shoulders Inline Text', cursive;
   /*background-color: rgb(245, 239, 227);
   background-color: #2A2829; */
 }
-.menu_list{
-  padding-top: 35vw;
-}
+
 
 .sectionTwo h1{
 	text-align: center;
@@ -402,4 +401,8 @@ font-family: 'Big Shoulders Inline Text', cursive;
 }
 .tab{
   text-indent: 1sem;
+}
+
+.faqStyling{
+  color: black;
 }

@@ -1,7 +1,4 @@
 <div class="row sectionTwo">
-	<div class="col-12">
-		<h1 class="header_shadow">Comin' in hot this Week</h1>
-	</div>
 	<% @category.each do |cat| %>
 		<% if cat.active != false %>
 		<div class="col-sm infoBox">
@@ -10,7 +7,7 @@
 				<h3 class="center"><%= cat.name %>: $<%= cat.price %></h3>
 			<% @loafs.each do |loaf| %>
 				<% if loaf.category_id == cat.id %>
-					<li><%= loaf.name %><br> <sub><%= loaf.ingredients%> </sub> </li>
+					<li><%= loaf.name %> </li>
 				<% end %>
 			<% end %>
 			</ul>

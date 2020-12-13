@@ -1,17 +1,19 @@
 <div class="jumbotron-fluid sectionThree">
-  <h1 class="display-4">Fresh, Handmade Bread</h1>
-  <p class="lead">Our craft is bread. Through trial and error, our bread is a true artisian experience.</p>
+  <h1 class="display-4">Scotts Bake Shop</h1>
+  <p class="lead">Offering Curbside and Market Orders Now!</p>
   <hr class="my-4">
-  <p>Offering Curbside and Market Orders Now!</p>
+
   <p class="lead">
-    <%= link_to 'Order Online Now!', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
+    <%= link_to 'Order', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
   </p>
 </div>
 
 <div class="container-fluid">
 	<%= render partial: 'menu2' %>
-	<%= render partial: 'marketing' %>
+	
 	<%= render partial: 'photoGrid' %>
+
+	<%= render partial: 'marketing' %>
 </div>
 	
 	<!-- Section MAP --> 
@@ -23,12 +25,17 @@
 <div id="footer" class="py-4 text-white-50 container-fluid">
     <div class="row">
     	<div class="col-lg col-md col-sm text-left">
-		     <h5>Scotty Fn Bakes <br>
+			 <h5 class="text-white">713-392-3355</h5>
+		     <h5 class="text-white">Curbside <br>
 		      440 Coit Rd<br>
 		      Plano, TX 75075 
 		  	</h5>
-		  	<h5>713-392-3355</h5>
-		  	<h6>Operating under the <a class="text-white" href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
+		     <h5 class="text-white">Farmers Market <br>
+		      768 Main St. <br>
+		      Plano, TX 75075 
+		  	</h5>
+		  	
+		  	<h6 class="text-white">Operating under the <a href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
 		  	</h6>
     	</div>
     	<div class="col-lg col-md col-sm" >

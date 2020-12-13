@@ -22,7 +22,6 @@ class OrdersController < ApplicationController
     @oc = @order.order_collections.new
 
     #move to model
-
     #array of OPEN days of week
     @days_of_weeks = DaysOfWeek.all
     @dow = []
@@ -35,11 +34,11 @@ class OrdersController < ApplicationController
     #array of avaliable days 
     @todayToday = DateTime.now
     @dayCollection = []
-    @dayCollection.push(@todayToday.strftime("%Y-%m-%d"))
     i = 1
     while i < 28 do 
       newdate = @todayToday + i.day
 
+      #does DayOfWeek Included in newDate?
       if @dow.include?(newdate.strftime("%^A"))
         @dayCollection.push(newdate.strftime("%Y-%m-%d"))
       end 
