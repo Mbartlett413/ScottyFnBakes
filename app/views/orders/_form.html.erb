@@ -1,13 +1,14 @@
 
 <div class="container-fluid orderPage">  
   <div class="row orderHeader">
-      <h1 class="center"> Order</h1>
+      <h1 class="center text-white"> Order</h1>
   </div>
 
   <div class="row formsection">
     <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
 
         <div class="form-group">
+          <label><i class="fa fa-calendar" style="font-size:25px; color: black;"></i></label>
             <select class="testForm" for="date" id="date_selection">
               <option>Pick Date</option>
               <% @dayCollection.each do |dc| %>
@@ -18,6 +19,7 @@
         </div>
 
         <div class="form-group">
+          <label><i class="fa fa-hourglass" style="font-size:25px; color: black;"></i></label>
           <select class="testForm" id="pickupTime">
             <option>Pick Up Time</option>
             <option>9AM-12PM</option>
@@ -28,21 +30,14 @@
         </div> 
 
         <div class="form-group">
+          <label><i class="fa fa-user" style="font-size:25px; color: black;"></i></label>
           <input type="text" class="testForm" id="guestName" placeholder="Full Name*" required >
         </div> 
 
         <div class="form-group">
+          <label><i class="fa fa-phone" style="font-size:25px; color: black;" ></i></label>
           <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555*" required>
         </div>
-        <!--
-        <div class="form-group">
-          <input type="email" class="testForm" id="guestEmail" placeholder="Email Address" required>
-        </div>
-        -->
-          <div class="form-group">
-            <input type="textarea" class="testForm" id="order_notes" placeholder="Message For Baker" required>
-          </div>
-
           <div class="col-10">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
@@ -53,7 +48,15 @@
               <label class="form-check-label" for="text_pref">Text are cool</label>
             </div> 
           </div>
-
+        <!--
+        <div class="form-group">
+          <input type="email" class="testForm" id="guestEmail" placeholder="Email Address" required>
+        </div>
+        -->
+          <div class="form-group">
+            <label><i class="fa fa-sticky-note" style="font-size:25px; color: black;"></i></label>
+            <input type="textarea" class="testForm" id="order_notes" placeholder="Message For Baker" required>
+          </div>
     </div>    
   </div>
   <p class="pull-right">*Required</p>

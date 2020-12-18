@@ -16,8 +16,8 @@ DaysOfWeek.create(title: 'THURSDAY', open: true)
 DaysOfWeek.create(title: 'FRIDAY', open: true)
 DaysOfWeek.create(title: 'SATURDAY', open: true)
 
-cat1 = Category.create( active: true, name: 'Pickup Menu', price: 12)
-cat2 = Category.create( active: true, name: 'Market Menu', price: 10)
+cat1 = Category.create( active: true, name: 'Porch Pickup Menu', price: 12)
+cat2 = Category.create( active: true, name: 'Market Pickup Menu', price: 10)
 
 
 Loaf.create( name: 'Apple Pie', ingredients: '', active_item: true, price: 0, category_id: cat1.id)
