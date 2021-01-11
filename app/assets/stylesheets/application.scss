@@ -26,11 +26,14 @@ body{
 html {
   overflow-x: hidden;
 }
-
-.header_div a:hover{
-	background-color: transparent;
+.header_div{
+	height: 100px;
+	max-height: 200px;
 }
 
+.header_div a:hover{
+	background-color: transparent; 
+}
 
 .mapSection{
 	overflow-x: hidden;	
@@ -40,18 +43,11 @@ html {
 }
 
 .logo_image img{
-	height: 150px;
-	margin-top: -30px;
+	height: 145px;
+	margin-top: -23px;
 	margin-bottom: -45px;
 
 }
-.nav_div{
-	height: 50px;
-}
-.header_div{
-	max-height: 200px;
-}
-
 
 /* rgb(245, 239, 227) WHITE //// rgb(255, 205, 94) YELLOW // 59, 97, 148 BLUE    */
 /* Unless width is 576px, this is true*/
@@ -62,6 +58,18 @@ html {
 	.navbar{
 	  	display: none;
 	}
+
+	.desktop_View div{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+	}
+
+	.signature a {
+		padding-left: 10px;
+	}
+
 
 }
 @media (max-width: 576.98px) {

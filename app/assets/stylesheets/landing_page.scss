@@ -16,22 +16,22 @@ calendar */
   }  
 } 
 .center {
-  text-align: center;
+  text-align: center; 
 }
 
 .introSection {
   text-align: center;
   font-family: 'Big Shoulders Inline Text', cursive;
   font-size: 25px;
-  border-top: solid #CBAE72 4px;
-  border-bottom: solid #CBAE72 4px;
+  border-top: solid #FFCD60 4px;
+  border-bottom: solid #FFCD60 4px;
   background-color: white;
   }
 
 .jumbotron-fluid{
   background-image: url('/assets/baker.jpg'); 
 
-  background-position: center center;
+  background-position: center top;
   background-size: cover;  
   height: 400px;
   color: white;
@@ -131,14 +131,13 @@ font-family: 'Big Shoulders Inline Text', cursive;
     filter: grayscale(100%);
 }
 
-.photoGridIngredients{
+.photoGridIngredients{ 
   color: white;
   position: absolute;
   z-index: 99;
   margin: auto;
   left: 35%;
   top: 39%;
-
 }
 
 .infoBox{
@@ -240,7 +239,13 @@ font-family: 'Big Shoulders Inline Text', cursive;
 .sectionThree h1{
  text-align: center; 
  color: white;
- font-family: 'Big Shoulders Inline Text', cursive;
+ font-family: 'Oswald', sans-serif;
+ text-shadow: white 0px 0px 10px;
+}
+.sectionThree p {
+  font-size: 3vw;
+  font-family: 'Raleway', sans-serif;
+  text-shadow: white 0px 0px 10px;
 }
 
 .carousel-item {
@@ -350,8 +355,9 @@ font-family: 'Big Shoulders Inline Text', cursive;
 }
 
 #footer {
-  /* background-color: rgb(43, 123, 239);  */
-  background-color: rgb(14,17,17);
+  /* background-color: rgb(43, 123, 239);  
+  background-color: rgb(14,17,17); */
+  background-color: #3B6194;
   
 }
 

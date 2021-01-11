@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
@@ -19,26 +23,40 @@
      <meta name="description" content="Fresh baked bread from Plano Texas 75075">
 
       <div class="introSection container-fluid"> 
+
         <div class="row" style="margin: none; padding: none;">
-          <div class="col-sm signature desktop_View">
-            <%= link_to "FAQ", faq_path %>
+
+          <div class="col-sm">
+
           </div>
 
           <div class="col-sm logo_image header_div">
-              <%= link_to( image_tag("8PzkehpQ.png"), root_path ) %>
+              <%= link_to( image_tag("Logo.png"), root_path ) %>
           </div>
 
-          <div class="col-sm signature mobile_View">
-              <a  href="https://www.instagram.com/scottyfnbakes/?igshid=1msej3frrklrp"> <i class="fa fa-instagram" style="font-size:25px; color: black;" ></i></a>
-
-              <a  href="mailto:scottyfnbakes@gmail.com"> <i class="fa fa-envelope" style="font-size:25px; color: black;" ></i></a>
-
-              <a  href="tel:713-392-3355"> <i class="fa fa-phone" style="font-size:25px; color: black;" ></i></a>
-
+          <div class="col-sm signature">
               <% if user_signed_in? %>
                 <%= link_to "ADMIN LINK", admin_page_path %>
               <% end %> 
           </div>
+
+        </div>
+        <!-- Mobile Nav Bar -->
+        <div class="mobile_View">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <%= link_to "FAQ", faq_path, class: 'nav-link active' %>
+            </li>
+            <li class="nav-item">
+              <a  href="https://www.instagram.com/scottyfnbakes/?igshid=1msej3frrklrp"> <i class="fa fa-instagram nav-link" style="font-size:25px; color: black;" ></i></a>
+            </li>
+            <li class="nav-item">
+              <a  href="tel:713-392-3355"> <i class="fa fa-phone nav-link" style="font-size:25px; color: black;" ></i></a>
+            </li>
+            <li class="nav-item">
+              <a  href="mailto:scottyfnbakes@gmail.com"> <i class="fa fa-envelope nav-link" style="font-size:25px; color: black;" ></i></a>
+            </li>
+          </ul>
         </div>
       </div>
 
