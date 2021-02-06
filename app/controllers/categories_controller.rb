@@ -54,6 +54,8 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
+    #CATEGORIES DESTROY ORDERS WITH Matching categories.loafs
+
     @category.destroy
     respond_to do |format|
       format.html { redirect_to admin_page_path, notice: 'Category was successfully destroyed.' }

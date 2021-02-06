@@ -1,65 +1,43 @@
-<div class="jumbotron-fluid sectionThree">
-  <h1 class="display-4">SCOTT'S BAKE SHOP</h1>
-  <p class="lead">Offering Curbside and Market Orders Now!</p>
-  <hr class="my-4">
 
-  <p class="lead">
-    <%= link_to 'Order', new_order_path, class: 'btn btn-outline-warning btn-lg text-white' %>
-  </p>
-</div>
+<header class ="orderButtonSection">
+  	<p>
+		<%= link_to 'Order', new_order_path, class: 'btn btn-outline-dark' %>
+    </p>
+</header>
 
-<div class="container-fluid">
-	<%= render partial: 'menu2' %>
-	
-	<%= render partial: 'photoGrid' %>
+<section>
+	<div class="container-fluid sectionBody  justify-content-center">
+		<div class="row Menu2">
+			<% @category.each do |cat| %>
+				<% if cat.active != false %>					
+					<ul class="menu_list">
 
-	<%= render partial: 'marketing' %>
-</div>
-	
-	<!-- Section MAP --> 
-<div class="row mapSection">
-	<div id="map" class="col-lg col-md col-sm"></div>
-</div>
+					<h3 class="center"><%= cat.name %>: $<%= cat.price %></h3>
+					<% @loafs.each do |loaf| %>
+						<% if loaf.category_id == cat.id %>
+							<li><%= loaf.name %> </li>
+						<% end %>
+					<% end %>
+					</ul>
 
+				<% end %>
+			<% end %>
+		</div>
 
-<div id="footer" class="py-4 text-white-50 container-fluid">
-    <div class="row">
-    	<div class="col-lg col-md col-sm text-left">
-			 <h2>Scott's Bake Shop</h2>
-			 <h5 class="text-white">713-392-3355</h5>
-		     <h5 class="text-white">Curbside <br>
-		      440 Coit Rd<br>
-		      Plano, TX 75075 
-		  	</h5>
-		     <h5 class="text-white">Farmers Market <br>
-		      768 Main St. <br>
-		      Plano, TX 75075 
-		  	</h5>
-		  	
-		  	<h6 class="text-white">Operating under the <a href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
-		  	</h6>
-    	</div>
-    	<div class="col-lg col-md col-sm" >
-		     <h6 class="text-left" style="padding-top: 237px;%;" >Made By GlassMinds LLC</h6>	
-    	</div>
-    </div>
-</div>
+	</div>
+
+</section>
+
+	    <div id ="footer">
+	    	<div class="col-lg col-md col-sm text-left">
+			  	<h6 class="text-white">Operating under the <a href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
+			  	</h6>
+	    	</div>
+	    </div>	
 
 
-<script>
-	// Initialize and add the map
-	function initMap() {
-	  // The location of Uluru
-	  var uluru = {lat: 33.004600, lng: -96.766260};
-	  // The map, centered at Uluru
-	  var map = new google.maps.Map(
-	      document.getElementById('map'), {zoom: 11, center: uluru});
-	  // The marker, positioned at Uluru
-	  var marker = new google.maps.Marker({position: uluru, map: map});
-	}
-</script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key=xxx&callback=initMap">
-</script>
+
+
 
 
 

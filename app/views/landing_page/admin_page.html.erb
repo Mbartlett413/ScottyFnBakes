@@ -56,7 +56,11 @@
                                              <% order.order_collections.each do |oc|%>
                                              <p>
                                               <%= oc.quantity %>
-                                              <%= Loaf.find_by_id(oc.loaf_id).name %>
+
+                                              <!-- Loafs are dependant on categories being deleted.Association -->
+                                              <%#= Loaf.find_by_id(oc.loaf_id).name %>
+
+                                              
                                             </p>
                                              <% end %>
                                              <!-- -->

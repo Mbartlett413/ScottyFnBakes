@@ -1,16 +1,17 @@
-<div class="row sectionTwo">
+<div class="row Menu2">
 	<% @category.each do |cat| %>
 		<% if cat.active != false %>
-		<div class="col-sm infoBox">
+		<div>
 			
 			<ul class="menu_list">
-				<h3 class="center"><%= cat.name %>: $<%= cat.price %></h3>
+				<h3 ><%= cat.name %>: $<%= cat.price %></h3>
 			<% @loafs.each do |loaf| %>
 				<% if loaf.category_id == cat.id %>
 					<li><%= loaf.name %> </li>
 				<% end %>
 			<% end %>
 			</ul>
+
 		</div>
 		<% end %>
 	<% end %>

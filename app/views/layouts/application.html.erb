@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fresh Baked Bread</title>
+    <title>Scott's Bake Shop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,7 +20,9 @@
 
   <body>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="description" content="Fresh baked bread from Plano Texas 75075">
+     <meta name="description" content="Fresh Baked Bread serving the Dallas Texas Area">
+     <meta name="keywords" content="Bread, Bakery, Dallas, Plano, Frisco, ">
+
 
       <div class="introSection container-fluid"> 
 
@@ -31,7 +33,7 @@
           </div>
 
           <div class="col-sm logo_image header_div">
-              <%= link_to( image_tag("Logo.png"), root_path ) %>
+              <%= link_to( image_tag("Logo2.png"), root_path ) %>
           </div>
 
           <div class="col-sm signature">
@@ -44,9 +46,6 @@
         <!-- Mobile Nav Bar -->
         <div class="mobile_View">
           <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <%= link_to "FAQ", faq_path, class: 'nav-link active' %>
-            </li>
             <li class="nav-item">
               <a  href="https://www.instagram.com/scottyfnbakes/?igshid=1msej3frrklrp"> <i class="fa fa-instagram nav-link" style="font-size:25px; color: black;" ></i></a>
             </li>

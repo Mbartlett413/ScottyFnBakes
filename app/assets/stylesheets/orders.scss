@@ -3,19 +3,51 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html{ 
-background-color: white;
+	background-color: white; 
 }
 
 label{
 	color: black;
 }
 
+input {
+  text-align: left; 
+}
+
+
+select{
+	text-align: left;
+}
+
+::-webkit-input-placeholder {
+  text-align: left; 
+}
+
+:-moz-placeholder {
+  text-align: left;
+}
+
 .center{
 	margin: auto;
 }
 
+.formsection{
+	width: 100%;
+	margin: auto;
+	display: inline-block;
+
+}
+
+.subForm{
+	margin: auto;
+}
+
+.breadSelection{
+	height: 500px;
+}
 
 .orderPage{
+	margin-top: 50px;
 	background-color: white;
 }
 
@@ -30,9 +62,10 @@ label{
 }
 
 .testForm{
+	height: 50px;
 	width: 90%;
 	line-height: 30px;
-
+	text-align:left; 
 	outline: none;
 	border-bottom: 3px solid gray;
 	border-top: none;
@@ -43,16 +76,5 @@ label{
 	color: black; 
 }
 
-.testForm select{
-	display: none;
-}
-
-.breadSelection{
-	padding-top: 25px;
-}
 
 
-
-.orderHeader{
-	background-color: #3B6194;	
-}

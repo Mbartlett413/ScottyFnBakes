@@ -26,6 +26,10 @@ body{
 html {
   overflow-x: hidden;
 }
+
+.introSection{
+	padding-top: 50px;
+}
 .header_div{
 	height: 100px;
 	max-height: 200px;
@@ -47,36 +51,9 @@ html {
 	margin-top: -23px;
 	margin-bottom: -45px;
 
-}
-
-/* rgb(245, 239, 227) WHITE //// rgb(255, 205, 94) YELLOW // 59, 97, 148 BLUE    */
-/* Unless width is 576px, this is true*/
-@media (min-width: 576px){ 
-	.mobile_View {
-		text-align: right;
-	}
-	.navbar{
-	  	display: none;
-	}
-
-	.desktop_View div{
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    text-align: center;
-	}
-
-	.signature a {
-		padding-left: 10px;
-	}
-
 
 }
-@media (max-width: 576.98px) {
-  
-  .desktop_View{
-    display: none;
-  }
 
-  
-} 
+.mobile_View {
+	padding-top: 50px;
+}

@@ -1,27 +1,24 @@
 
 <div class="container-fluid orderPage">  
-  <div class="row orderHeader">
-      <h1 class="center text-white"> Order</h1>
+  <div class="row orderHeader"> 
+      <h1 class="center">order</h1>
   </div>
 
-  <div class="row formsection">
-    <div class="col-sm-12 col-md-12 col-lg-12 orderInfo">
+  <div class="row formsection justify-content-center">
+    <div class="subForm">
 
         <div class="form-group">
-          <label><i class="fa fa-calendar" style="font-size:25px; color: black;"></i></label>
             <select class="testForm" for="date" id="date_selection">
-              <option>Pick Date</option>
-              <% @dayCollection.each do |dc| %>
-              <option > <%= Date.parse(dc).strftime('%A, %B %e, %Y') %> </option>
-
-              <% end %>
+                <option>date</option>
+                <% @dayCollection.each do |dc| %>
+                  <option > <%= Date.parse(dc).strftime('%A, %B %e, %Y') %> </option>
+                <% end %>
             </select> 
         </div>
 
         <div class="form-group">
-          <label><i class="fa fa-hourglass" style="font-size:25px; color: black;"></i></label>
           <select class="testForm" id="pickupTime">
-            <option>Pick Up Time</option>
+            <option>pick up time</option>
             <option>9AM-12PM</option>
             <option>12PM-3PM</option>
             <option>3PM-6PM</option>
@@ -30,36 +27,32 @@
         </div> 
 
         <div class="form-group">
-          <label><i class="fa fa-user" style="font-size:25px; color: black;"></i></label>
-          <input type="text" class="testForm" id="guestName" placeholder="Full Name*" required >
+              <input type="text" class="testForm" id="guestName" placeholder="Full Name*" required >
         </div> 
 
         <div class="form-group">
-          <label><i class="fa fa-phone" style="font-size:25px; color: black;" ></i></label>
           <input type="tel" class="testForm" id="guestNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555*" required>
         </div>
+
           <div class="col-10">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="call_pref" value="option1">
-              <label class="form-check-label" for="call_pref">Calls are cool</label>
+              <label class="form-check-label" for="call_pref">I can call you</label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="text_pref" value="option2">
-              <label class="form-check-label" for="text_pref">Text are cool</label>
+              <label class="form-check-label" for="text_pref">I can text you</label>
             </div> 
           </div>
-        <!--
-        <div class="form-group">
-          <input type="email" class="testForm" id="guestEmail" placeholder="Email Address" required>
-        </div>
-        -->
+
           <div class="form-group">
-            <label><i class="fa fa-sticky-note" style="font-size:25px; color: black;"></i></label>
             <input type="textarea" class="testForm" id="order_notes" placeholder="Message For Baker" required>
           </div>
+
     </div>    
   </div>
-  <p class="pull-right">*Required</p>
+
+  <p class="pull-right">*Required Fields</p>
     <p class="notice"><%= flash[:notice] %></p>
     <p class="alert"><%= flash[:alert] %></p>
 
@@ -81,9 +74,10 @@
           </tbody>
         </table>
 
-        <button id="submitNewOrder" type="button" class="btn btn-outline-primary btn-block" disabled="true" >Get This Bread</button>
+        <button id="submitNewOrder" type="button" class="btn btn-outline-dark btn-block" disabled="true" >Submit Order</button>
 
-        <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-outline-warning btn-block">More Bread</button>
+        <button id="add_row" type="button" onclick="cloneRowMethod()" class="btn btn-outline-dark btn-block">Add Row</button>
+
     </div>
   </div>
 
