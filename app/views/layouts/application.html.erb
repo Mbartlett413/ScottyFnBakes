@@ -17,6 +17,34 @@
      <meta name="keywords" content="Bread, Bakery, Dallas, Plano, Frisco, ">
 
 
+      <div id="mySidenav" class="sidenav">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <%= link_to 'faq', faq_path, class: 'nav-link signature ' %>
+
+        <a  href="mailto:scottyfnbakes@gmail.com"> <i class="fa fa-envelope nav-link signature" style="font-size:25px; color: white;" ></i></a>
+        <a  href="https://www.instagram.com/scottyfnbakes/?igshid=1msej3frrklrp"> <i class="fa fa-instagram nav-link signature" style="font-size:25px; color: white;" ></i></a>
+
+      </div>
+      <span style="font-size:30px;cursor:pointer;padding: 10px 10px;" onclick="openNav()">&#9776;</span> 
+
+
+      <div class=" logo_image signature" >
+                  <%= link_to( image_tag("Logo2.png"), root_path ) %>
+              </div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<!--
     <div class="container-fluid">
           <div class="introSection row"> 
 
@@ -41,6 +69,7 @@
 
           </div>
     </div>
+  -->
 
     <%= yield %>
   </body>

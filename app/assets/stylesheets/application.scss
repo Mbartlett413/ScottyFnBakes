@@ -19,7 +19,7 @@
 
 
 body{
-	background-color: #F4EFE4;
+	background-color: #F6F6F6;
     width: 100%;
 }
  
@@ -27,10 +27,12 @@ html {
   overflow-x: hidden;
 }
 
+.logo_image{
+    text-align: center;
+}
 .logo_image img{
 	height: 220px;
 	margin: auto;
-	display: inline;
 }
 
 .introSection {
@@ -46,34 +48,65 @@ html {
 }
 
 .signature {
-    text-align: center;
+    color: white;
     margin: auto;
 }
 .signature a {
     font-size: 30px;
-    color: black;
+    color: white;
     text-align: center;
 }
 .signature a:link{
-    color: rgb(255, 205, 94);
-    color: black;
+    color: white;
     font-size: 30px;
 }
 .signature a:visited{
-    color: rgb(255, 205, 94);
-    color: black;
+    color: white;
     font-size: 30px;
 }
 .signature a:hover{
-    color: rgb(255, 205, 94);
-    color: black;
+    color: white;
     font-size: 30px;
     background-color: transparent;
 }
 .signature a:active{
-    color: rgb(255, 205, 94);
-    color: black;
+    color: white;
     font-size: 30px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+    text-align: center;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 
 
