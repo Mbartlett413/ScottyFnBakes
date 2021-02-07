@@ -7,7 +7,10 @@
 				<h3 ><%= cat.name %>: $<%= cat.price %></h3>
 			<% @loafs.each do |loaf| %>
 				<% if loaf.category_id == cat.id %>
-					<li><%= loaf.name %> </li>
+					<% if loaf.active.item == true %>
+						<li><%= loaf.active.item %></li>
+						<li> <%= loaf.name %> </li>
+					<% end %>
 				<% end %>
 			<% end %>
 			</ul>

@@ -20,6 +20,7 @@
 
 body{
 	background-color: #F4EFE4;
+    width: 100%;
 }
  
 html {
@@ -42,6 +43,11 @@ html {
     color: black;
     margin: auto;
     padding: auto;
+}
+
+.signature {
+    text-align: center;
+    margin: auto;
 }
 .signature a {
     font-size: 30px;

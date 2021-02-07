@@ -9,35 +9,31 @@
 	</div>
 </div>
 
-<section>
-	<div class="container-fluid sectionBody  justify-content-center">
-		<div class="row Menu2">
-			<% @category.each do |cat| %>
-				<% if cat.active != false %>					
-					<ul class="menu_list">
-
+<div class="container-fluid sectionBody  justify-content-center">
+	<div class="row Menu2">
+		<% @category.each do |cat| %>
+			<% if cat.active != false %>					
+				<ul class="menu_list">
 					<h3 class="center"><%= cat.name %>: $<%= cat.price %></h3>
 					<% @loafs.each do |loaf| %>
-						<% if loaf.category_id == cat.id %>
-							<li><%= loaf.name %> </li>
+						<% if loaf.active_item == true %>
+							<li> <%= loaf.name %> </li>
 						<% end %>
 					<% end %>
-					</ul>
+				</ul>
 
-				<% end %>
 			<% end %>
-		</div>
-
+		<% end %>
 	</div>
+</div>
 
-</section>
 
-	    <div id ="footer">
-	    	<div class="col-lg col-md col-sm text-left">
-			  	<h6 class="text-white">Operating under the <a href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
-			  	</h6>
-	    	</div>
-	    </div>	
+<div id ="footer">
+	<div class="col-lg col-md col-sm text-left">
+	  	<h6 class="text-white">Operating under the <a href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
+	  	</h6>
+	</div>
+</div>	
 
 
 
