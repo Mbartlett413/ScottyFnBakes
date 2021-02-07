@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html{ 
-	background-color: white; 
+body{
+	background-color: #F4EFE4;
+}
+
+.orderHeader h1{
+	padding-right: 20px;
 }
 
 label{
@@ -16,15 +20,10 @@ input {
 
 select{ 
 	text-align: left;
+	-webkit-appearance: none; 
+	-moz-appearance: none;
 }
 
-::-webkit-input-placeholder {
-  text-align: left; 
-}
-
-:-moz-placeholder {
-  text-align: left;
-}
 
 .center{
 	margin: auto;
@@ -47,7 +46,7 @@ select{
 
 .orderPage{
 	margin-top: 50px;
-	background-color: white;
+
 }
 
 .orderInfo h3 {
@@ -71,7 +70,7 @@ select{
 	border-right: none;
 	border-left: none;
 	padding-left: 20px; 
-	background-color: white; 
+	background-color: #F4EFE4;
 	color: black; 
 }
 

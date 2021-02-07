@@ -13,47 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
-@import "simple_calendar"; 
-//
-*{
+@import "simple_calendar";
 
-}
+
 body{
-
-} 
-
+	background-color: #F4EFE4;
+}
+ 
 html {
   overflow-x: hidden;
 }
 
-.introSection{
-	padding-top: 50px;
-}
-.header_div{
-	height: 100px;
-	max-height: 200px;
-}
-
-.header_div a:hover{
-	background-color: transparent; 
-}
-
-.mapSection{
-	overflow-x: hidden;	
-	width: 99%;
-	margin: auto;
-	padding-top: 1px;
-}
-
 .logo_image img{
-	height: 145px;
-	margin-top: -23px;
-	margin-bottom: -45px;
-
-
+	height: 220px;
+	margin: auto;
+	display: inline;
 }
 
-.mobile_View {
-	padding-top: 50px;
+.introSection {
+	text-align: center;
+    font-size: 25px;
+    width: 100%;
 }
+
+.introSection h4{
+    color: black;
+    margin: auto;
+    padding: auto;
+}
+.signature a {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+.signature a:link{
+    color: rgb(255, 205, 94);
+    color: black;
+    font-size: 30px;
+}
+.signature a:visited{
+    color: rgb(255, 205, 94);
+    color: black;
+    font-size: 30px;
+}
+.signature a:hover{
+    color: rgb(255, 205, 94);
+    color: black;
+    font-size: 30px;
+    background-color: transparent;
+}
+.signature a:active{
+    color: rgb(255, 205, 94);
+    color: black;
+    font-size: 30px;
+}
+
+
+
+
+
+

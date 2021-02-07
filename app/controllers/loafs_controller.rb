@@ -4,7 +4,7 @@ class LoafsController < ApplicationController
   # GET /loafs
   # GET /loafs.json
   def index
-    @loafs = Loaf.all
+    @loafs = Loaf.all 
   end
 
   # GET /loafs/1
@@ -43,6 +43,8 @@ class LoafsController < ApplicationController
   # PATCH/PUT /loafs/1.json
   def update
     respond_to do |format|
+      logger.debug("LOAF #{loaf_params}")
+
       if @loaf.update(loaf_params)
         format.html { redirect_to admin_page_path, notice: 'Loaf was successfully updated.' }
         format.json { render :show, status: :ok, location: @loaf }

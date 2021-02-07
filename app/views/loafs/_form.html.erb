@@ -6,10 +6,11 @@
           <%= f.input :category_id, collection: @categories, required: true  %>
           <%= f.input :name, required: true %>
           <%= f.input :ingredients %>
-          <%= f.input :active_item, required: true %>
+          <%= f.input :active_item %>
+
           <%= f.file_field :image, required: true %>
           <%= f.input :price %>          
-          <%= f.button :submit, class: 'btn btn-info text-white' %> 
+          <%= f.button :submit, class: 'btn btn-info text-white' %>  
         <% end %>
     </div>
   </div>
