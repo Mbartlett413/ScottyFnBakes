@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'admin_page', to: 'landing_page#admin_page'
   get 'about_me', to: 'landing_page#about_me'
   get 'faq', to: 'landing_page#faq'
-  post 'toggle', to: 'landing_page#toggle'
+  get 'toggle', to: 'landing_page#toggle'
+  post 'dateToggle', to: 'landing_page#dateToggle'
 end

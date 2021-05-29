@@ -18,8 +18,9 @@
 @import "simple_calendar";
 
 
+
 body{
-	background-color: #F6F6F6;
+  background-color: white;
     width: 100%;
 }
  
@@ -27,11 +28,17 @@ html {
   overflow-x: hidden;
 }
 
+.btn{
+  border-width: 3px;
+  border-radius: 15px;
+}
+
 .logo_image{
     text-align: center;
 }
+
 .logo_image img{
-	height: 220px;
+	height: 300px;
 	margin: auto;
 }
 

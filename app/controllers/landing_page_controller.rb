@@ -1,5 +1,6 @@
 class LandingPageController < ApplicationController
 before_action :authenticate_user!, only:[:admin_page]
+protect_from_forgery prepend: true
 	#This will be the landing page for the user
 	#Display everything from here
 	def index
@@ -31,17 +32,18 @@ before_action :authenticate_user!, only:[:admin_page]
 	end 
 
 	def toggle
-		@dow = DaysOfWeek.find(params[:format])
-		if @dow.open == true
-			@dow.update_attribute(:open, false)
-		else
-			@dow.update_attribute(:open, true)
-		end 
+		@loafs = Loaf.all
+	    respond_to do |format|
+	      format.html
+	      format.js
+	    end 
+	end 
 
-		redirect_to admin_page_path, notice: 'Days of week updated' 
-
-
-
+	def dateToggle
+		logger.debug("camera man #{params}")
+	    respond_to do |format|
+	      format.js
+	    end 
 	end 
 
 

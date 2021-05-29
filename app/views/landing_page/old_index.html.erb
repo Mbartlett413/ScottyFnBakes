@@ -1,0 +1,66 @@
+
+<div class ="orderButtonSection">
+	<div class="container-fluid"> 
+		<div class="row">
+			<div class="col-12">
+				<%= link_to 'Preorder', new_order_path, class: 'btn btn-outline-dark btn-lg' %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid sectionBody  justify-content-center">
+	<div class="row Menu2">
+		<% @category.each do |cat| %>
+			<% if cat.active != false %>					
+				<ul class="menu_list">
+					<h3 class="center"><%= cat.name %>: $<%= cat.price %></h3>
+					<% @loafs.each do |loaf| %>
+						<% if loaf.active_item == true %>
+							<li> <%= loaf.name %> </li>
+						<% end %>
+					<% end %>
+				</ul>
+
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<!-- testing only
+user will select an option and then it will render the menu  -->
+
+<section>
+	
+	<div id="toggleMenu">
+		<%= link_to 'Toggle Menu', toggle_path, remote: true %>
+		<!-- Change toggle_path to a POST request, use coffeescript to make a POST to the toggleMethod with selected params -->
+        <div class="form-group">
+            <select class="testForm" for="date" id="js_test">
+                <option>date</option>
+                <% @loafs.each do |dc| %>
+                  <option > <%= dc.name %> </option>
+                <% end %>
+            </select> 
+        </div>
+		<p>hi</p>
+	</div>
+
+</section>
+
+
+
+<div id ="footer">
+	<div class="col-lg col-md col-sm text-left">
+	  	<h6 class="text-white">Operating under the <a href="https://texascottagefoodlaw.com/">Texas Cottage Act</a>
+	  	</h6>
+	</div>
+</div>	
+
+
+
+
+
+
+
+
